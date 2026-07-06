@@ -1,0 +1,153 @@
+@import '~src/theme/colors';
+
+@mixin Tag($color: $danger, $light-color: $flash-low, $checkbox-color: $danger-dark) {
+  border-color: $color;
+  background-color: RGBA($light-color, 0.15);
+
+  .mat-checkbox-indeterminate.mat-primary .mat-checkbox-background, .mat-checkbox-checked.mat-primary .mat-checkbox-background {
+    background-color: $checkbox-color;
+  }
+
+  .mat-checkbox-checked:not(.mat-checkbox-disabled).mat-primary .mat-ripple-element, .mat-checkbox:active:not(.mat-checkbox-disabled).mat-primary .mat-ripple-element {
+    background-color: $checkbox-color;
+  }
+
+  &.highlight {
+    background-color: $color;
+  }
+}
+
+.tags {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 0.5rem;
+  gap: 0.5rem;
+
+
+  &.empty, &.transparent {
+    background: transparent;
+  }
+
+}
+
+.tag {
+  position: relative;
+  z-index: 0;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0.75rem;
+  cursor: default;
+  transition: all 0.125s ease-in-out;
+  text-align: center;
+  @include Tag($danger, $flash-low, $danger-dark);
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 500rem;
+  gap: 0.25rem;
+
+  mat-icon {
+    cursor: pointer;
+
+    &[cdkDragHandle] {
+      cursor: move;
+    }
+  }
+
+  &.high {
+    @include Tag($success, $flash-high, $success-dark);
+  }
+
+  &.medium {
+    @include Tag($warning, $flash-medium, $warning-dark);
+  }
+
+  &.low {
+    @include Tag($danger, $flash-low, $danger-dark);
+  }
+
+  &.primary {
+    @include Tag($primary, $primary, $primary);
+  }
+
+  &.secondary {
+    @include Tag($secondary, $secondary, $secondary);
+  }
+
+  &.flash {
+    animation: scaleFlash 0.5s ease-in-out infinite alternate;
+  }
+
+  &.selected, &:hover {
+    animation: noFlash 0.5s ease-in-out infinite alternate;
+  }
+
+  &.no-box {
+    border-width: 2px;
+    border-style: dashed;
+  }
+
+  &.small {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  &.x-small {
+    font-size: 0.5rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .tag-info {
+    position: absolute;
+    z-index: 10000;
+    top: 0;
+    left: 0;
+    padding: 1rem;
+    transition: all 0.125s ease-in-out;
+    transform: scale(0) translateX(-25%) translateY(-50%);
+    opacity: 0;
+    border-radius: 0.25rem;
+    background: white;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+
+    h3 {
+      font-weight: 600;
+      width: 100%;
+      text-align: center;
+      color: $primary;
+    }
+
+    .action-bar {
+      button {
+        flex: 1 1 auto;
+      }
+    }
+  }
+
+  &:hover {
+    .tag-info {
+      transform: scale(1) translateX(-25%) translateY(-50%);
+      opacity: 1;
+    }
+  }
+}
+
+@keyframes scaleFlash {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+  to {
+    transform: scale3d(1.02, 1.02, 1.02);
+  }
+}
+
+
+@keyframes noFlash {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}

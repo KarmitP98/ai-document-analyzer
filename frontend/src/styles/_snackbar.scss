@@ -1,0 +1,37 @@
+@mixin set-statusbar-color($color: $primary) {
+  .icon {
+    color: $color;
+  }
+
+  .status-bar .mat-progress-bar-fill:after {
+    background: $color;
+  }
+}
+
+.custom-snackbar {
+  overflow: hidden;
+  min-width: 0 !important;
+  padding: 0 !important;
+  color: $dark;
+  background-color: $light;
+
+  &.information, {
+    @include set-statusbar-color($secondary)
+  }
+
+  &.progress {
+    @include set-statusbar-color($primary)
+  }
+
+  &.warning {
+    @include set-statusbar-color($warning)
+  }
+
+  &.danger {
+    @include set-statusbar-color($danger);
+  }
+
+  &.success {
+    @include set-statusbar-color($success);
+  }
+}

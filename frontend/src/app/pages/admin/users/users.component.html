@@ -1,0 +1,96 @@
+<app-loading
+  *ngIf='loading' loader='bar' subBelow='Please wait while we load users' title='Loading Users'
+></app-loading>
+<div *ngIf='!loading' class='loaded'>
+  <div class='header'>
+    <div class='title'>
+      Users
+    </div>
+    <div class='subtitle'>
+      Manage users and their access to the system
+    </div>
+  </div>
+  <mat-form-field appearance='outline' class='input'>
+    <mat-label>Search Users</mat-label>
+    <input (keyup)='filterBy()' [(ngModel)]='filter' id='filter' matInput name='filter' type='text' placeholder='Search by name, email, or client'>
+    <mat-icon color='primary' matSuffix materialIconsRound>search</mat-icon>
+  </mat-form-field>
+  <br>
+  <div *ngIf='allUsers.length' class='table-container default-border'>
+    <table [dataSource]='dataSource' class='' mat-table matSort>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef='no'>
+        <th *matHeaderCellDef mat-header-cell mat-sort-header> No.</th>
+        <td (click)='editUser(element)' *matCellDef='let element;let i = index' class='clickable'
+            mat-cell> {{ i + 1 }}
+        </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef='name'>
+        <th *matHeaderCellDef mat-header-cell mat-sort-header> Name</th>
+        <td (click)='editUser(element)' *matCellDef='let element' class='clickable'
+            mat-cell> {{ element.userName || '-' }}
+        </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef='email'>
+        <th *matHeaderCellDef mat-header-cell mat-sort-header> Email</th>
+        <td (click)='editUser(element)' *matCellDef='let element' class='clickable'
+            mat-cell> {{ element.email || element.partitionKey || '-' }}
+        </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef='client'>
+        <th *matHeaderCellDef mat-header-cell mat-sort-header> Current Client</th>
+        <td (click)='editUser(element)' *matCellDef='let element' class='status' class='clickable'
+            mat-cell>
+          {{element.clientName || '-'}} </td>
+      </ng-container>
+
+      <!-- User Level Column -->
+      <ng-container matColumnDef='userLevel'>
+        <th *matHeaderCellDef mat-header-cell mat-sort-header> Role</th>
+        <td (click)='editUser(element)' *matCellDef='let element' class='clickable'
+            mat-cell>{{ element.userLevel || '-' }}
+        </td>
+      </ng-container>
+
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <th *matHeaderCellDef mat-header-cell> Actions </th>
+        <td *matCellDef="let element" mat-cell>
+          <button mat-icon-button color="primary" (click)="editUser(element);" aria-label="Edit User">
+            <mat-icon materialIconsRound>edit</mat-icon>
+          </button>
+          <button
+            (click)='deleteUser(element); $event.stopPropagation();'
+            *ngIf='isAdmin()'
+            aria-label='Delete User'
+            color='warn'
+            mat-icon-button
+          >
+            <mat-icon materialIconsRound>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr *matHeaderRowDef='displayedColumns; sticky:true' mat-header-row></tr>
+      <tr
+        *matRowDef='let row; columns: displayedColumns;'
+        mat-row
+        class="user-row"
+      ></tr>
+
+      <!-- Row shown when there is no matching data. -->
+      <tr *matNoDataRow class='mat-row'>
+        <td class='mat-cell' colspan='4'>No data matching the filter</td>
+      </tr>
+    </table>
+    <mat-paginator [pageSizeOptions]='[10, 25, 50, 100]' aria-label='Select page of users' showFirstLastButtons>
+    </mat-paginator>
+  </div>
+</div>

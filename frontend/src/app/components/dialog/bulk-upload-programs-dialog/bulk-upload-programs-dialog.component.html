@@ -1,0 +1,45 @@
+<h2 mat-dialog-title>Bulk Upload to NetX</h2>
+
+<div class='bulk-upload' mat-dialog-content>
+  <ng-container *ngIf='!topMessage;else MessageContainer'>
+    <div class='bulk-upload__program-list'>
+      <app-upload-file-card
+        (removeFile)='removeProgramFile(i)'
+        *ngFor='let programFile of programFiles;let i = index'
+        [canRemove]='true'
+        [error]='programFile.status === "error"'
+        [file]='programFile.file'
+        [progress]='programFile.progress'
+        [success]='programFile.status === "success"'
+        [uploading]='programFile.uploading'
+      >
+      </app-upload-file-card>
+    </div>
+  </ng-container>
+  <ng-template #MessageContainer>
+    <app-loading [error]='error' [subBelow]='bottomMessage' [success]='success' [title]='topMessage'></app-loading>
+  </ng-template>
+</div>
+
+<div *ngIf='!topMessage' align='end' mat-dialog-actions>
+  <button
+    [disabled]='uploading'
+    [matDialogClose]='{data: undefined}'
+    color='warn'
+    mat-stroked-button
+  >
+    Cancel
+    <mat-icon materialIconsRound>cancel</mat-icon>
+  </button>
+
+  <button
+    (click)='handleUpload()'
+    [disabled]='uploading'
+    color='primary'
+    mat-flat-button
+  >
+    <mat-icon *ngIf='uploading' class='spinner'>refresh</mat-icon>
+    <mat-icon *ngIf='!uploading'>cloud_upload</mat-icon>
+    {{ uploading ? 'Uploading...' : 'Upload to NetX' }}
+  </button>
+</div>

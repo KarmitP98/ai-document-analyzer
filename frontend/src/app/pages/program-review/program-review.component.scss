@@ -1,0 +1,218 @@
+@import '~src/theme/colors';
+@import '~src/theme/mixin';
+@import '~src/theme/variables';
+
+$divider: 1px solid RGBA($primary, 0.15);
+
+.loading-area {
+  width: 50%;
+  margin: auto;
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  flex-flow: row wrap;
+  justify-content: center;
+  width: 100%;
+  height: calc(100vh);
+  margin: auto;
+
+  .preview-section {
+    position: relative;
+    overflow: hidden;
+    flex: 1 0 500px;
+    width: clamp(500px, 100%, 100%);
+    height: 100%;
+    background-color: $light;
+    box-shadow: $box-shadow-small;
+
+    &:nth-of-type(1) {
+      border-right: 3px solid $dark;
+    }
+
+    &.document {
+
+      .main-content {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        height: calc(100% - $mat-toolbar-height);
+      }
+    }
+
+    &.attributes {
+      .main-content {
+        width: 100%;
+        height: calc(100% - 2 * $mat-toolbar-height);
+      }
+
+      .attributes {
+        display: flex;
+        overflow-y: auto;
+        flex-flow: column nowrap;
+        height: 100%;
+        padding: 1em;
+        gap: 1rem;
+      }
+
+      .attribute {
+        display: flex;
+        flex-flow: column nowrap;
+        width: 100%;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        background-color: white;
+
+        .tags {
+          padding: 0.5rem 0;
+        }
+
+        mat-card-title {
+          padding-bottom: 0.5em;
+        }
+      }
+    }
+
+  }
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  flex: 1 0 100%;
+  justify-content: flex-start;
+  padding: 0.25rem 0;
+  border-bottom: 1px solid RGBA($dark, 0.25);
+
+  &.actions {
+    flex: 1 1 auto;
+    justify-content: flex-end;
+    padding: 0;
+    border-bottom: none;
+  }
+}
+
+.attribute-menu-item {
+  &.exists {
+    background-color: rgba(var(--secondary-rgb), 0.25);
+  }
+}
+
+
+.input-line {
+  display: flex;
+  align-items: center;
+  flex-flow: row nowrap;
+  justify-content: center;
+  width: 100%;
+  gap: 1em;
+}
+
+.small-action-bar {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  width: fit-content;
+  padding: 0.5em;
+  border-bottom: 1px solid white;
+  border-left: 1px solid white;
+  border-radius: 0.5em;
+  background-color: RGBA($light, 1);
+}
+
+.top-bar {
+  position: relative;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: calc(100%);
+  margin-top: 0.5rem;
+  border-radius: 0.25rem;
+  background: white;
+  gap: 0;
+
+  .tags {
+    padding-top: 0;
+  }
+}
+
+.bottom-bar {
+  position: relative;
+  z-index: 2;
+  background-color: $light;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.15);
+
+  mat-toolbar-row {
+    gap: 0.5rem;
+  }
+}
+
+.performance-name {
+  @include FlexRow(flex-start, center, 0.25rem, 0);
+}
+
+.page-selector {
+  height: 56px;
+  padding: 0 1rem;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+
+  .vertical-divider {
+    height: 60%;
+    margin: auto;
+    border-radius: 100rem;
+  }
+}
+
+.bounding-box {
+  position: absolute;
+  z-index: 10;
+  width: 0;
+  height: 0;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+  opacity: 0;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 0.125rem;
+
+  &.show {
+    top: var(--top);
+    left: var(--left);
+    width: var(--width);
+    height: var(--height);
+    opacity: 1;
+  }
+
+  &.high {
+    @include BoundingBox($success-light, $success);
+  }
+
+  &.medium {
+    @include BoundingBox($warning-light, $warning);
+  }
+
+  &.low {
+    @include BoundingBox($danger-light, $danger);
+  }
+}
+
+::ng-deep .upload-spinner.mat-progress-spinner circle, .mat-spinner circle {
+  stroke: $light;
+}
+
+.slide-toggle {
+  height: 36px;
+  border-radius: 0.25rem;
+
+  .label {
+    font-size: 0.85rem;
+    color: $dark;
+  }
+}

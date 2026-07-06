@@ -1,0 +1,98 @@
+<div [class.expanded]='expanded' class='page-preview-zoom'>
+  <div *ngIf='pages?.length' class='pages-thumbnails'>
+    <div
+      (click)='updatePage(i, true);' *ngFor='let page of pages; let i = index;' [class.active]='currentPage === i'
+      class='page-thumbnail default-border'
+    >
+      <div *ngIf='showThumbnails' class='thumbnail'>
+        <img [src]='pagesMetaData[page.page].thumbnail' alt='Page Thumbnail'>
+      </div>
+      <div *ngIf='showThumbnails' class='page-name'>
+        {{ "Page " + (page.page + 1) }}
+      </div>
+      <div *ngIf='!showThumbnails' class='page-number'>
+        {{ page.page + 1 }}
+      </div>
+    </div>
+  </div>
+  <div class='preview'>
+    <div class='action-bar page-selector'>
+      <button
+        (click)='expanded = !expanded'
+        [matTooltip]='expanded ? "Exit expanded view" : "Enter expanded view"'
+        color='primary'
+        mat-icon-button
+      >
+        <mat-icon materialIconsRound>{{ expanded ? 'fullscreen_exit' : 'fullscreen' }}</mat-icon>
+      </button>
+      <div class='vertical-divider'></div>
+      <button (click)='updatePage(-1)' color='primary' mat-icon-button matTooltip='Previous Page'>
+        <mat-icon materialIconsRound>chevron_left</mat-icon>
+      </button>
+      <span class='spacer'></span>
+      <h2>Page: {{ pages[currentPage].page + 1 }}</h2>
+      <span class='spacer'></span>
+      <button (click)='updatePage(1)' color='primary' mat-icon-button matTooltip='Next Page'>
+        <mat-icon materialIconsRound>chevron_right</mat-icon>
+      </button>
+      <div *ngIf='boundingBoxes.length && showBoundingBoxControls' class='vertical-divider'></div>
+      <button
+        (click)='toggleAllBoundingBoxes.emit()'
+        *ngIf='boundingBoxes.length && showBoundingBoxControls'
+        [disabled]='zoomState !== ZoomState.NORMAL || selectedTags.length > 0'
+        [matTooltip]='isAllBoundingBoxesShown ? "Hide all bounding boxes" : "Show all bounding boxes"'
+        color='primary'
+        mat-icon-button
+      >
+        <mat-icon
+          materialIconsRound
+        >{{ isAllBoundingBoxesShown ? 'layers_clear' : 'layers' }}
+        </mat-icon>
+      </button>
+    </div>
+    <div
+      [class.zoomed]='zoomState !== ZoomState.NORMAL'
+      class='preview-image'
+      [class.pause]="zoomState === ZoomState.ZOOM"
+      [class.zoom-in]='zoomState === ZoomState.NORMAL'
+      [class.zoom-out]='zoomState === ZoomState.FREEZE'
+    >
+      <div *ngIf='showBoundingBoxControls' class='bounding-box-container'>
+        <div
+          (click)='handleClickBoundingBox.emit(highlight)'
+          *ngFor='let highlight of boundingBoxes'
+          [class.highlighted]='highlight.highlight'
+          [class.show]='highlight.show'
+          [id]='highlight.attribute + "-" + highlight.tag.value + "-box"'
+          [ngClass]='getBoundingBoxClasses(highlight)'
+          [style]='{"--width": highlight.style.width,"--height": highlight.style.height,"--top": highlight.style.top,"--left": highlight.style.left}'
+          class='bounding-box'
+        ></div>
+      </div>
+      <lib-ngx-image-zoom
+        (click)='updateZoomState()'
+        (imagesLoaded)='imageLoaded.emit($event)'
+        (mouseout)='updateZoomStateMovedOut()'
+        (zoomPosition)='setZoomPosition.emit($event)'
+        (zoomScroll)='zoomScroll = $event'
+        *ngIf='!refreshing;else refreshingTemplate'
+        [enableLens]='false'
+        [enableScrollZoom]='true'
+        [fullImage]='pagesMetaData[pages[currentPage].page].thumbnail'
+        [magnification]='zoomScroll'
+        [maxZoomRatio]='2'
+        [minZoomRatio]='0.2'
+        [thumbImage]='pagesMetaData[pages[currentPage].page].thumbnail'
+        class='zoom'
+        zoomMode='hover-freeze'
+      >
+      </lib-ngx-image-zoom>
+      <div *ngIf='false' class='status-message'>
+        {{ getZoomStateMessage(zoomState) }}
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #refreshingTemplate>
+  <app-loading loader='bar' subAbove='Loading Page'></app-loading>
+</ng-template>

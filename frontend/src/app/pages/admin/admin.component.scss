@@ -1,0 +1,44 @@
+@import '~src/theme/_colors.scss';
+@import '~src/theme/mixin';
+
+.page {
+  padding-left: clamp(5%, 7.5%, 30%);
+  padding-right: clamp(5%, 7.5%, 30%);
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  width: 100%;
+  align-items: flex-start;
+}
+
+.admin-area {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  height: 100%;
+  gap: 1rem;
+  margin: 3rem 0;
+
+  .vertical-links {
+    padding-right: 2rem;
+
+    .vertical-link {
+      font-weight: 600;
+
+      &:not(.active) {
+        color: RGBA($dark, 0.85);
+      }
+    }
+  }
+}
+
+.sub-page-section {
+  height: fit-content;
+  border-left: 2px solid rgba(var(--dark-rgb), 0.25);
+  flex: 1 1 auto;
+  padding-left: 2rem;
+}
+
+.main-content {
+  width: 100%;
+  height: fit-content;
+}

@@ -1,0 +1,24 @@
+@import '~src/theme/_colors.scss';
+@import '~src/theme/_mixin.scss';
+
+mat-dialog-content {
+  width: 600px;
+  padding: 1rem 2rem;
+
+  form {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    gap: 1rem;
+
+    mat-form-field, input {
+      width: 100%;
+    }
+
+    .action-bar {
+      .prefix-field {
+        width: 150px;
+      }
+    }
+  }
+}

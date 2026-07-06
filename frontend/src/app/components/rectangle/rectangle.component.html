@@ -1,0 +1,29 @@
+<div
+  class="rectangle"
+  [class.selected]="selected"
+  [class.not-selected]="!selected"
+  [style.left.px]="x"
+  [style.top.px]="y"
+  [style.width.px]="w"
+  [style.height.px]="h"
+  [style.z-index]="zIndex"
+  (mousedown)="onMouseDown($event)"
+  [style]="{'--rectangle-color-index': rectangleColorIndex || 0}">
+
+  <!-- Label display -->
+  <div *ngIf="label" class="rectangle-label">
+    {{ label }}
+  </div>
+
+  <ng-container *ngIf="selected">
+    <!-- Resize handles -->
+    <div class="resize-handle nw"></div>
+    <div class="resize-handle ne"></div>
+    <div class="resize-handle sw"></div>
+    <div class="resize-handle se"></div>
+    <div class="resize-handle n"></div>
+    <div class="resize-handle s"></div>
+    <div class="resize-handle w"></div>
+    <div class="resize-handle e"></div>
+  </ng-container>
+</div>

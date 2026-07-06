@@ -1,0 +1,47 @@
+@import '~src/theme/mixin';
+@import '~src/theme/variables';
+@import '~src/theme/colors';
+
+.content {
+  @include FlexColumn(flex-start, flex-start, 1.5rem, 1rem 0);
+
+
+  form {
+    @include FlexColumn(flex-start, flex-start, 1rem, 0);
+    width: 100%;
+
+    mat-form-field, input, .similar-section {
+      width: 100%;
+    }
+  }
+
+  .similar-section {
+    width: 100%;
+  }
+
+  .tags {
+    width: 100%;
+    padding: 0.5rem 0;
+    border-radius: 0.5rem;
+  }
+
+  .select-sections {
+    @include FlexColumn(flex-start, flex-start, 1rem, 0);
+    width: 100%;
+    list-style: none;
+
+    .select-section {
+      width: 100%;
+      cursor: pointer;
+      @include FlexColumn(flex-start, flex-start, 0.5rem, 1rem);
+      border-radius: 0.5rem;
+
+      &.selected {
+        outline: 2px solid $primary;
+        outline-offset: -2px;
+        background-color: RGBA($secondary, 0.15);
+        box-shadow: none;
+      }
+    }
+  }
+}

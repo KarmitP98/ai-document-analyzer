@@ -1,0 +1,11 @@
+.container {
+  width: 100%;
+
+  .content {
+    width: 100%;
+
+    mat-form-field, input {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,71 @@
+@import '~src/theme/mixin';
+@import '~src/theme/colors';
+
+.page {
+  flex-direction: column;
+}
+
+.content {
+  width: 50%;
+}
+
+ul {
+  width: 100%;
+  list-style: none;
+  @include FlexColumn(flex-start, flex-start, 0.5rem, 0);
+
+  li {
+    width: 100%;
+    height: 100%;
+    justify-content: stretch;
+
+    .folder {
+      .children {
+        padding-left: 2rem;
+        position: relative;
+
+        &:before {
+          content: '';
+          position: absolute;
+          left: 2rem;
+          top: 0;
+          bottom: 0;
+          width: 1px;
+          background-color: grey;
+        }
+      }
+
+      .folder-name {
+        padding: 0 1.5rem;
+        border-radius: 0.25rem;
+
+        .name {
+          padding: 1rem 0;
+          flex: 1 1 100%;
+        }
+
+        &:hover {
+          background-color: RGBA($secondary, 0.25);
+        }
+      }
+
+      .folder-name.active {
+        background: RGBA($secondary, 0.08); // Use your $primary or theme color if available
+        color: $primary;
+        font-weight: 600;
+        border-radius: 0;
+        border: 1px solid $dark-light;
+      border-left: 3px solid $dark-light;
+
+      }
+
+      .folder-name.active .mat-icon,
+      .folder-name.active .name {
+        color: $primary;
+      }
+
+      .folder-name.active {
+      }
+    }
+  }
+}

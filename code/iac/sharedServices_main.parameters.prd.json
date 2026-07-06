@@ -1,0 +1,57 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "org": {
+      "value": "mnpd"
+    },
+    "app": {
+      "value": "infra"
+    },
+    "env": {
+      "value": "prd"
+    },
+    "envCode": {
+      "value": "p"
+    },
+    "loc": {
+      "value": "cc"
+    },
+    "tags": {
+      "value": {
+        "AppName": "MNP_AI_Shared_Services",
+        "CreatedBy": "DS-AI-ML Team",
+        "CreatedDate": "2022-07-21",
+        "Location": "CanadaCentral",
+        "Environment": "PRD",
+        "Project": "SmartCapture_SharedServices"
+      }
+    },
+    "vnetAddressPrefix": {
+      "value": "10.77.0.0/16"
+    },
+    "subnets": {
+      "value": [
+        {
+          "name": "MNPD-CC-PRD-AGW-SUB-01",
+          "subnetPrefix": "10.77.0.0/24"
+
+        },
+        {
+          "name": "subnet1",
+          "subnetPrefix": "10.77.1.0/24"
+        }
+      ]
+    },
+    "rgIndex": {
+      "value": "01"
+    },
+    "deployDnsZone": {
+      "value": false
+    },
+    "kvKeys": {
+      "value": [
+      ]
+    }
+  }
+}

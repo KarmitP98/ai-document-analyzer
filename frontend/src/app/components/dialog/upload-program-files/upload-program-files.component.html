@@ -1,0 +1,51 @@
+<h2 *ngIf="!completed && !errorOccurred" mat-dialog-title>Upload Program Files</h2>
+<mat-dialog-content>
+  <div *ngIf="errorOccurred" @messageAnim class="message error">
+    <mat-icon @iconAnim class="icon" color="warn">error</mat-icon>
+    <div class="text">{{ errorMessage }}</div>
+    <div class="sub-text">Please try again later.</div>
+  </div>
+  <div *ngIf="!completed && !errorOccurred" class="content">
+    <app-upload-file-card
+                          (removeFile)="removeFile(file)"
+                          *ngFor="let file of files; let i = index"
+                          [file]="file.file"
+                          [id]="file.file.name"
+                          [progress]="file.progress"
+                          [uploading]="uploading"
+                          [canRemove]="files.length > 1"
+                          [success]='file.status === "completed"'
+                          [error]='file.status === "error"'
+                          class="file-list-item">
+    </app-upload-file-card>
+    <div *ngIf="existingFiles.length > 0" class="content">
+      <br>
+      <mat-divider></mat-divider>
+      <h2>Programs Already Exist</h2>
+      <app-upload-file-card *ngFor="let file of existingFiles; let i = index"
+                            [disabled]="true"
+                            [file]="file.file"
+                            [id]="file.file.name"
+                            class="file-list-item">
+      </app-upload-file-card>
+    </div>
+  </div>
+  <ng-template [ngIf]="completed && !errorOccurred">
+    <div @messageAnim class="message success">
+      <mat-icon @iconAnim class="icon" color="primary">check_circle</mat-icon>
+      <div class="text">Upload successfully completed!</div>
+    </div>
+  </ng-template>
+</mat-dialog-content>
+<mat-dialog-actions *ngIf="!completed && !errorOccurred" align="end">
+  <button [disabled]="uploading" color="warn" mat-stroked-button matDialogClose>
+    Cancel
+    <mat-icon materialIconsRound>close</mat-icon>
+  </button>
+  <button #uploadButton (click)="onUpload()" [disabled]="uploading || files.length === 0" color="primary"
+          mat-flat-button>
+    {{ uploading ? '' : 'Start' }} Uploading
+    <mat-icon materialIconsRound>cloud_upload</mat-icon>
+  </button>
+</mat-dialog-actions>
+

@@ -1,0 +1,22 @@
+<div class='message-dialogue'>
+  <div *ngIf='data.title' class='title'>{{data?.title}}</div>
+  <div *ngIf='data.message' class='template'>{{data?.message || 'Please provide a message'}}</div>
+  <ul *ngIf="data.list" class="list">
+    <li *ngFor="let item of data.list">
+      <span>{{item}}</span>
+    </li>
+  </ul>
+  <div *ngIf='data.note?.message' class='note'>
+    <i><b>{{data.note?.type | titlecase}}:</b> {{data.note?.message}}</i>
+  </div>
+</div>
+<mat-dialog-actions align='end'>
+  <button (click)='dismiss(false)' color='warn' mat-stroked-button>
+    {{data?.actions?.cancel?.label || 'No'}}
+    <mat-icon materialIconsRound>{{data?.actions?.cancel?.icon || 'close'}}</mat-icon>
+  </button>
+  <button (click)='dismiss(true)' color='primary' mat-flat-button>
+    {{data?.actions?.confirm?.label || 'Yes'}}
+    <mat-icon materialIconsRound>{{data?.actions?.confirm?.icon || 'check'}}</mat-icon>
+  </button>
+</mat-dialog-actions>

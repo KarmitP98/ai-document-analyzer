@@ -1,0 +1,122 @@
+<div class='dialog-title action-bar gap-05'>
+  <div matDialogTitle> Update Vocabulary</div>
+</div>
+<ng-container *ngIf='downloading;else Downloaded' matDialogContent>
+  <app-loading [progressBarData]='{mode: "indeterminate", value: 100, color: "primary"}'
+               subBelow='Please wait while we download the vocab file...'
+               title='Downloading Vocab File'></app-loading>
+</ng-container>
+<ng-template #Downloaded>
+  <div class='update-vocabulary-dialog' matDialogContent>
+    <div class='content'>
+      <div class='list-section'>
+        <div class='header action-bar'>
+          <div class='subtitle'>Attributes</div>
+          <div class='spacer'></div>
+          <button (click)='addAttribute()' color='primary' mat-flat-button>
+            Add Attribute
+            <mat-icon materialIconsRound>add</mat-icon>
+          </button>
+        </div>
+        <ng-container [ngTemplateOutletContext]='{group: data.vocabData.groups[0], index: 0}'
+                      [ngTemplateOutlet]='attributesListTemplate'></ng-container>
+      </div>
+      <div class='groups-section'>
+        <div class='header action-bar'>
+          <div class='subtitle'>GROUPS</div>
+          <div class='spacer'></div>
+          <button (click)='addUpdateGroupName()' color='primary' mat-flat-button>
+            Add Group
+            <mat-icon materialIconsRound>add</mat-icon>
+          </button>
+        </div>
+        <div class='groups-area default-border'>
+          <ng-container *ngIf='data.vocabData.groups.length >= 2;else noGroupsPlaceholderTemplate'>
+            <div *ngFor='let group of data.vocabData.groups.slice(1);let i = index' class='group-view default-border'>
+              <ng-container [ngTemplateOutletContext]='{group, index: i + 1}'
+                            [ngTemplateOutlet]='groupTemplate'></ng-container>
+            </div>
+            <ng-template #groupTemplate let-group='group' let-index='index'>
+              <div class='group-header action-bar gap-05'>
+                {{ group.name }}
+                <div class='spacer'></div>
+                <button (click)='addUpdateGroupName(group.name, index)' color='primary' mat-icon-button
+                        matTooltip='Edit Group Name'>
+                  <mat-icon materialIconsRound>edit</mat-icon>
+                </button>
+                <button (click)='deleteGroup(index)' [disabled]='uploading' class='delete-button'
+                        color='warn' mat-icon-button matTooltip='Delete Group'>
+                  <mat-icon class='small' materialIconsRound>delete</mat-icon>
+                </button>
+              </div>
+              <mat-divider></mat-divider>
+              <ng-container #groupListTemplate
+                            *ngIf='group.attributes?.length;else groupListPlaceholderTemplate'
+                            [ngTemplateOutletContext]='{group: group, index: index}'
+                            [ngTemplateOutlet]='attributesListTemplate'>
+              </ng-container>
+              <ng-template #groupListPlaceholderTemplate>
+                <div class='list-empty-placeholder default-border'>
+                  Select attributes to add to this group.
+                </div>
+              </ng-template>
+              <ng-container *ngIf='group.groups?.length'>
+                <div *ngFor='let group of data.vocabData.groups.slice(1);let i = index'
+                     class='group-view default-border'>
+                  <ng-container [ngTemplateOutletContext]='{group, index: i}'
+                                [ngTemplateOutlet]='groupTemplate'></ng-container>
+                </div>
+              </ng-container>
+            </ng-template>
+          </ng-container>
+          <ng-template #noGroupsPlaceholderTemplate>
+            <div class='placeholder-section'>
+              <span class='title'>Group attributes together by clicking on "Add Group" button and adding them to the group</span>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div align='end' matDialogActions>
+    <button [disabled]='uploading' color='warn' mat-stroked-button matDialogClose>
+      Close
+      <mat-icon materialIconsRound>close</mat-icon>
+    </button>
+    <button (click)='saveVocabFile()' [disabled]='uploading' color='primary' mat-flat-button>
+      {{ uploading ? 'Saving...' : 'Save Changes' }}
+      <mat-icon *ngIf='!uploading' materialIconsRound>save</mat-icon>
+      <mat-icon *ngIf='uploading' materialIconsRound>hourglass_top</mat-icon>
+    </button>
+  </div>
+</ng-template>
+
+<ng-template #attributesListTemplate let-group='group' let-index='index'>
+  <div class='list default-border'>
+    <div *ngFor='let attribute of group.attributes.sort()' class='list-item action-bar gap-05'>
+      {{ attribute }}
+      <span class='small-text super-light'>({{ data.vocabData.attributes[attribute].tags.length }} Tags)</span>
+      <div class='spacer'></div>
+      <button *ngIf='data.vocabData.groups.length > 1' [matMenuTriggerFor]='groupsMenu' mat-icon-button>
+        <mat-icon materialIconsRound>mediation</mat-icon>
+      </button>
+      <mat-menu #groupsMenu>
+        <button (click)='addAttributeToGroup(attribute, subGroup, group)'
+                *ngFor='let subGroup of data.vocabData.groups'
+                [disabled]='isAttributeInGroup(attribute, subGroup)'
+                mat-menu-item>
+          <mat-icon *ngIf='isAttributeInGroup(attribute, subGroup)' materialIconsRound>check</mat-icon>
+          {{ subGroup.name }}
+        </button>
+      </mat-menu>
+      <button (click)='editAttribute(attribute)' color='primary' mat-icon-button
+              matTooltip='Edit Attribute'>
+        <mat-icon materialIconsRound>edit</mat-icon>
+      </button>
+      <button (click)='deleteAttribute(attribute, index)' [disabled]='uploading' class='delete-button'
+              color='warn' mat-icon-button matTooltip='Delete Attribute'>
+        <mat-icon materialIconsRound>delete</mat-icon>
+      </button>
+    </div>
+  </div>
+</ng-template>

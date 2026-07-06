@@ -1,0 +1,72 @@
+<div>
+  <div class='dialog-title' mat-dialog-title>
+    {{isNew ? 'Create New' : 'Update'}} Client
+  </div>
+  <mat-dialog-content>
+    <form #clientForm='ngForm'>
+      <div class="action-bar">
+        <mat-form-field [appearance]='appearance' class="prefix-field">
+          <mat-label>Client Prefix</mat-label>
+          <input
+            [(ngModel)]='client.prefix' id='prefix' matInput name='prefix' placeholder='Enter client prefix (max 5 chars)'
+            type='text' maxlength="5"
+          >
+        </mat-form-field>
+        <div class="spacer"></div>
+        <mat-form-field [appearance]='appearance'>
+          <mat-label>Client Name</mat-label>
+          <input
+            [(ngModel)]='client.name' id='name' matInput name='name' placeholder='Enter client name' required type='text'
+          >
+        </mat-form-field>
+      </div>
+      <mat-form-field [appearance]='appearance'>
+        <mat-label>NetX Instance URL</mat-label>
+        <input
+          [(ngModel)]='client.baseURL' id='base-url' matInput name='base-url' placeholder='Enter base URL'
+          type='text'
+        >
+      </mat-form-field>
+      <mat-form-field [appearance]='appearance'>
+        <mat-label>Program Type</mat-label>
+        <mat-select
+          [(ngModel)]='client.programType' id='program-type' name='program-type' placeholder='Select program type'
+          required>
+          <mat-option [value]='undefined' disabled>Select program type</mat-option>
+          <mat-option *ngFor='let type of programTypes' [value]='type.value'>{{type.viewValue}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div class='action-bar'>
+        <mat-label>Allow Batch Processing?</mat-label>
+        <div class='spacer'></div>
+        <mat-slide-toggle
+          [(ngModel)]='client.allowBatchProcessing'
+          color='primary'
+          matTooltip='When enabled, allows processing multiple items simultaneously for this client, improving efficiency'
+          matTooltipPosition='above'
+          name='allow-batch-processing'>
+        </mat-slide-toggle>
+      </div>
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions align='end'>
+    <button
+      (click)='handleSubmit(false)'
+      color='warn'
+      mat-stroked-button
+    >
+      <mat-icon materialIconsRound>close</mat-icon>
+      Cancel
+    </button>
+    <button
+      (click)='handleSubmit(true)'
+      [disabled]='!clientForm.valid'
+      color='primary'
+      mat-flat-button
+      type='submit'
+    >
+      <mat-icon materialIconsRound>{{isNew ? 'add' : 'save'}}</mat-icon>
+      {{isNew ? 'Create' : 'Save'}}
+    </button>
+  </mat-dialog-actions>
+</div>

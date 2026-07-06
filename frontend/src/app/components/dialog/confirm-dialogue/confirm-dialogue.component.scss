@@ -1,0 +1,37 @@
+@import '~src/theme/_colors.scss';
+@import '~src/theme/mixin';
+
+.message-dialogue {
+  display: flex;
+  align-items: flex-start;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 1rem;
+
+  .title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $dark;
+  }
+
+  .template {
+    font-size: 1.2rem;
+    width: 100%;
+
+  }
+
+  mat-dialogue-actions {
+    width: 100%;
+  }
+
+  .list {
+    font-size: 1.2rem;
+    width: 100%;
+    padding: 0 1.5rem;
+
+    li {
+      margin-top: 0.5rem;
+    }
+  }
+}

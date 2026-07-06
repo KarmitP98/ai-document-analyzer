@@ -1,0 +1,208 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+@import 'theme/colors';
+@import 'theme/custom';
+
+@import 'styles/tag';
+@import 'styles/dialog';
+@import 'styles/button';
+@import 'styles/vertical-links';
+@import 'styles/header';
+@import 'styles/snackbar';
+@import 'theme/mixin';
+@import 'theme/variables';
+@import 'theme/animations';
+@import 'theme/common';
+
+@import 'animate.css';
+
+body {
+  font-family: 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, app-root {
+  height: 100%;
+}
+
+:root {
+  --danger: #e72e2e;
+  --danger-rgb: 231, 46, 46;
+  --dark: #323234;
+  --dark-rgb: 50, 50, 52;
+  --primary: #5a3520;
+  --primary-rgb: 90, 53, 32;
+  --secondary: #e2b798;
+  --secondary-rgb: 226, 183, 152;
+  --success: #0eda47;
+  --success-rgb: 14, 218, 71;
+  --light: #ffffff;
+  --light-rgb: 255, 255, 255;
+  --linear-gradient-primary-secondary: linear-gradient(133.94deg, #e2b697 -8.04%, #5b3521 100%);
+  --box-shadow-small: 0 2px 12px rgba(50, 50, 52, 0.15);
+}
+
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: RGBA($secondary, 1);
+  background-clip: padding-box;
+
+  &:hover {
+    background-color: RGBA($secondary, 1);
+  }
+}
+
+
+::-webkit-scrollbar {
+  width: 7.5px;
+  height: 7.5px;
+  cursor: pointer;
+  background-color: RGBA($dark, 0.2);
+}
+
+::-webkit-scrollbar-track {
+  padding: 2px;
+}
+
+
+.clickable {
+  cursor: pointer;
+}
+
+.w-full {
+  width: 100%;
+}
+
+
+.page {
+  display: flex;
+  align-items: center;
+  flex-flow: row nowrap;
+  justify-content: center;
+  width: 100%;
+  height: fit-content;
+  min-height: calc(100%);
+}
+
+html :has(mat-toolbar) {
+  .page {
+    min-height: calc(100% - $mat-toolbar-height);
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+.link {
+  cursor: pointer;
+  color: $primary;
+
+  &.decorated {
+    text-decoration: underline;
+  }
+}
+
+.spacer {
+  flex: 1 0 auto;
+}
+
+.vertical-divider {
+  width: 1px;
+  height: 100%;
+  border: 1px solid RGBA($dark, 0.25);
+  background-color: RGBA($dark, 0.25);
+}
+
+.mat-form-field-appearance-outline .mat-form-field-wrapper {
+  margin: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+button {
+  &.active {
+    background-color: $secondary;
+  }
+}
+
+app-users, app-vocabularies {
+  flex: 1 0 auto;
+}
+
+
+.mat-button-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+mat-progress-spinner.disabled.mat-progress-spinner circle {
+  stroke: RGBA(0, 0, 0, 0.15);
+}
+
+mat-progress-spinner.mat-progress-spinner {
+  display: inline-flex;
+}
+
+.background {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+  background: url('~src/assets/images/Full-Background.png') no-repeat center center;
+  background-size: contain;
+}
+
+.action-bar {
+  display: flex;
+  align-items: center;
+  flex-flow: row nowrap;
+  width: 100%;
+  padding: 0;
+  gap: 0.5rem;
+
+  &.vertical {
+    flex-direction: column;
+  }
+
+  &.wrap {
+    flex-wrap: wrap;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 !important;
+}
+
+.padded-line {
+  width: 100%;
+  padding: 4px;
+}
+
+
+.primary-color {
+  color: $primary;
+}
+
+.default-border {
+  border: 1px solid RGBA($dark, 0.15);
+}

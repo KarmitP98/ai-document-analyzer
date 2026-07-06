@@ -1,0 +1,38 @@
+@import '~src/theme/colors';
+@import '~src/theme/mixin';
+@import '~src/theme/variables';
+
+:host {
+  width: 100%;
+}
+
+.list-item {
+  @include FlexColumn(flex-start, flex-start, 0.5rem, 1rem);
+  overflow: hidden;
+  width: 100%;
+  padding: 1rem;
+  cursor: pointer;
+  transition: background-color 0.125s ease-in-out;
+
+  .tag {
+    font-size: 0.75rem;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  &:hover {
+    background-color: RGBA($dark, 0.1);
+  }
+
+  &.selected {
+    outline: 2px solid $secondary;
+    outline-offset: -2px;
+    background-color: RGBA($secondary, 0.25);
+  }
+
+  .meta-section {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+}
+

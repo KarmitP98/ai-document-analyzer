@@ -1,0 +1,65 @@
+<div matDialogTitle>
+  {{ data.client?.name }}
+</div>
+<mat-dialog-content>
+  <form #loginForm='ngForm' (ngSubmit)='handleSubmit()' *ngIf='!loading' class='form'>
+    <div class='logo'>
+      <img [src]='data.client?.logo?.length || "assets/images/Netx-Logo.webp"' alt='Netx Login'>
+    </div>
+    <mat-form-field [appearance]='appearance' class='w-full' color='primary'>
+      <mat-label>Username</mat-label>
+      <input
+        #usernameInput [(ngModel)]='username' id='username' matInput name='username' placeholder='Enter your username'
+        required type='text' autocomplete='current-username'
+      >
+      <mat-icon color='primary' matPrefix materialIconsRound>person</mat-icon>
+    </mat-form-field>
+    <mat-form-field [appearance]='appearance' class='w-full' color='primary'>
+      <mat-label>Password</mat-label>
+      <input
+        #passwordInput [(ngModel)]='password' [type]='passwordVisible ? "text" :"password"' id='password' matInput
+        minlength='6'
+        name='password'
+        placeholder='Enter your password'
+        autocomplete='current-password'
+        required
+      >
+      <mat-icon color='primary' matPrefix materialIconsRound>password</mat-icon>
+      <mat-icon
+        materialIconsRound
+        (click)='togglePasswordVisible()'
+        class='clickable'
+        color='primary' matRipple matSuffix
+      >{{passwordVisible ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </mat-form-field>
+    <div class='action-bar'>
+      <mat-label>Create Sub-Folder?</mat-label>
+      <div class='spacer'></div>
+      <mat-slide-toggle
+        [(ngModel)]='data.currentUser.createSubFolder' color='primary' name='sub-folder'
+      ></mat-slide-toggle>
+    </div>
+    <div class='form-actions right'>
+      <button (click)='cancel()' color='warn' mat-stroked-button type='button'>
+        <mat-icon materialIconsRound>close</mat-icon>
+        Cancel
+      </button>
+      <button [disabled]='!loginForm.valid' color='primary' mat-flat-button type='submit'>
+        <mat-icon materialIconsRound>login</mat-icon>
+        Login
+      </button>
+    </div>
+  </form>
+
+  <app-loading
+    *ngIf='loading' [error]='error' [progressBarData]='progressBar' [subAbove]="subtitle" [subBelow]='subMessage'
+    [success]='success' [title]='title'
+    loader='bar'
+  ></app-loading>
+</mat-dialog-content>
+<mat-dialog-actions *ngIf="loading && !error && !success" align="end">
+  <button (click)="goHome()" color="primary" mat-stroked-button>
+    Go to Home Page
+    <mat-icon materialIconsRound>home</mat-icon>
+  </button>
+</mat-dialog-actions>

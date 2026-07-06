@@ -1,0 +1,57 @@
+@import '~src/theme/colors';
+@import '~src/theme/variables';
+
+.company-button {
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  flex: none;
+  flex-direction: row;
+  flex-grow: 0;
+  width: fit-content;
+  height: fit-content;
+  padding: 8px 12px;
+  border: none;
+  outline: none;
+  gap: 12px;
+
+  &.google {
+    color: rgba(0, 0, 0, 0.54);
+    border-radius: 5px;
+    background: #ffffff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  }
+
+  &.microsoft {
+    color: rgb(94, 94, 94);
+    border: 1px solid rgb(140, 140, 140);
+    background: #ffffff;
+  }
+
+  &.facebook {
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    background: rgb(24, 120, 243);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.custom-button-container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  height: 36px;
+  min-height: 36px;
+  color: $light;
+  border-radius: 0.25rem;
+  background: $primary;
+  gap: 0;
+
+  .vertical-divider {
+    height: 60%;
+    background: RGBA($light, 1);
+  }
+}

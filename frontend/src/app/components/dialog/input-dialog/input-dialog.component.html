@@ -1,0 +1,24 @@
+<h2 mat-dialog-title>{{ data.title }}</h2>
+<div class='input-dialog-content' mat-dialog-content>
+  <p>{{ data.message }}</p>
+  <mat-form-field appearance='outline' class='input-field'>
+    <mat-label>{{ data.input.label }}</mat-label>
+    <input [(ngModel)]='inputValue'
+           [placeholder]="data.input.placeholder || ''"
+           [type]="data.input.type || 'text'"
+           matInput
+           (keyup.enter)='onConfirm()'
+           name='inputValue'>
+  </mat-form-field>
+</div>
+<div align='end' mat-dialog-actions>
+  <button (click)='onCancel()' color='warn' mat-stroked-button>
+    {{ data.actions?.cancel?.label || 'Cancel' }}
+    <mat-icon materialIconsRound>{{ data.actions?.cancel?.icon || 'close' }}</mat-icon>
+  </button>
+  <button (click)='onConfirm()' color='primary' mat-flat-button>
+    {{ data.actions?.confirm?.label || 'Confirm' }}
+    <mat-icon materialIconsRound>{{ data.actions?.confirm?.icon || 'check' }}</mat-icon>
+  </button>
+</div>
+

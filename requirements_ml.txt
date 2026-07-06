@@ -1,0 +1,6 @@
+azureml-pipeline-core
+azureml-train-core
+azureml-train-automl-client
+azureml-telemetry
+azureml-pipeline
+azureml-pipeline-steps

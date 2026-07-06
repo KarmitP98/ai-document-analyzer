@@ -1,0 +1,56 @@
+@import '~src/theme/_colors';
+@import '~src/theme/_mixin';
+
+
+mat-dialog-content {
+  overflow-x: hidden;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+
+  .content {
+    @include FlexColumn(flex-start, flex-start, 0.5rem, 0);
+    width: 100%;
+
+    mat-divider {
+      width: 100%;
+    }
+  }
+}
+
+mat-dialog-actions {
+  margin-top: 1rem;
+}
+
+.content {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.message {
+  @include FlexColumn(center, center, 2rem, 0);
+  width: 100%;
+
+  .icon {
+    transform: scale(2);
+    color: $success;
+  }
+
+  .text {
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    color: $success;
+  }
+
+  .sub-text {
+    font-size: 1.25rem;
+    text-align: center;
+    color: $dark-light;
+  }
+
+  &.error {
+    .icon, .text {
+      color: $danger;
+    }
+  }
+}

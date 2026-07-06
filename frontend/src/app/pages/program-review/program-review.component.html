@@ -1,0 +1,111 @@
+<div class='background'></div>
+<div class='page'>
+  <div *ngIf='!loading' class='main'>
+    <div class='document preview-section'>
+      <mat-toolbar color='primary'>
+        <mat-label>{{ fileName }}</mat-label>
+        <span class='spacer'></span>
+        <button (click)='downloadPDF()' mat-icon-button matTooltip='Download Document'>
+          <mat-icon materialIconsRound>download</mat-icon>
+        </button>
+      </mat-toolbar>
+      <div class='main-content'>
+        <app-page-preview-zoom (handleClickBoundingBox)='handleClickBoundingBox($event)'
+                               (imageLoaded)='imageLoaded($event)' (setCurrentPage)='setCurrentPage($event)'
+                               (setZoomPosition)='setZoomPosition($event)'
+                               (toggleAllBoundingBoxes)='toggleAllBoundingBoxes($event)'
+                               (zoomStateOnChange)='updateZoomState($event)' [boundingBoxes]='boundingBoxes'
+                               [currentPage]='pageIndex'
+                               [isAllBoundingBoxesShown]='isAllBoundingBoxesShown' [pagesMetaData]='pagesInformation'
+                               [pages]='pages'
+                               [refreshing]='refreshing' [zoomState]='zoomState'>
+        </app-page-preview-zoom>
+      </div>
+    </div>
+
+    <div class='attributes preview-section'>
+      <mat-toolbar color='primary'>
+        <mat-label class='file-name'>Review Attributes</mat-label>
+      </mat-toolbar>
+      <div class='main-content'>
+        <div class='attributes'>
+
+          <div class='action-bar top-bar  mat-elevation-z0 vertical'>
+            <div class='action-bar'>
+              <div class='performance-name'>
+                <mat-form-field appearance='outline'>
+                  <mat-label>Select Sub-Section</mat-label>
+                  <mat-select (ngModelChange)='resetSelected()' [(ngModel)]='childIndex'>
+                    <mat-option *ngFor='let child of pages[pageIndex].children;let i = index' [value]='i'>
+                      {{
+                        child.label === 'Program' && child.attributes['Performance Title']?.length ?
+                          (child.attributes['Performance Title'][0].value | titlecase) : (child.label |titlecase)
+                      }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+
+              <span class='spacer'></span>
+              <button (click)='openTagInfoDialog()' color="primary" mat-button matTooltip='Tag Types Information'>
+                Tag Information
+                <mat-icon materialIconsRound>info_outline</mat-icon>
+              </button>
+            </div>
+          </div>
+          <mat-divider></mat-divider>
+          <div *ngFor='let attribute of getAttributeKeys(pages[pageIndex].children[childIndex].attributes)'
+               class='attribute  mat-elevation-z0 default-border'>
+            <mat-card-title>{{ attribute | titlecase }}</mat-card-title>
+            <div class='tags'>
+              <div *ngFor='let tag of pages[pageIndex].children[childIndex].attributes[attribute]'>
+                <div (mouseenter)='updateBoundingBox(tag, attribute, true)'
+                  (mouseleave)='updateBoundingBox(tag, attribute, false)'
+                  [ngClass]='getTagClasses(tag)'
+                     [id]='attribute + "-" + tag.value + "-tag"' class='tag'>
+                  {{ tag.value }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <mat-toolbar class='bottom-bar' color='accent'>
+          <mat-toolbar-row>
+            <button (click)='goBack()' [disabled]='loading || uploading' color='warn' mat-stroked-button>
+              <mat-icon materialIconsRound>chevron_left</mat-icon>
+              Back
+            </button>
+            <div class='spacer'></div>
+            <mat-slide-toggle [(ngModel)]='program.readyToSubmit' class='slide-toggle' color='primary'
+                              name='markAsReadyToSubmit'>
+              <span class='label'>Ready to submit to NetX</span>
+            </mat-slide-toggle>
+            <button (click)='markAsComplete()' [disabled]='loading || uploading'
+                    color='primary' mat-stroked-button>
+              {{ uploading ? 'Updating Program...' : 'Mark as Complete' }}
+              <mat-icon materialIconsRound *ngIf="!uploading;else Uploading">check</mat-icon>
+            </button>
+            <button (click)='sendData()' *ngIf='isAllowedToSubmit()' [disabled]='loading || uploading' color='primary'
+                    mat-flat-button>
+              {{ uploading && currentClient?.url ? 'Uploading...' : 'Submit to NetX' }}
+              <mat-icon *ngIf='!uploading;else Uploading' materialIconsRound>cloud_upload</mat-icon>
+            </button>
+            <ng-template #Uploading>
+              <mat-spinner class='upload-spinner' diameter='16' mode='indeterminate'></mat-spinner>
+            </ng-template>
+          </mat-toolbar-row>
+        </mat-toolbar>
+      </div>
+      <div *ngIf='loading' class='loading-area'>
+        <app-loading loader='bar' subBelow='Please wait while we are loading the attributes!'
+                     title='Loading Attributes'>
+        </app-loading>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #refreshingTemplate>
+  <app-loading loader='bar' subAbove='Loading Page'></app-loading>
+</ng-template>

@@ -1,0 +1,55 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+# Cursor Rules for Angular Project
+
+This project is an Angular application using Angular Material for UI, SCSS with variables and mixins for styling, MSAL for authentication, and Azure services (Function App, Table Storage, Blob Storage) for backend.
+
+## Angular & Project Structure
+- Follow Angular best practices: use modular architecture, OnPush change detection strategy, and standalone components when appropriate.
+- Organize code by feature — each feature should have its own folder containing components, services, and models.
+- Keep components dumb when possible — delegate logic to services.
+- Avoid any logic in HTML templates; instead, handle it in the component or service layer.
+
+## SCSS Styling & Cursor Management
+- All components should use `.scss` files. Inline styles are discouraged.
+- Use variables defined in `src/theme/_variables.scss` for all color, spacing, and cursor styles.
+- Use mixins from `src/theme/_mixins.scss` to apply consistent styles across the app.
+- Do not hardcode any styles; always reference shared variables and mixins.
+
+## Angular Material
+- Only use components from the Angular Material MDC-based component suite.
+- Always import components using their respective modules (e.g., `MatButtonModule`, `MatDialogModule`).
+- Style Angular Material components using SCSS overrides — avoid `::ng-deep`.
+
+## Authentication (MSAL)
+- Use `@azure/msal-angular` v3 or higher for authentication.
+- Always use `MsalBroadcastService` and `MsalService` for handling login, logout, and silent token acquisition.
+- Protect routes using `MsalGuard` and define scopes in `auth-config.ts`.
+- Handle auth flows using redirect, not popup.
+- Store only tokens and login info needed; never persist user secrets or sensitive data.
+
+## Azure Integration
+- Interact with Azure Functions, Table Storage, and Blob Storage through Angular services only.
+- Use Angular’s `HttpClient` to communicate with Azure APIs.
+- Configure all endpoints, storage keys, and scopes using `environment.ts` — never hardcode them.
+- Implement retry logic and error handling when calling Azure APIs.
+- Secure Azure endpoints using Function App keys or managed identity headers as appropriate.
+
+## Code Quality & Patterns
+- Use `async` pipe wherever possible instead of manual subscription.
+- Clean up all subscriptions in `ngOnDestroy` using `takeUntil` or similar patterns.
+- Write unit tests for all services and components.
+- Prefer reactive forms over template-driven forms.
+- Do not use `setTimeout` for loading logic; use RxJS-based state management.
+
+## Testing & Dev Utilities
+- Use Jasmine and Karma for unit testing. Set up test doubles using `HttpTestingController`.
+- Keep test files (`.spec.ts`) colocated with source files.
+- E2E tests should use Cypress if configured, targeting realistic user flows.
+
+
+
+

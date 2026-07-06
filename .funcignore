@@ -1,0 +1,13 @@
+.git*
+.vscode
+local.settings.json
+test
+*.ipynb_checkpoints
+notebooks/*
+!notebooks/spacy_model
+!notebooks/mlruns
+data/pdf
+PackageDependencies.md
+docs
+code/
+README.md

@@ -1,0 +1,23 @@
+{
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#804b2d",
+    "activityBar.background": "#804b2d",
+    "activityBar.foreground": "#e7e7e7",
+    "activityBar.inactiveForeground": "#e7e7e799",
+    "activityBarBadge.background": "#112f1c",
+    "activityBarBadge.foreground": "#e7e7e7",
+    "commandCenter.border": "#e7e7e799",
+    "sash.hoverBorder": "#804b2d",
+    "statusBar.background": "#5a3520",
+    "statusBar.foreground": "#e7e7e7",
+    "statusBarItem.hoverBackground": "#804b2d",
+    "statusBarItem.remoteBackground": "#5a3520",
+    "statusBarItem.remoteForeground": "#e7e7e7",
+    "titleBar.activeBackground": "#5a3520",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveBackground": "#5a352099",
+    "titleBar.inactiveForeground": "#e7e7e799"
+  },
+  "peacock.color": "#5a3520",
+  "github-enterprise.uri": "https://ssh.dev.azure.com"
+}

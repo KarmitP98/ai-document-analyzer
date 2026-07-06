@@ -1,0 +1,350 @@
+@use '@angular/material' as mat;
+
+@import '~src/theme/_colors.scss';
+@import '~src/theme/mixin';
+
+.page {
+  align-items: flex-start;
+  padding: 2rem 0;
+}
+
+.loading {
+  width: 50%;
+  text-align: center;
+
+  > h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+
+  > h2 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding-bottom: 1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: RGBA($dark, 0.5);
+  }
+}
+
+.home-area {
+  display: flex;
+  flex-flow: column nowrap;
+  width: clamp(900px, 85%, 95%);
+  height: fit-content;
+  gap: 1rem;
+
+  .header {
+
+    .title {
+      font-size: 2.5rem;
+      font-weight: 600;
+      line-height: 2.5rem;
+      color: $primary;
+    }
+
+    .subtitle {
+      font-size: 1.25rem;
+      font-weight: 500;
+      padding-top: 1rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: RGBA($dark, 0.6);
+    }
+  }
+
+  .content {
+    align-self: center;
+    width: 400px;
+    height: 300px;
+    margin-top: 2rem;
+    padding: 2rem;
+    border: 3px solid RGBA(0, 0, 0, 0.5);
+    border-radius: 1rem;
+    background-color: #ffffff;
+
+    &-area {
+      position: relative;
+      display: flex;
+      align-items: center;
+      flex-flow: column;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      padding: 2rem;
+      border: 2px dashed $primary;
+      border-radius: 0.75rem;
+      gap: 2rem;
+
+      &.dragging {
+        background-color: RGBA($secondary, 0.25);
+      }
+
+      mat-icon {
+        transform: scale(2);
+      }
+
+      h1 {
+        font-weight: 500;
+        color: $primary;
+      }
+
+      .file-input {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        opacity: 0;
+      }
+    }
+  }
+
+  .action-bar {
+    display: flex;
+    align-items: center;
+    align-self: center;
+    justify-content: flex-end;
+    width: 400px;
+  }
+
+  .table-container {
+    overflow: hidden;
+    margin: 2rem 0;
+    border-radius: 0.5rem;
+  }
+
+  mat-paginator {
+    background-color: $secondary;
+  }
+
+  .input-area {
+    display: flex;
+    align-items: center;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    width: 100%;
+    height: fit-content;
+    gap: 1rem;
+
+    mat-form-field {
+      flex: 1 0 auto;
+    }
+  }
+
+  /* Bulk actions row styling */
+  .bulk-actions-row {
+    @include FlexRow(flex-start, center, 0.5rem, 1rem 0);
+    width: 100%;
+    margin: 0.5rem 0 0.75rem 0;
+    border-bottom: 2px solid RGBA($dark, 0.1);
+
+    .selection-count {
+      font-weight: 500;
+      color: $primary;
+    }
+  }
+
+  .empty {
+    display: flex;
+    align-items: center;
+    flex-flow: column nowrap;
+    text-align: center;
+
+    .upload-section {
+      width: 400px;
+      text-align: end;
+    }
+
+    .content {
+      align-self: center;
+      width: 400px;
+      height: 300px;
+      margin: 2rem auto;
+      padding: 2rem;
+      border: 3px solid RGBA(0, 0, 0, 0.5);
+      border-radius: 1rem;
+      background-color: #ffffff;
+
+      &-area {
+        position: relative;
+        display: flex;
+        align-items: center;
+        flex-flow: column;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        padding: 2rem;
+        border: 2px dashed $primary;
+        border-radius: 0.75rem;
+        gap: 2rem;
+
+        &.dragging {
+          background-color: RGBA($secondary, 0.25);
+        }
+
+        mat-icon {
+          transform: scale(2);
+        }
+
+        h1 {
+          font-weight: 500;
+          color: $primary;
+        }
+
+
+      }
+    }
+  }
+
+  table {
+    width: 100%;
+
+    ng-container.actions {
+      width: fit-content;
+    }
+
+    td {
+
+      &.actions {
+        width: fit-content;
+        padding: 0;
+      }
+
+      .status-indicator {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: fit-content;
+        gap: 0.4rem;
+      }
+
+      .status {
+        font-weight: 500;
+        @include FlexRow(center, center, 0, 0.25rem 1rem);
+        width: fit-content;
+        border-radius: 50rem;
+
+        &.success {
+          color: $dark;
+          background: $flash-high;
+        }
+
+        &.warning {
+          color: $dark;
+          background: $flash-orange;
+        }
+
+        &.danger {
+          color: $light;
+          background: $flash-low;
+        }
+      }
+
+      .status-mini-track {
+        position: relative;
+        width: 100%;
+        height: 0.35rem;
+        overflow: visible;
+        border-radius: 999px;
+        background: linear-gradient(90deg, RGBA($dark, 0.06) 0%, RGBA($dark, 0.12) 100%);
+        transition: background 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+
+        &.success .status-mini-fill {
+          background: linear-gradient(90deg, lighten($flash-high, 8%) 0%, $flash-high 100%);
+        }
+
+        &.warning .status-mini-fill {
+          background: linear-gradient(90deg, lighten($flash-orange, 8%) 0%, $flash-orange 100%);
+        }
+
+        &.danger .status-mini-fill {
+          background: linear-gradient(90deg, lighten($flash-low, 5%) 0%, $flash-low 100%);
+        }
+      }
+
+      .status-mini-fill {
+        position: relative;
+        height: 100%;
+        min-width: 0.35rem;
+        border-radius: inherit;
+        box-shadow: 0 0 0 1px RGBA($light, 0.15);
+        transition: width 250ms ease, box-shadow 180ms ease, filter 180ms ease;
+      }
+
+      .status-mini-marker {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        width: 0.65rem;
+        height: 0.65rem;
+        border: 2px solid RGBA($light, 0.95);
+        border-radius: 50%;
+        background-color: inherit;
+        box-shadow: 0 2px 10px RGBA($dark, 0.18);
+        transform: translate(0, -50%);
+      }
+    }
+
+    tr.mat-row {
+      &:hover {
+        background-color: RGBA($primary, 0.05);
+      }
+
+      &:hover .status-mini-track {
+        background: linear-gradient(90deg, RGBA($primary, 0.08) 0%, RGBA($primary, 0.16) 100%);
+        box-shadow: 0 0 0 1px RGBA($primary, 0.08);
+        transform: translateY(-1px);
+      }
+
+      &:hover .status-mini-fill {
+        filter: saturate(1.05) brightness(1.02);
+        box-shadow: 0 0 0 1px RGBA($light, 0.18), 0 0 10px RGBA($primary, 0.14);
+      }
+    }
+  }
+
+  .file-input {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    opacity: 0;
+  }
+
+  .loading {
+    display: flex;
+    align-items: center;
+    flex-flow: column nowrap;
+    justify-content: center;
+    width: 100%;
+    height: clamp(500px, 500px, 1000px);
+    padding: 2rem 0;
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      line-height: calc(2.5rem * 1.15);
+      letter-spacing: 0.125rem;
+      color: $primary;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 500;
+      line-height: 1.5rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: RGBA($dark, 0.7);
+    }
+  }
+
+
+}
+
+

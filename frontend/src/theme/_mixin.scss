@@ -1,0 +1,58 @@
+// Function to return the RGBA of the passed color
+@function RGBA($args...) {
+  @if length($args)>1 {
+    @return rgba($args...)
+  }
+
+  @return rgba(red($args [0]), green($args [0]), blue($args [0]), $args [1]);
+}
+
+@mixin PageZoom($width: 100%, $height: 100%) {
+  ::ng-deep .zoom {
+    height: 100% !important;
+    max-width: 100% !important;
+    position: relative;
+
+    .ngxImageZoomContainer {
+      width: 100% !important;
+      height: 100% !important;
+
+      .ngxImageZoomThumbnail {
+        width: $width !important;
+        height: fit-content !important;
+        max-height: 100%;
+        object-fit: contain;
+        object-position: center;
+      }
+
+      .ngxImageZoomFullContainer.ngxImageZoomLensEnabled {
+        border: 1px solid $dark !important;
+        border-radius: 0.5rem !important;
+      }
+    }
+  }
+}
+
+@mixin FlexRow($justify-content: flex-start, $align-items: center, $gap: 0, $padding: 0, $wrap: nowrap) {
+  display: flex;
+  flex-flow: row $wrap;
+  justify-content: $justify-content;
+  align-items: $align-items;
+  gap: $gap;
+  padding: $padding;
+}
+
+
+@mixin FlexColumn($justify-content: flex-start, $align-items: center, $gap: 0, $padding: 0, $wrap: nowrap) {
+  @include FlexRow($justify-content, $align-items, $gap, $padding, $wrap);
+  flex-direction: column;
+}
+
+@mixin BoundingBox($light-color: $flash-high, $color: $success) {
+  border-color: RGBA($light-color, 0.25);
+
+  &.highlighted {
+    border-color: $color;
+    z-index: 11;
+  }
+}

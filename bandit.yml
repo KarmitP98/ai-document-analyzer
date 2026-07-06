@@ -1,0 +1,19 @@
+# Bandit configuration for Chromadiverse
+# Excludes any folder that starts with a dot (.)
+# Uses default Bandit rules
+
+exclude_dirs:
+  - .venv
+  - .github
+  - .git
+  - .pytest_cache
+  - .ruff_cache
+  - frontend
+  - tests
+
+# You can add more Bandit configuration options below as needed.
+# For reference: https://bandit.readthedocs.io/en/latest/config.html
+
+# Example for future customization:
+# skips: ['B101', 'B102']
+# tests: ['B201', 'B301']

@@ -1,0 +1,294 @@
+<div class='background'></div>
+<div class='page'>
+  <div class='home-area'>
+    <div class='header'>
+      <div class='title'>Welcome to {{ currentClient?.name }}</div>
+      <div class='subtitle'>Start by uploading a file</div>
+    </div>
+    <app-loading
+      *ngIf='loading' loader='bar' subBelow='Please wait while we fetch your programs...' title='Loading Programs'
+    ></app-loading>
+    <div *ngIf='!loading' class='container'>
+      <div *ngIf='!programs?.length' class='empty'>
+        <div class='content'>
+          <div
+            #dropZone (dragleave)='dropZone.classList.replace("dragging","no-drag")'
+            (dragover)='dropZone.classList.replace("no-drag","dragging")'
+            (drop)='dropZone.classList.replace("dragging","no-drag")' class='content-area drop-zone no-drag'
+          >
+
+            <!--              (change)='blobService.handleFileUpload($event, programs, authService.user$.getValue()?.currentClientId, fetchAllPrograms)'-->
+            <input
+              #fileInput
+              (change)='handleUploadFiles($event)'
+              [multiple]='true'
+              accept='application/pdf'
+              class='file-input' id='files' name='file' title='Choose a file' type='file'
+            >
+            <mat-icon color='primary' materialIconsRound>upload</mat-icon>
+            <h1>Drag & Drop a file here</h1>
+          </div>
+        </div>
+        <div class='upload-section'>
+          <button (click)='fileInput.click()' color='primary' id='upload-files-button' mat-flat-button>
+            <mat-icon materialIconsRound>upload</mat-icon>
+            Upload Files
+          </button>
+        </div>
+      </div>
+      <input
+        #fileInput
+        (change)='handleUploadFiles($event)'
+        [multiple]='true'
+        accept='application/pdf' class='file-input'
+        hidden id='file' name='file' title='Choose a file' type='file'
+      >
+      <div *ngIf='programs?.length' class='input-area'>
+        <mat-form-field appearance='outline'>
+          <mat-label>Search Programs</mat-label>
+          <input
+            (keyup)='filterBy()'
+            [(ngModel)]='filter'
+            id='filter'
+            matInput
+            name='filter'
+            placeholder='Type to search programs by name, upload date, creator, or status...'
+            type='text'
+          >
+          <mat-icon color='primary' matSuffix materialIconsRound>search</mat-icon>
+        </mat-form-field>
+        <button (click)='fileInput.click()' color='primary' mat-flat-button>
+          Upload Files
+          <mat-icon materialIconsRound>upload</mat-icon>
+        </button>
+      </div>
+
+      <!-- Bulk actions row below input row -->
+      <div *ngIf='programs?.length' class='bulk-actions-row'>
+        <span *ngIf='selectedCount > 0' class='selection-count'>{{ selectedCount }} selected</span>
+        <div class='spacer'></div>
+        <button
+          (click)='handleBulkUpload(getSelectedReadyPrograms())' [disabled]='selectedCount === 0 || getSelectedReadyPrograms().length <= 0'
+          color='primary' mat-stroked-button
+        >
+          Bulk upload to NetX<span *ngIf='getSelectedReadyPrograms().length > 0'>({{ getSelectedReadyPrograms().length }} of {{ selectedCount }} ready)</span>
+          <mat-icon materialIconsRound>cloud_upload</mat-icon>
+        </button>
+        <button (click)='deleteSelected()' [disabled]='selectedCount === 0' color='warn' mat-stroked-button>
+          Delete selected
+          <mat-icon materialIconsRound>delete</mat-icon>
+        </button>
+      </div>
+
+      <div *ngIf='programs?.length' class='table-container default-border'>
+
+        <table [dataSource]='programDataSource' mat-table matSort>
+
+          <!-- Selection Column -->
+          <ng-container matColumnDef='select'>
+            <th *matHeaderCellDef mat-header-cell>
+              <mat-checkbox
+                (change)='toggleAllFromHeader()'
+                (click)='$event.stopPropagation()'
+                [checked]='isAllSelected()'
+                [indeterminate]='isPartialSelected()'
+                color='primary'
+              >
+              </mat-checkbox>
+            </th>
+            <td *matCellDef='let element' mat-cell>
+              <mat-checkbox
+                (change)='toggleSelection(element)'
+                (click)='$event.stopPropagation()'
+                [checked]='isSelected(element)'
+                color='primary'
+              >
+              </mat-checkbox>
+            </td>
+          </ng-container>
+
+          <!-- Number Column -->
+          <ng-container matColumnDef='no'>
+            <th *matHeaderCellDef mat-header-cell mat-sort-header>No.</th>
+            <td
+              (click)='!areRowActionsDisabled(element) && continueEditing(element)'
+              *matCellDef='let element;let i = index'
+              [class.clickable]='!areRowActionsDisabled(element)'
+              mat-cell
+            > {{ (i + 1) }}
+            </td>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef='fileName'>
+            <th *matHeaderCellDef mat-header-cell mat-sort-header> Name</th>
+            <td
+              (click)='!areRowActionsDisabled(element) && continueEditing(element)' *matCellDef='let element'
+              [class.clickable]='!areRowActionsDisabled(element)'
+              mat-cell
+            > {{ element.fileName?.split('.pdf')[0] || '-' }}
+            </td>
+          </ng-container>
+
+
+          <!-- Client Column -->
+          <ng-container matColumnDef='client'>
+            <th *matHeaderCellDef mat-header-cell mat-sort-header> Client</th>
+            <td
+              (click)='!areRowActionsDisabled(element) && continueEditing(element)' *matCellDef='let element'
+              [class.clickable]='!areRowActionsDisabled(element)'
+              mat-cell
+            > {{ element.clientName || '-' }}
+            </td>
+          </ng-container>
+
+          <!-- Created By Column -->
+          <ng-container matColumnDef='user'>
+            <th *matHeaderCellDef mat-header-cell mat-sort-header> Created By</th>
+            <td
+              (click)='!areRowActionsDisabled(element) && continueEditing(element)' *matCellDef='let element'
+              [class.clickable]='!areRowActionsDisabled(element)'
+              mat-cell
+            > {{ element.createdByUser?.userName || element.createdBy?.email || element.createdBy || '-' }}
+            </td>
+          </ng-container>
+
+          <!-- Status Column -->
+          <ng-container matColumnDef='status'>
+            <th *matHeaderCellDef mat-header-cell mat-sort-header> Status</th>
+            <td
+              (click)='!areRowActionsDisabled(element) && continueEditing(element)' *matCellDef='let element'
+              [class.clickable]='!areRowActionsDisabled(element)'
+              mat-cell
+            >
+              <div class='status-indicator'>
+                <div [class]='getStatusClass(element.status)' class='status'>
+                  {{ getStatusDisplayText(element) }}
+                </div>
+                <div
+                  [attr.aria-label]='getStatusProgressAriaLabel(element)'
+                  [attr.aria-valuemax]='statusOrder.length'
+                  [attr.aria-valuemin]='0'
+                  [attr.aria-valuenow]='getStatusProgressStep(element)'
+                  [attr.aria-valuetext]='getStatusDisplayText(element)'
+                  [ngClass]='getStatusClass(element.status)'
+                  class='status-mini-track'
+                  role='progressbar'
+                >
+                  <div [style.width.%]='getStatusProgressPercent(element)' class='status-mini-fill'>
+                    <span class='status-mini-marker'></span>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </ng-container>
+
+          <!-- Created At Column -->
+          <ng-container matColumnDef='createdAt'>
+            <th *matHeaderCellDef mat-header-cell mat-sort-header> Created At</th>
+            <td
+              (click)='!areRowActionsDisabled(element) && continueEditing(element)' *matCellDef='let element'
+              [class.clickable]='!areRowActionsDisabled(element)'
+              mat-cell
+            > {{ element.createdAt | date }}
+            </td>
+          </ng-container>
+
+          <!-- Last Updated At Column -->
+          <ng-container matColumnDef='updatedAt'>
+            <th *matHeaderCellDef mat-header-cell mat-sort-header> Last Updated At</th>
+            <td
+              (click)='!areRowActionsDisabled(element) && continueEditing(element)' *matCellDef='let element'
+              [class.clickable]='!areRowActionsDisabled(element)'
+              mat-cell
+            > {{ (element.updatedAt | date: 'dd MMM, YYYY (h:mm a)') || '-' }}
+            </td>
+          </ng-container>
+
+          <!-- Actions Column -->
+          <ng-container matColumnDef='actions'>
+            <th *matHeaderCellDef mat-header-cell> Actions</th>
+            <td *matCellDef='let element' class='actions' mat-cell>
+              <button
+                (click)='continueEditing(element)' [disabled]='areRowActionsDisabled(element) || disableEdit(element)'
+                color='primary' mat-icon-button
+                matTooltip='Edit Program' matTooltipPosition='below'
+              >
+                <mat-icon materialIconsRound>
+                  edit
+                </mat-icon>
+              </button>
+              <button
+                (click)='restartProgram(element)'
+                color='accent' mat-icon-button matTooltip='Restart Program'
+                matTooltipPosition='below'
+                [disabled]='isRestartDisabled(element)'
+              >
+                <mat-icon materialIconsRound>
+                  restart_alt
+                </mat-icon>
+              </button>
+              <button
+                (click)='handleBulkUpload([element])'
+                [disabled]='!element.readyToSubmit' color='primary' mat-icon-button
+                matTooltip='Upload to NetX' matTooltipPosition='below'
+              >
+                <mat-icon materialIconsRound>cloud_upload</mat-icon>
+              </button>
+              <button
+                [disabled]='areRowActionsDisabled(element)' [matMenuTriggerFor]='moreMenu' color='primary'
+                mat-icon-button matTooltip='More Options'
+                matTooltipPosition='below'
+              >
+                <mat-icon materialIconsRound>more_vert</mat-icon>
+              </button>
+              <mat-menu #moreMenu>
+                <button
+                  (click)='downloadPDF(element)' mat-menu-item
+                >
+                  <mat-icon color='primary' materialIconsRound>
+                    download
+                  </mat-icon>
+                  Download PDF
+                </button>
+                <button
+                  (click)='downloadAssets(element)'
+                  *ngIf='canDownloadAssets(element)' mat-menu-item
+                >
+                  <mat-icon color='primary' materialIconsRound>
+                    folder_zip
+                  </mat-icon>
+                  Download All Assets
+                </button>
+                <button
+                  (click)='showErrorMessage(element)'
+                  *ngIf='hasErrorStatus(element) && element.ErrorMessage' mat-menu-item
+                >
+                  <mat-icon color='primary' materialIconsRound>
+                    list_alt
+                  </mat-icon>
+                  View Error Message
+                </button>
+              </mat-menu>
+            </td>
+          </ng-container>
+
+          <tr *matHeaderRowDef='displayedColumns; sticky:true' mat-header-row></tr>
+          <tr *matRowDef='let row; columns: displayedColumns;' mat-row></tr>
+
+          <!-- Row shown when there is no matching data. -->
+          <tr *matNoDataRow class='mat-row'>
+            <td class='mat-cell' colspan='4'>No data matching the filter</td>
+          </tr>
+        </table>
+
+        <mat-paginator
+          (page)='onPageChange($event)' [pageSizeOptions]='[10, 25, 50, 100]' aria-label='Select page of programs'
+          showFirstLastButtons
+        >
+        </mat-paginator>
+      </div>
+    </div>
+
+  </div>
+</div>

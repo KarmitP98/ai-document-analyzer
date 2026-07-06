@@ -1,0 +1,50 @@
+<mat-dialog-content>
+  <form #netXForm='ngForm'>
+    <img alt='NetX Logo' src='assets/images/Netx-Logo.webp'>
+    <br>
+    <i id='base-url'>{{ data.client.baseURL }}</i>
+    <br>
+    <br>
+    <div *ngIf='!loggingIn;else LoggingLoader'>
+      <mat-form-field appearance='outline'>
+        <mat-label>Username</mat-label>
+        <input
+          [(ngModel)]='username' autocomplete='username' id='netx-uername' matInput name='username' required type='text'
+        >
+      </mat-form-field>
+      <br>
+      <br>
+      <mat-form-field appearance='outline'>
+        <mat-label>Password</mat-label>
+        <input
+          (keyup.enter)='handleSubmit()' [(ngModel)]='password' autocomplete='current-password' id='netx-password'
+          matInput name='password'
+          required type='password'
+        >
+      </mat-form-field>
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align='end' *ngIf='!loggingIn'>
+  <button (click)='dialogRef.close()' color='warn' mat-stroked-button>
+    <mat-icon materialIconsRound>close</mat-icon>
+    Cancel
+  </button>
+  <button
+    (click)='handleSubmit()'
+    [disabled]='!netXForm.valid'
+    color='primary'
+    mat-flat-button
+    type='submit'
+  >
+    <mat-icon materialIconsRound>login</mat-icon>
+    Login
+  </button>
+</mat-dialog-actions>
+
+<ng-template #LoggingLoader>
+  <app-loading
+    [progressBarData]='{mode: "indeterminate", color: "primary", value: 100}' [title]='message' [error]='error'
+    [success]='success'
+  ></app-loading>
+</ng-template>

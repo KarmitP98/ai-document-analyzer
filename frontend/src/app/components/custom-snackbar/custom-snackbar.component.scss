@@ -1,0 +1,16 @@
+.main {
+  display: grid;
+  padding: 0.5rem;
+  grid-template-columns: auto 1fr auto;
+  grid-gap: 1fr;
+  grid-template-rows: 1fr;
+
+  .information-section {
+    padding: 0.5rem;
+
+    .title {
+      font-weight: 600;
+      color: RGBA(0, 0, 0, 0.85);
+    }
+  }
+}

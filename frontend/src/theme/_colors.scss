@@ -1,0 +1,107 @@
+@import 'mixin';
+
+$primary: #5a3520;
+$secondary: #e2b798;
+$danger: #e72e2e;
+$success: #0eda47;
+$light: #ffffff;
+$dark: #323234;
+$warning: #ffc409;
+$download: #f4511e;
+$upload: #2196f3;
+$disabled: #8f8f8f;
+
+$flash-high: #77dd77;
+$flash-medium: #e9d502;
+$flash-low: #ff6961;
+$flash-orange: #fd9d22;
+
+$success-light: #d2eed9;
+$warning-light: #e5ddc0;
+$danger-light: #e1c3c3;
+$dark-light: #545353;
+
+$success-dark: hsl(137, 88%, 35%);
+$warning-dark: hsl(45, 94%, 35%);
+$danger-dark: hsl(0, 79%, 35%);
+
+$rect-color-1: #ff6f61;
+$rect-color-2: #f9d423;
+$rect-color-3: #1de9b6;
+$rect-color-4: #00b8d4;
+$rect-color-5: #ff4081;
+$rect-color-6: #7c4dff;
+$rect-color-7: #ffd600;
+$rect-color-8: #00e676;
+
+$mnp-digital: #0F3C4F;
+
+$box-shadow-small: 0 2px 12px RGBA(50, 50, 52, 0.15);
+
+/* For use in src/lib/core/theming/_palette.scss */
+$md-primary: (
+  50 : #ebe7e4,
+  100 : #cec2bc,
+  200 : #ad9a90,
+  300 : #8c7263,
+  400 : #735341,
+  500 : #5a3520,
+  600 : #52301c,
+  700 : #482818,
+  800 : #3f2213,
+  900 : #2e160b,
+  A100 : #ff916a,
+  A200 : #ff6b37,
+  A400 : #ff4504,
+  A700 : #ea3d00,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #ffffff,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #ffffff,
+    A700 : #ffffff,
+  )
+);
+
+/* For use in src/lib/core/theming/_palette.scss */
+$md-accent: (
+  50 : #fcf6f3,
+  100 : #f6e9e0,
+  200 : #f1dbcc,
+  300 : #ebcdb7,
+  400 : #e6c2a7,
+  500 : #e2b798,
+  600 : #dfb090,
+  700 : #daa785,
+  800 : #d69f7b,
+  900 : #cf906a,
+  A100 : #ffffff,
+  A200 : #ffffff,
+  A400 : #ffeadd,
+  A700 : #ffdac3,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #000000,
+    600 : #000000,
+    700 : #000000,
+    800 : #000000,
+    900 : #000000,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);

@@ -1,0 +1,6 @@
+<div class='page'>
+  <mat-progress-spinner mode='indeterminate' color='primmary' [diameter]='64'></mat-progress-spinner>
+  <h1>
+    {{(loaderService.loader$ | async)?.message || LOADER_MESSAGE}}
+  </h1>
+</div>

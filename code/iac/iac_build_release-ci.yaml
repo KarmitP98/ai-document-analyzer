@@ -1,0 +1,113 @@
+trigger: none
+
+pool:
+  vmImage: ubuntu-latest
+
+parameters:
+  - name: 'org'
+    default: 'dev'
+  
+  - name: 'subDomain'
+    default: 'dev'
+
+  - name: 'environment'
+    type: string
+    default: 'INFRA_DEV'
+    values:
+      - INFRA_DEV
+      - INFRA_PRD
+
+  - name: 'ServiceConnection'
+    displayName: 'spn-azure-chromadiverse-prod (Prod) - SmartCapture_DEV (Dev)'
+    type: string
+    default: 'SmartCapture_DEV'
+    values:
+    - spn-azure-chromadiverse-prod
+    - SmartCapture_DEV
+
+stages:
+- stage: Build_Validate  
+  jobs:
+  - job: Build
+    steps:
+    - task: CopyFiles@2
+      displayName: 'Include templates in the artifact'
+      inputs:
+        Contents: |
+          **/iac/**
+        TargetFolder: '$(Build.ArtifactStagingDirectory)'
+      
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish artifact'
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'drop'
+        publishLocation: 'Container'
+  
+  - job: Test_BICEP
+    steps:
+    - task: AzureKeyVault@2
+      displayName: 'Get Seed Secrets from KVT'
+      inputs:
+        connectedServiceName: 'SmartCapture_DEV'
+        keyVaultName: 'mnpdinfrakvt01d'
+        secretsFilter: 'cert-mnp-ai-ca-base64'
+        runAsPreJob: false
+
+    - task: AzureCLI@2
+      displayName: 'Validate BICEP for ${{ parameters.environment }} with What-If'
+      inputs:
+        azureSubscription: ${{ parameters.ServiceConnection }}
+        scriptType: 'bash'
+        scriptLocation: 'inlineScript'
+        inlineScript: |
+          az deployment sub what-if \
+            --location $(location) \
+            --template-file $(Build.SourcesDirectory)/code/iac/main.bicep \
+            --parameters @$(Build.SourcesDirectory)/code/iac/main.parameters.${{ parameters.org }}.json \
+            --parameters listenerCert='$(cert-mnp-ai-ca-base64)' \
+            --parameters org='${{ parameters.org }}' \
+            --parameters subDomain='${{ parameters.subDomain }}'
+
+- stage: Infrastructure_Deploy
+  dependsOn:
+    Build_Validate
+  condition: succeeded('Build_Validate')
+  jobs:
+    - deployment: Deploy_BICEP
+      displayName: Deploy BICEP to Azure
+      environment: ${{ parameters.environment }}
+      strategy:
+        runOnce:
+          deploy:
+            steps:
+            - task: DownloadBuildArtifacts@0
+              displayName: 'Download artifact'
+              inputs:
+                buildType: 'current'
+                downloadType: 'single'
+                artifactName: 'drop'
+                downloadPath: '$(System.ArtifactsDirectory)'
+
+            - task: AzureKeyVault@2
+              displayName: 'Get Seed Secrets from KVT'
+              inputs:
+                connectedServiceName: 'SmartCapture_DEV'
+                keyVaultName: 'mnpdinfrakvt01d'
+                secretsFilter: 'cert-mnp-ai-ca-base64'
+                runAsPreJob: false
+
+            - task: AzureCLI@2
+              displayName: 'Deploy BICEP for ${{ parameters.environment }}'
+              inputs:
+                azureSubscription: ${{ parameters.ServiceConnection }}
+                scriptType: 'bash'
+                scriptLocation: 'inlineScript'
+                inlineScript: |
+                  az deployment sub create \
+                    --location $(location) \
+                    --template-file $(System.ArtifactsDirectory)/drop/code/iac/main.bicep \
+                    --parameters @$(System.ArtifactsDirectory)/drop/code/iac/main.parameters.${{ parameters.org }}.json \
+                    --parameters listenerCert='$(cert-mnp-ai-ca-base64)' \
+                    --parameters org='${{ parameters.org }}' \
+                    --parameters subDomain='${{ parameters.subDomain }}'

@@ -1,0 +1,62 @@
+<div class='container'>
+  <h1 mat-dialog-title>{{getTitle()}}</h1>
+  <div class='content'>
+    <form #formElement='ngForm'>
+      <mat-form-field *ngIf='data.type === "performance"' appearance='outline'>
+        <mat-label>Performance Name</mat-label>
+        <input
+          (keyup)='filterPerformanceTitles()' [(ngModel)]='name'
+          [matAutocomplete]='autoCompleted'
+          [placeholder]='"Please enter the performance name"'
+          enterkeyhint='next' id='name' matInput
+          name='name'
+          type='text'
+        >
+        <mat-autocomplete #autoCompleted='matAutocomplete' autoActiveFirstOption>
+          <mat-option
+            *ngFor='let title of filteredPerformanceTitles' [value]='title'
+          >
+            {{title}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+      <mat-form-field *ngIf='data.type === "attribute"' appearance='outline'>
+        <mat-label>Attribute Name</mat-label>
+        <input
+          (keyup.enter)='submitButton._elementRef.nativeElement.click()' [(ngModel)]='name'
+          [placeholder]='"Please enter the attribute name"'
+          id='attributeName' matInput
+          name='name'
+          required
+          type='text'
+        >
+      </mat-form-field>
+      <br>
+      <br>
+      <mat-form-field appearance='outline'>
+        <mat-label>Page Number</mat-label>
+        <mat-select
+          [(ngModel)]='pageNumber' name='pageNumber' placeholder='Select the page number for this Performance'
+        >
+          <mat-option *ngFor='let page of getPageArray()' [value]='page'>
+            Page {{page + 1}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+  </div>
+  <mat-dialog-actions align='end'>
+    <button color='warn' mat-dialog-close='' mat-stroked-button>
+      Cancel
+      <mat-icon>close</mat-icon>
+    </button>
+    <button
+      #submitButton [disabled]='name.length === 0' [mat-dialog-close]='{name, pageNumber}' color='primary'
+      mat-flat-button
+    >
+      {{ getButtonMessage() }}
+      <mat-icon>add</mat-icon>
+    </button>
+  </mat-dialog-actions>
+</div>

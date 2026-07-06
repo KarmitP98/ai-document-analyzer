@@ -1,0 +1,58 @@
+<div>
+  <div matDialogTitle>Select Storage</div>
+  <mat-progress-bar *ngIf='loading' color='primary' mode='indeterminate'></mat-progress-bar>
+  <mat-dialog-content>
+    <div class='content'>
+      <ul *ngIf='folders.length'>
+        <li *ngFor='let folder of folders'>
+          <ng-container [ngTemplateOutletContext]='{folder: folder}' [ngTemplateOutlet]='foldersOutlet'></ng-container>
+        </li>
+      </ul>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions align='end' class='form-actions right'>
+    <button color='warn' mat-stroked-button matDialogClose type='button'>
+      Cancel
+      <mat-icon materialIconsRound>close</mat-icon>
+    </button>
+    <button (click)='sendData()' [disabled]='!currentFolder' color='primary' mat-flat-button>
+      Select Folder
+      <mat-icon materialIconsRound>check_circle</mat-icon>
+    </button>
+  </mat-dialog-actions>
+</div>
+
+<ng-template #foldersOutlet let-folder='folder'>
+  <div class='folder'>
+    <div class='action-bar folder-name clickable'
+    >
+      <ng-container>
+        <button mat-icon-button color="primary" (click)="toggleExpand(folder)" [class.op-0]="folder.childrenCount <= 0">
+        <mat-icon color='primary' materialIconsRound>
+          {{ folder.expanded ? 'expand_more' : 'chevron_right' }}
+        </mat-icon>
+        </button>
+      </ng-container>
+      <span (click)="selectFolder(folder)" class="name action-bar"
+            [class.active]='currentFolder?.rowKey === folder?.rowKey'
+            matRipple>
+        <mat-icon materialIconsRound color="primary">{{ folder.childrenCount ? 'folder' : 'folder_open' }}</mat-icon>
+        {{ folder.name }}
+        <span class="spacer"></span>
+      <mat-checkbox
+        *ngIf="currentFolder?.rowKey === folder?.rowKey"
+        [checked]="true"
+        color="primary"
+        class="folder-checkbox"
+        (click)="selectFolder(folder)"
+      ></mat-checkbox>
+      </span>
+
+    </div>
+    <ul *ngIf='folder.children.length && folder.expanded' class="children">
+      <li *ngFor='let folder of folder.children'>
+        <ng-container [ngTemplateOutletContext]='{folder: folder}' [ngTemplateOutlet]='foldersOutlet'></ng-container>
+      </li>
+    </ul>
+  </div>
+</ng-template>

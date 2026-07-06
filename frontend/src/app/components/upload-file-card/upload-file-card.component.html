@@ -1,0 +1,21 @@
+<mat-card [@fileItemAnim] [class.disabled]='disabled' class='upload-file-card mat-elevation-z0 default-border'>
+  <div class='file-info-row'>
+    <div class='file-info-main'>
+      <mat-icon class='file-icon' color='primary'>description</mat-icon>
+      <span class='file-name'>{{ file.name }}</span>
+    </div>
+    <div *ngIf='progress !== undefined && uploading && !disabled && !(success || error)' class='progress-row'>
+      <mat-progress-bar [value]='progress' mode='determinate'></mat-progress-bar>
+      <span class='progress-value'>{{ progress | number:'1.0-0' }}%</span>
+    </div>
+    <button
+      (click)='removeFile.emit()' *ngIf='!uploading && !disabled && !(success || error) && canRemove' [disabled]='uploading || !canRemove'
+      aria-label='Remove file'
+      color='warn' mat-icon-button matTooltip='Remove this file from upload list' matTooltipPosition='left'
+    >
+      <mat-icon materialIconsRound>remove_circle_outline</mat-icon>
+    </button>
+    <mat-icon class='success-color' materialIconsRound *ngIf='success'>check_circle</mat-icon>
+    <mat-icon color='warn' materialIconsRound *ngIf='error'>error</mat-icon>
+  </div>
+</mat-card>

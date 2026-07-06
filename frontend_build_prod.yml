@@ -1,0 +1,141 @@
+# Node.js with Angular
+# Build a Node.js project that uses Angular.
+# This pipeline retrieves secrets from Azure Key Vault and deploys to PROD environment.
+
+trigger:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - frontend/*
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  branchName: $[ replace(variables['Build.SourceBranch'], 'refs/heads/', '') ]
+  artifactName: $(Build.BuildId)
+  keyVaultNamePrd: 'mnpaiprdkvt01'
+  envNameProd: 'ChromaDiverse_Prod'
+  azureSubscriptionPrd: 'spn-azure-chromadiverse-prod'
+  webAppNamePrd: 'mnpaiprdweb01'
+
+stages:
+  - stage: Audit
+    displayName: NPM Audit Security Scan
+    jobs:
+      - job: NpmAudit
+        displayName: Run npm audit and publish report
+        continueOnError: true
+        steps:
+          - checkout: self
+
+          - script: |
+              cd frontend
+              npm install stylus@github:stylus/stylus#0.56.0 --save-dev
+              npm install
+              npm audit --audit-level=low --json > npm-audit.json || true
+            displayName: 'Run npm audit and save report'
+            failOnStderr: false
+
+          - task: PublishBuildArtifacts@1
+            displayName: 'Publish npm audit report'
+            inputs:
+              PathtoPublish: 'frontend/npm-audit.json'
+              ArtifactName: 'npm-audit-report'
+              publishLocation: 'Container'
+
+  - stage: BuildPrd
+    displayName: Build and Archive Frontend for Prd
+    dependsOn: Audit
+    condition: succeeded()
+    jobs:
+      - job: BuildPrd
+        displayName: Build Frontend for Prd
+        steps:
+          - checkout: self
+
+          - task: NodeTool@0
+            inputs:
+              versionSpec: '16.x'
+            displayName: 'Install Node.js'
+
+          - script: |
+              cd frontend
+              npm install -g @angular/cli
+              npm install stylus@github:stylus/stylus#0.56.0 --save-dev
+              npm install
+            displayName: 'npm install dependencies'
+
+          - task: AzureKeyVault@2
+            displayName: Fetch secrets for Prd environment
+            name: FetchSecretsPrd
+            inputs:
+              azureSubscription: $(azureSubscriptionPrd)
+              KeyVaultName: $(keyVaultNamePrd)
+              SecretsFilter: 'function-app-name,blob-storage-account-name,table-storage-account-name,container-name,function-key,bing-key,azure-maps-key,azure-config-auth-clientId,azure-config-b2cPolicies-names-signIn,azure-config-b2cPolicies-authorities-signIn-authority,azure-config-b2cPolicies-authorityDomain'
+              RunAsPreJob: true
+
+          - task: replacetokens@5
+            displayName: Replacing Prd environment variable tokens
+            inputs:
+              rootDirectory: 'frontend/'
+              targetFiles: '**/environment.prod.ts'
+              encoding: 'auto'
+              tokenPattern: '#{token}#'
+              writeBOM: true
+              verbosity: 'detailed'
+              actionOnMissing: 'warn'
+              keepToken: true
+              actionOnNoFiles: 'continue'
+              enableTransforms: false
+              enableRecursion: false
+              useLegacyPattern: false
+              enableTelemetry: true
+          
+          - script: |
+              cd frontend
+              npm run build --if-present
+            displayName: 'npm build'
+
+          - task: ArchiveFiles@2
+            displayName: 'Archive files for Prd'
+            inputs:
+              rootFolderOrFile: '$(System.DefaultWorkingDirectory)/frontend/dist/frontend'
+              includeRootFolder: false
+              archiveType: zip
+              archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId)_prd.zip
+              replaceExistingArchive: true
+
+          - publish: $(Build.ArtifactStagingDirectory)/$(Build.BuildId)_prd.zip
+            artifact: drop-prd
+
+  - stage: DeployPrd
+    displayName: Deploy to PRD
+    dependsOn: BuildPrd
+    condition: succeeded()
+    jobs:
+      - deployment: DeployPrd
+        displayName: Deploy to PRD Environment
+        environment: $(envNameProd)
+        pool:
+          vmImage: ubuntu-latest
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - checkout: self
+
+                - download: current
+                  artifact: drop-prd
+
+                - task: AzureWebApp@1
+                  displayName: 'Azure Web App Deploy PRD'
+                  inputs:
+                    azureSubscription: $(azureSubscriptionPrd)
+                    appType: webAppLinux
+                    appName: $(webAppNamePrd)
+                    runtimeStack: 'NODE|16.x'
+                    package:  $(Pipeline.Workspace)/drop-prd/$(Build.BuildId)_prd.zip
+                    startUpCommand: 'pm2 serve /home/site/wwwroot --no-daemon --spa'

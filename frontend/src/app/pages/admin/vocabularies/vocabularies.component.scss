@@ -1,0 +1,71 @@
+@import '~src/theme/_colors.scss';
+@import '~src/theme/mixin';
+
+.table-container {
+  overflow: hidden;
+  border-radius: 0.5rem;
+
+  table {
+    width: 100%;
+
+    td:not(.actions) {
+      cursor: pointer;
+    }
+
+    ng-container.actions {
+      width: fit-content;
+    }
+
+    td {
+
+      &.actions {
+        width: fit-content;
+        padding: 0;
+      }
+    }
+
+    tr.mat-row {
+      &:hover {
+        background-color: RGBA($primary, 0.05);
+      }
+    }
+  }
+
+  mat-paginator {
+    background-color: $secondary;
+  }
+}
+
+.loaded {
+  height: 100%;
+}
+
+.input-area {
+  display: flex;
+  align-items: center;
+  flex-flow: row nowrap;
+  width: 100%;
+  height: fit-content;
+  margin: 1rem 0;
+  gap: 1rem;
+
+  mat-form-field {
+    flex: 1 0 auto;
+  }
+}
+
+
+.empty-container {
+  display: flex;
+  align-items: center;flex-flow: column nowrap;
+  justify-content: center;
+  width: 100%;
+  height: 90%;
+  gap: 2rem;
+
+  .title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.75rem;
+  }
+}

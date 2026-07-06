@@ -1,0 +1,22 @@
+<li [class.first]='isFirst' [class.last]='isLast' [class.selected]='selected' class='list-item' matRipple>
+  <div class='action-bar'>
+    <h3 class='title'><strong>{{ (index + 1) }}. {{ location.poi.name }}</strong></h3>
+    <div class='spacer'></div>
+    <button
+      (click)='deleteLocation()' *ngIf='showClearOption' class='clear-location-button' color='warn' mat-icon-button
+      matTooltip='Remove location'
+    >
+      <mat-icon materialIconsRound>cancel</mat-icon>
+    </button>
+  </div>
+  <address>
+    {{ location.poi.categories[0]  | titlecase }} &#x2022; {{ location.address.freeformAddress }}
+  </address>
+  <div class='action-bar meta-section'>
+    <div class='tag small secondary'>Venue: {{ location.poi.name || '-' }}</div>
+    <div class='tag small secondary'>City: {{ location.address.localName || location.address.municipality || '-' }}
+    </div>
+    <div class='tag small secondary'>State: {{ location.address.countrySubdivisionName || '-' }}</div>
+    <div class='tag small secondary'>Country: {{ location.address.country || '-' }}</div>
+  </div>
+</li>

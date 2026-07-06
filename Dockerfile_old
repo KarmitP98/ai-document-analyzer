@@ -1,0 +1,19 @@
+# To enable ssh & remote debugging on app service change the base image to the one below
+# FROM mcr.microsoft.com/azure-functions/python:3.0-python3.8-appservice
+FROM mcr.microsoft.com/azure-functions/python:4-python3.10
+
+ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
+    AzureFunctionsJobHost__Logging__Console__IsEnabled=true
+
+COPY requirements.txt /
+ADD ZscalerRootCertificate-2048-SHA256.crt /tmp/ZscalerRootCertificate-2048-SHA256.crt
+RUN CERT_DIR=/usr/local/share/ca-certificates/ ; cp /tmp/ZscalerRootCertificate-2048-SHA256.crt $CERT_DIR ; update-ca-certificates ;
+RUN openssl x509 -in /tmp/ZscalerRootCertificate-2048-SHA256.crt -out /tmp/ZscalarCert.pem -outform PEM
+RUN apt-get update -y 
+RUN apt-get -y install gcc
+RUN apt-get install poppler-utils -y 
+RUN export PIP_CERT=/tmp/ZscalarCert.pem
+RUN pip install -r /requirements.txt --trusted-host pypi.org --trusted-host pypi.python.org --trusted-host files.pythonhosted.org --trusted-host download.pytorch.org
+# RUN pip install -r /requirements.txt
+
+COPY . /home/site/wwwroot

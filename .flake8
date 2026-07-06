@@ -1,0 +1,21 @@
+[flake8]
+# flake-spellcheck
+dictionaries=en_US,python,technical,pandas
+spellcheck-targets=comments,names
+# flake8 ignores
+exclude = 
+    .git
+    __pycache__
+    docs/source/conf.py
+    old
+    notebooks/old
+    build
+    dist
+    env
+    venv
+    env_site-packages
+    frontend
+    env_vocabmatching
+ignore = W293,E501,W503,E203 
+# F401,F403,F405,F821,E711,E712,F841,E722
+max-line-length=160

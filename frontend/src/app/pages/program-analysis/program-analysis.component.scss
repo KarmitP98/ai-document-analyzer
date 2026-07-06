@@ -1,0 +1,318 @@
+@import '~src/theme/_colors.scss';
+@import '~src/theme/mixin';
+@import '~src/theme/variables';
+
+$divider: 1px solid RGBA($primary, 0.15);
+
+.loading-area {
+  width: 50%;
+  margin: auto;
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  flex-flow: row wrap;
+  justify-content: center;
+  width: 100%;
+  height: calc(100vh);
+  margin: auto;
+
+  .preview-section {
+    position: relative;
+    overflow: hidden;
+    flex: 1 0 500px;
+    width: clamp(500px, 100%, 100%);
+    height: 100%;
+    background-color: $light;
+    box-shadow: $box-shadow-small;
+
+    &:nth-of-type(1) {
+      border-right: 3px solid $dark;
+    }
+
+    &.document {
+
+      .main-content {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        height: calc(100% - $mat-toolbar-height);
+      }
+    }
+
+    &.attributes {
+
+      .main-content {
+        display: flex;
+        overflow-x: visible;
+        overflow-y: auto;
+        flex-flow: column nowrap;
+        width: 100%;
+        height: calc(100% - 2 * $mat-toolbar-height);
+        gap: 1rem;
+
+
+        .performance-selector {
+          width: 100%;
+          padding: 1rem;
+
+          .title {
+            font-size: 1.25rem;
+            font-weight: 500;
+            padding-bottom: 0.5rem;
+          }
+
+          .performances {
+            display: flex;
+            align-items: center;
+            flex-flow: row wrap;
+            width: 100%;
+            padding-top: 0.5rem;
+            gap: 1rem;
+          }
+        }
+
+        ul {
+          list-style: none;
+        }
+
+        .header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 1em 1em 0;
+
+          .title {
+            font-size: 1.5rem;
+            font-weight: 500;
+          }
+        }
+
+        .attributes {
+          display: flex;
+          flex-flow: column nowrap;
+          width: 100%;
+          gap: 1rem;
+        }
+
+        .attribute {
+          display: flex;
+          flex-flow: column nowrap;
+          width: 100%;
+          padding: 1rem;
+          border-radius: 0.5rem;
+          background-color: white;
+
+          form, mat-form-field {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+  }
+}
+
+.auto-complete-option {
+  width: 100%;
+
+  .small-label {
+    font-size: small;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0 0.5rem;
+  }
+
+  .remove-vocab-button {
+    display: none;
+  }
+
+  &:hover {
+    .remove-vocab-button {
+      display: inline-block;
+    }
+  }
+}
+
+.cdk-drag-preview {
+  display: flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  cursor: move;
+  border-radius: 500rem;
+  background-color: RGBA($secondary, 1);
+  box-shadow: 0 5px 5px -3px RGBA(0, 0, 0, 0.2),
+  0 8px 10px 1px RGBA(0, 0, 0, 0.14),
+  0 3px 14px 2px RGBA(0, 0, 0, 0.12);
+  gap: 0.25rem;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  flex: 1 0 100%;
+  justify-content: flex-start;
+  padding: 0.25rem 0;
+  border-bottom: 1px solid RGBA($dark, 0.25);
+
+  &.actions {
+    flex: 1 1 auto;
+    justify-content: flex-end;
+    padding: 0;
+    border-bottom: none;
+  }
+}
+
+.attribute-menu-item {
+  &.exists {
+    background-color: rgba(var(--secondary-rgb), 0.25);
+  }
+}
+
+
+.input-line {
+  display: flex;
+  align-items: center;
+  flex-flow: row nowrap;
+  justify-content: center;
+  width: 100%;
+  gap: 1em;
+}
+
+.small-action-bar {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  width: fit-content;
+  padding: 0.5em;
+  border-bottom: 1px solid white;
+  border-left: 1px solid white;
+  border-radius: 0.5em;
+  background-color: RGBA($light, 1);
+}
+
+.empty-message {
+  display: flex;
+  align-items: center;
+  flex-flow: column nowrap;
+  justify-content: center;
+  height: 100%;
+  gap: 1rem;
+  width: 100%;
+  padding: 2rem 0;
+
+  h2, h3 {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  &.col {
+    flex-flow: column nowrap;
+  }
+}
+
+.bounding-box {
+  position: absolute;
+  z-index: 10;
+  width: 0;
+  height: 0;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+  opacity: 0;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 0.125rem;
+
+  &.show {
+    top: var(--top);
+    left: var(--left);
+    width: var(--width);
+    height: var(--height);
+    opacity: 1;
+  }
+
+  &.high {
+    @include BoundingBox($success-light, $success);
+  }
+
+  &.medium {
+    @include BoundingBox($warning-light, $warning);
+  }
+
+  &.low {
+    @include BoundingBox($danger-light, $danger);
+  }
+}
+
+.top-bar {
+  position: relative;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-radius: 0.5rem;
+  background: white;
+  gap: 0;
+
+  .tags {
+    padding-top: 0;
+  }
+}
+
+.attributes-container {
+  @include FlexColumn(flex-start, flex-start, 1rem, 1rem);
+  width: 100%;
+
+  mat-divider {
+    width: 100%;
+  }
+}
+
+.performance-name {
+  @include FlexRow(flex-start, center, 0.25rem, 0 0);
+  margin-top: 0.5rem;
+}
+
+.label-required {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: $flash-low;
+}
+
+.flash-attribute {
+  animation: flash-attribute infinite 0.5s ease-in-out alternate;
+}
+
+@keyframes flash-attribute {
+  from {
+    background-color: $light;
+  }
+  to {
+    background-color: $flash-low;
+  }
+}
+
+.page-selector {
+  position: relative;
+  z-index: 2;
+  height: 56px;
+  padding: 0 1rem;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+
+  .vertical-divider {
+    height: 60%;
+    margin: auto;
+    border-radius: 100rem;
+  }
+}

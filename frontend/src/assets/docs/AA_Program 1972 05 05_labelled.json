@@ -1,0 +1,4140 @@
+{
+  "pdf_name" : "AA_Program 1972 05 05.pdf" ,
+  "features" : [
+    {
+      "page_number" : 0 ,
+      "details" : [
+        [
+          "100000." ,
+          [
+            [
+              "100000" ,
+              "Quantity" ,
+              "Number" ,
+              0.8
+            ]
+          ]
+        ] ,
+        [
+          "buffalo, pop!, MELVIN STRAUSS, Director. Presents. THE DANCE THEATRE. OF HARLEM. ARTHUR MITCHELL & KAREL SHOOK, CO-DIRECTORS. TANIA VIERA LEON, Pianist. MELVIN STRAUSS & JOHN LANDIS, CONDUCTORS. Friday, May 5, 1972 - 8:30 p.m. Kleinhans Music Hall. Sponsored by Courier-Express" ,
+          [
+            [
+              "MELVIN STRAUSS" ,
+              "Person" ,
+              null ,
+              0.99
+            ] ,
+            [
+              "Director" ,
+              "PersonType" ,
+              null ,
+              0.98
+            ] ,
+            [
+              "Presents" ,
+              "Product" ,
+              null ,
+              0.73
+            ] ,
+            [
+              "DANCE THEATRE" ,
+              "Location" ,
+              "Structural" ,
+              0.82
+            ] ,
+            [
+              "HARLEM" ,
+              "Location" ,
+              "GPE" ,
+              0.88
+            ] ,
+            [
+              "ARTHUR MITCHELL" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "KAREL SHOOK" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "CO-DIRECTORS" ,
+              "PersonType" ,
+              null ,
+              0.87
+            ] ,
+            [
+              "TANIA VIERA LEON" ,
+              "Person" ,
+              null ,
+              0.99
+            ] ,
+            [
+              "Pianist" ,
+              "PersonType" ,
+              null ,
+              0.99
+            ] ,
+            [
+              "JOHN LANDIS" ,
+              "Person" ,
+              null ,
+              0.99
+            ] ,
+            [
+              "CONDUCTORS" ,
+              "PersonType" ,
+              null ,
+              0.99
+            ] ,
+            [
+              "Friday, May 5, 1972 - 8:30 p.m." ,
+              "DateTime" ,
+              null ,
+              0.8
+            ] ,
+            [
+              "Kleinhans Music Hall" ,
+              "Location" ,
+              null ,
+              0.95
+            ] ,
+            [
+              "Courier-Express" ,
+              "Organization" ,
+              null ,
+              0.99
+            ] ,
+            [
+              "buffalo" ,
+              "GPE" ,
+              null ,
+              null
+            ] ,
+            [
+              "THE DANCE THEATRE." ,
+              "ORG" ,
+              null ,
+              null
+            ] ,
+            [
+              "Friday, May 5, 1972" ,
+              "DATE" ,
+              null ,
+              null
+            ] ,
+            [
+              "8:30 p.m." ,
+              "TIME" ,
+              null ,
+              null
+            ]
+          ]
+        ]
+      ] ,
+      "count" : {
+        "person" : 5 ,
+        "skill_persontype" : 4 ,
+        "workofart" : 0 ,
+        "org" : 2 ,
+        "location_gpe" : 4 ,
+        "date_time" : 3 ,
+        "other" : 2 ,
+        "stopword" : 3 ,
+        "total" : 23
+      } ,
+      "tf-idf" : {
+        "person" : 0.007369902538191612 ,
+        "skill_persontype" : 0.0058959220305532896 ,
+        "workofart" : 0.0 ,
+        "org" : 0.0029479610152766448 ,
+        "location_gpe" : 0.0058959220305532896 ,
+        "date_time" : 0.44363444108636807 ,
+        "other" : 0.0029479610152766448 ,
+        "stopword" : 0.004421941522914967
+      } ,
+      "label" : "Title"
+    } ,
+    {
+      "page_number" : 1 ,
+      "details" : [
+        [
+          "J. S. Bach. Concerto Barocco., (Concerto for two violins). CHARLES HAUPT AND HARRY TAUB, violinists. Choreography, GEORGE BALANCHINE. Conducted by MELVIN STRAUSS" ,
+          [
+            [
+              "J. S. Bach" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Concerto Barocco." ,
+              "WORK_OF_ART" ,
+              null ,
+              null
+            ] ,
+            [
+              "two" ,
+              "Quantity" ,
+              "Number" ,
+              0.8
+            ] ,
+            [
+              "violins" ,
+              "Product" ,
+              null ,
+              0.69
+            ] ,
+            [
+              "CHARLES HAUPT" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "HARRY TAUB" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "violinists" ,
+              "PersonType" ,
+              null ,
+              0.98
+            ] ,
+            [
+              "Choreography" ,
+              "Skill" ,
+              null ,
+              0.98
+            ] ,
+            [
+              "GEORGE BALANCHINE" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Conducted" ,
+              "Skill" ,
+              null ,
+              0.56
+            ] ,
+            [
+              "MELVIN STRAUSS" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Concerto for two violins" ,
+              "WORK_OF_ART" ,
+              null ,
+              null
+            ]
+          ]
+        ] ,
+        [
+          "Fete Noire, (Piano Concerto No. 2). Shostakovich. TANIA VIERA LEON, pianist. Choreography, ARTHUR MITCHELL. Conducted by MELVIN STRAUSS" ,
+          [
+            [
+              "Fete Noire" ,
+              "WORK_OF_ART" ,
+              null ,
+              null
+            ] ,
+            [
+              "2" ,
+              "Quantity" ,
+              "Number" ,
+              0.8
+            ] ,
+            [
+              "Shostakovich" ,
+              "Person" ,
+              null ,
+              0.99
+            ] ,
+            [
+              "TANIA VIERA LEON" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "pianist" ,
+              "PersonType" ,
+              null ,
+              0.97
+            ] ,
+            [
+              "Choreography" ,
+              "Skill" ,
+              null ,
+              0.97
+            ] ,
+            [
+              "ARTHUR MITCHELL" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Conducted" ,
+              "Skill" ,
+              null ,
+              0.56
+            ] ,
+            [
+              "MELVIN STRAUSS" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Piano Concerto No." ,
+              "WORK_OF_ART" ,
+              null ,
+              null
+            ]
+          ]
+        ] ,
+        [
+          "\"Agon\". Stravinsky. Choreography, GEORGE BALANCHINE, Conducted by JOHN LANDIS" ,
+          [
+            [
+              "Stravinsky" ,
+              "Person" ,
+              null ,
+              0.99
+            ] ,
+            [
+              "Choreography" ,
+              "Skill" ,
+              null ,
+              0.98
+            ] ,
+            [
+              "GEORGE BALANCHINE" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Conducted" ,
+              "Skill" ,
+              null ,
+              0.79
+            ] ,
+            [
+              "JOHN LANDIS" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Agon" ,
+              "WORK_OF_ART" ,
+              null ,
+              null
+            ]
+          ]
+        ] ,
+        [
+          "Mobre. \"Rhymetron\",. Choreography, ARTHUR MITCHEL" ,
+          [
+            [
+              "Choreography" ,
+              "Skill" ,
+              null ,
+              0.95
+            ] ,
+            [
+              "ARTHUR MITCHEL" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Rhymetron" ,
+              "WORK_OF_ART" ,
+              null ,
+              null
+            ]
+          ]
+        ] ,
+        [
+          "USHERS COURTESY OF PHILHARMONIC SERVICE COMMITTEE. THE STEINWAY IS THE OFFICIAL PIANO OF THE BUFFALO PHILHARMONIC ORCHESTRA. Taking of pictures and use of recording equipment prohibited" ,
+          [
+            [
+              "USHERS" ,
+              "PersonType" ,
+              null ,
+              0.9
+            ] ,
+            [
+              "PHILHARMONIC" ,
+              "Skill" ,
+              null ,
+              0.72
+            ] ,
+            [
+              "PHILHARMONIC SERVICE COMMITTEE" ,
+              "Organization" ,
+              null ,
+              0.82
+            ] ,
+            [
+              "BUFFALO PHILHARMONIC ORCHESTRA" ,
+              "Organization" ,
+              null ,
+              0.84
+            ] ,
+            [
+              "recording equipment" ,
+              "Product" ,
+              null ,
+              0.76
+            ] ,
+            [
+              "THE BUFFALO PHILHARMONIC ORCHESTRA" ,
+              "FAC" ,
+              null ,
+              null
+            ]
+          ]
+        ] ,
+        [
+          "Did you see the Courier Today ?" ,
+          [
+            [
+              "Courier" ,
+              "Product" ,
+              null ,
+              0.67
+            ] ,
+            [
+              "Today" ,
+              "DateTime" ,
+              "Date" ,
+              0.8
+            ] ,
+            [
+              "the Courier Today" ,
+              "ORG" ,
+              null ,
+              null
+            ]
+          ]
+        ] ,
+        [
+          "BENEFIT GROUPS. Join now in a plan benefitting your non-profit organization and the Buffalo Philharmonic Orchestra. Please call, 835-5000 for more information., A number of community non-profit organizations are availing themselves of the opportunity to sell tickets to, BUFFALO POPS programs. Proceeds are divided between the participating group and the Philharmonic., We wish to express cur appreciation for the generous support of the following Benefit Groups for tonight's, concert:. BALLET ASSOCIATION OF WESTERN NEW YORK. AFRICAN CULTURAL CENTER, INC. - Patrons, Mr. and Mrs. John Terry, Mr. and Mrs. Clifton McGowan, Mr. and Mrs. Theodore Grinage, Mir. and Mrs. Edward Lawrence, Mr. Roger Squire, Mrs. Agnes Bain, Mr. and Mrs. Gillis Spikes, Mr. and Mrs. Jesse E. Nash, Jr., Mr. William Bailey, Mr. Guy T. Outlaw, Dr. Elizabeth Olmstead. AMERICAN ACADEMY BALLET GUILD - Patrons, Mr. and Mrs. Herb Zimmer, Mr. and Mrs. Donald Mitchell, Mr. and Mrs. Charles Battaglia, Shelly and Mrs. Badrow, Jan and Mrs. Sandburg, Dr. and Mrs. Norman Schaaf, Mr. and Mrs. Carl Blum, Janice Blum, Macis Lyme Battaglia, Bailey Slipper Shop. EAST HIGH SCHOOL CHOIR - Patrons, Mr. and Mrs. Alonzo Thompson, Wilson Thompson, Mr. and Mrs. Stanley I. Wegrzynowski, Mrs. Roberta Williams, Mrs. Bommer and Mrs. Rademaker, Miss Wright and Mr. Ganter, Mr. and Mrs. Carl Johnson, Dr. and Mrs. George Blackman, Mrs. Alma Harvey, Mr. and Mrs. John Lane, E. T. Montagu, Deborah and Rae-Myra Hilliard, Mr. and Mrs. Ronald Lee, Mr. and Mrs. Edward Robinson, Mr. and Mrs. Elvin Shephard, Mr. and Mrs. Kenneth J. Rummenie, Mr. Anthony J. Alessi, Mr. lack Anthony, Mr. and Mrs. Lewis Alford, Mr. Harvey Austin, Herbert Cadle, Mrs. Lueretta Chapman, Miss Rose Curry, Mrs. Victor Dilivio, Steven's Food Market" ,
+          [
+            [
+              "now" ,
+              "DateTime" ,
+              null ,
+              0.8
+            ] ,
+            [
+              "Buffalo Philharmonic Orchestra" ,
+              "Organization" ,
+              null ,
+              0.95
+            ] ,
+            [
+              "835-5000" ,
+              "PhoneNumber" ,
+              null ,
+              0.8
+            ] ,
+            [
+              "tickets" ,
+              "Product" ,
+              null ,
+              0.79
+            ] ,
+            [
+              "BUFFALO POPS" ,
+              "Organization" ,
+              null ,
+              0.54
+            ] ,
+            [
+              "Philharmonic" ,
+              "Organization" ,
+              null ,
+              0.84
+            ] ,
+            [
+              "tonight" ,
+              "DateTime" ,
+              "DateTimeRange" ,
+              0.8
+            ] ,
+            [
+              "concert" ,
+              "Event" ,
+              null ,
+              0.89
+            ] ,
+            [
+              "BALLET ASSOCIATION OF WESTERN" ,
+              "Organization" ,
+              null ,
+              0.86
+            ] ,
+            [
+              "NEW YORK" ,
+              "Location" ,
+              "GPE" ,
+              0.55
+            ] ,
+            [
+              "AFRICAN CULTURAL CENTER, INC." ,
+              "Organization" ,
+              null ,
+              0.92
+            ] ,
+            [
+              "Patrons" ,
+              "PersonType" ,
+              null ,
+              0.59
+            ] ,
+            [
+              "John Terry" ,
+              "Person" ,
+              null ,
+              0.99
+            ] ,
+            [
+              "Clifton McGowan" ,
+              "Person" ,
+              null ,
+              0.99
+            ] ,
+            [
+              "Theodore Grinage" ,
+              "Person" ,
+              null ,
+              0.99
+            ] ,
+            [
+              "Edward Lawrence" ,
+              "Person" ,
+              null ,
+              0.99
+            ] ,
+            [
+              "Roger Squire" ,
+              "Person" ,
+              null ,
+              0.99
+            ] ,
+            [
+              "Agnes Bain" ,
+              "Person" ,
+              null ,
+              0.99
+            ] ,
+            [
+              "Gillis Spikes" ,
+              "Person" ,
+              null ,
+              0.99
+            ] ,
+            [
+              "Jesse E. Nash, Jr." ,
+              "Person" ,
+              null ,
+              0.86
+            ] ,
+            [
+              "William Bailey" ,
+              "Person" ,
+              null ,
+              0.99
+            ] ,
+            [
+              "Guy T. Outlaw" ,
+              "Person" ,
+              null ,
+              0.99
+            ] ,
+            [
+              "Elizabeth Olmstead" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "AMERICAN ACADEMY BALLET GUILD" ,
+              "Organization" ,
+              null ,
+              0.83
+            ] ,
+            [
+              "Herb Zimmer" ,
+              "Person" ,
+              null ,
+              0.99
+            ] ,
+            [
+              "Donald Mitchell" ,
+              "Person" ,
+              null ,
+              0.99
+            ] ,
+            [
+              "Charles Battaglia" ,
+              "Person" ,
+              null ,
+              0.98
+            ] ,
+            [
+              "Shelly" ,
+              "Person" ,
+              null ,
+              0.96
+            ] ,
+            [
+              "Badrow" ,
+              "Person" ,
+              null ,
+              0.89
+            ] ,
+            [
+              "Jan" ,
+              "Person" ,
+              null ,
+              0.97
+            ] ,
+            [
+              "Sandburg" ,
+              "Person" ,
+              null ,
+              0.93
+            ] ,
+            [
+              "Norman Schaaf" ,
+              "Person" ,
+              null ,
+              0.99
+            ] ,
+            [
+              "Carl Blum" ,
+              "Person" ,
+              null ,
+              0.98
+            ] ,
+            [
+              "Janice Blum" ,
+              "Person" ,
+              null ,
+              0.99
+            ] ,
+            [
+              "Macis Lyme Battaglia" ,
+              "Person" ,
+              null ,
+              0.78
+            ] ,
+            [
+              "Bailey Slipper" ,
+              "Location" ,
+              null ,
+              0.54
+            ] ,
+            [
+              "Shop" ,
+              "Organization" ,
+              null ,
+              0.53
+            ] ,
+            [
+              "SCHOOL CHOIR" ,
+              "Location" ,
+              null ,
+              0.54
+            ] ,
+            [
+              "Alonzo Thompson" ,
+              "Person" ,
+              null ,
+              0.99
+            ] ,
+            [
+              "Wilson Thompson" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Stanley I. Wegrzynowski" ,
+              "Person" ,
+              null ,
+              0.99
+            ] ,
+            [
+              "Roberta Williams" ,
+              "Person" ,
+              null ,
+              0.99
+            ] ,
+            [
+              "Bommer" ,
+              "Person" ,
+              null ,
+              0.99
+            ] ,
+            [
+              "Rademaker" ,
+              "Person" ,
+              null ,
+              0.96
+            ] ,
+            [
+              "Wright" ,
+              "Person" ,
+              null ,
+              0.87
+            ] ,
+            [
+              "Ganter" ,
+              "Person" ,
+              null ,
+              0.97
+            ] ,
+            [
+              "Carl Johnson" ,
+              "Person" ,
+              null ,
+              0.99
+            ] ,
+            [
+              "George Blackman" ,
+              "Person" ,
+              null ,
+              0.99
+            ] ,
+            [
+              "Alma Harvey" ,
+              "Person" ,
+              null ,
+              0.99
+            ] ,
+            [
+              "John Lane" ,
+              "Person" ,
+              null ,
+              0.97
+            ] ,
+            [
+              "E. T. Montagu" ,
+              "Person" ,
+              null ,
+              0.97
+            ] ,
+            [
+              "Deborah" ,
+              "Person" ,
+              null ,
+              0.98
+            ] ,
+            [
+              "Rae-Myra Hilliard" ,
+              "Person" ,
+              null ,
+              0.99
+            ] ,
+            [
+              "Ronald Lee" ,
+              "Person" ,
+              null ,
+              0.99
+            ] ,
+            [
+              "Edward Robinson" ,
+              "Person" ,
+              null ,
+              0.99
+            ] ,
+            [
+              "Elvin Shephard" ,
+              "Person" ,
+              null ,
+              0.99
+            ] ,
+            [
+              "Kenneth J. Rummenie" ,
+              "Person" ,
+              null ,
+              0.99
+            ] ,
+            [
+              "Anthony J. Alessi" ,
+              "Person" ,
+              null ,
+              0.99
+            ] ,
+            [
+              "lack Anthony" ,
+              "Person" ,
+              null ,
+              0.87
+            ] ,
+            [
+              "Lewis Alford" ,
+              "Person" ,
+              null ,
+              0.98
+            ] ,
+            [
+              "Harvey Austin" ,
+              "Person" ,
+              null ,
+              0.99
+            ] ,
+            [
+              "Herbert Cadle" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Lueretta Chapman" ,
+              "Person" ,
+              null ,
+              0.99
+            ] ,
+            [
+              "Rose Curry" ,
+              "Person" ,
+              null ,
+              0.95
+            ] ,
+            [
+              "Victor Dilivio" ,
+              "Person" ,
+              null ,
+              0.99
+            ] ,
+            [
+              "Steven's Food Market" ,
+              "Organization" ,
+              null ,
+              0.62
+            ] ,
+            [
+              "the Buffalo Philharmonic Orchestra" ,
+              "ORG" ,
+              null ,
+              null
+            ] ,
+            [
+              "Benefit Groups" ,
+              "ORG" ,
+              null ,
+              null
+            ] ,
+            [
+              "BALLET ASSOCIATION OF WESTERN NEW YORK" ,
+              "ORG" ,
+              null ,
+              null
+            ] ,
+            [
+              "Jan and Mrs. Sandburg" ,
+              "PERSON" ,
+              null ,
+              null
+            ] ,
+            [
+              "Bailey Slipper Shop" ,
+              "ORG" ,
+              null ,
+              null
+            ]
+          ]
+        ] ,
+        [
+          "FIRST and LAST WORD on Entertainment. FOCUS, MUSIC REVIEWS BY THOMAS PUTNAM. movies. radio. television. records. music, art. lectures. exhibits. theater. ALL IN ONE HANDY SUPPLEMENT. Courier == EXPRESS" ,
+          [
+            [
+              "FIRST" ,
+              "Quantity" ,
+              "Ordinal" ,
+              0.8
+            ] ,
+            [
+              "Entertainment" ,
+              "Skill" ,
+              null ,
+              0.63
+            ] ,
+            [
+              "THOMAS PUTNAM" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "radio" ,
+              "Product" ,
+              null ,
+              0.52
+            ] ,
+            [
+              "television" ,
+              "Product" ,
+              null ,
+              0.74
+            ] ,
+            [
+              "music" ,
+              "Skill" ,
+              null ,
+              0.97
+            ] ,
+            [
+              "art" ,
+              "Skill" ,
+              null ,
+              0.85
+            ] ,
+            [
+              "exhibits" ,
+              "Event" ,
+              null ,
+              0.61
+            ] ,
+            [
+              "theater" ,
+              "Location" ,
+              "Structural" ,
+              0.87
+            ] ,
+            [
+              "ONE" ,
+              "Quantity" ,
+              "Number" ,
+              0.8
+            ] ,
+            [
+              "Courier" ,
+              "ORG" ,
+              null ,
+              null
+            ]
+          ]
+        ] ,
+        [
+          "Community Concert, Mon., May 22 - 8:00 p.m., MARYGOLD MANOR, CHEEKTOWAGA, MELVIN STRAUSS, Conductor" ,
+          [
+            [
+              "Community Concert" ,
+              "Event" ,
+              null ,
+              0.79
+            ] ,
+            [
+              "Mon" ,
+              "DateTime" ,
+              "Date" ,
+              0.8
+            ] ,
+            [
+              "May 22 - 8:00 p.m." ,
+              "DateTime" ,
+              null ,
+              0.8
+            ] ,
+            [
+              "MARYGOLD" ,
+              "Organization" ,
+              null ,
+              0.54
+            ] ,
+            [
+              "MANOR" ,
+              "Person" ,
+              null ,
+              0.52
+            ] ,
+            [
+              "CHEEKTOWAGA" ,
+              "Organization" ,
+              null ,
+              0.68
+            ] ,
+            [
+              "MELVIN STRAUSS" ,
+              "Person" ,
+              null ,
+              0.92
+            ] ,
+            [
+              "Conductor" ,
+              "PersonType" ,
+              null ,
+              0.9
+            ] ,
+            [
+              "Mon., May 22 - 8:00 p.m." ,
+              "DATE" ,
+              null ,
+              null
+            ] ,
+            [
+              "MARYGOLD MANOR" ,
+              "PERSON" ,
+              null ,
+              null
+            ]
+          ]
+        ] ,
+        [
+          "Community Concert, Sat., May 27 - 2:30 p.m., LANCASTER SR. HIGH AUDITORIUM, MELVIN STRAUSS, Conductor" ,
+          [
+            [
+              "Community Concert" ,
+              "Event" ,
+              null ,
+              0.79
+            ] ,
+            [
+              "May 27 - 2:30 p.m." ,
+              "DateTime" ,
+              null ,
+              0.8
+            ] ,
+            [
+              "LANCASTER SR. HIGH AUDITORIUM" ,
+              "Organization" ,
+              null ,
+              0.73
+            ] ,
+            [
+              "SR" ,
+              "Quantity" ,
+              "Currency" ,
+              0.8
+            ] ,
+            [
+              "MELVIN STRAUSS" ,
+              "Person" ,
+              null ,
+              0.97
+            ] ,
+            [
+              "Conductor" ,
+              "PersonType" ,
+              null ,
+              0.92
+            ] ,
+            [
+              "Sat., May 27 - 2:30 p.m." ,
+              "DATE" ,
+              null ,
+              null
+            ]
+          ]
+        ] ,
+        [
+          "Community Concert, Sat., May 27 - 8:00 p.m., VILLA MARIA AUDITORIUM, MELVIN STRAUSS, Conductor" ,
+          [
+            [
+              "Community Concert" ,
+              "Event" ,
+              null ,
+              0.82
+            ] ,
+            [
+              "May 27 - 8:00 p.m." ,
+              "DateTime" ,
+              null ,
+              0.8
+            ] ,
+            [
+              "VILLA MARIA AUDITORIUM" ,
+              "Organization" ,
+              null ,
+              0.58
+            ] ,
+            [
+              "MELVIN STRAUSS" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Conductor" ,
+              "PersonType" ,
+              null ,
+              0.95
+            ] ,
+            [
+              "Sat., May 27 - 8:00 p.m." ,
+              "DATE" ,
+              null ,
+              null
+            ]
+          ]
+        ] ,
+        [
+          "Community Concert, Thur., May 18 - 8:00 p.m., AFRICAN CULTURAL CENTER. MELVIN STRAUSS, Conductor" ,
+          [
+            [
+              "Community Concert" ,
+              "Event" ,
+              null ,
+              0.86
+            ] ,
+            [
+              "Thur" ,
+              "DateTime" ,
+              "Date" ,
+              0.8
+            ] ,
+            [
+              "May 18 - 8:00 p.m." ,
+              "DateTime" ,
+              null ,
+              0.8
+            ] ,
+            [
+              "AFRICAN CULTURAL CENTER" ,
+              "Location" ,
+              null ,
+              0.95
+            ] ,
+            [
+              "MELVIN STRAUSS" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Conductor" ,
+              "PersonType" ,
+              null ,
+              0.98
+            ] ,
+            [
+              "Thur., May 18 - 8:00 p.m." ,
+              "DATE" ,
+              null ,
+              null
+            ]
+          ]
+        ] ,
+        [
+          "Community Concert. Sat., May 13 - 8:00 p.m. WEST SENECA CENTRAL SCHOOL. MELVIN STRAUSS, Conductor" ,
+          [
+            [
+              "Community" ,
+              "Skill" ,
+              null ,
+              0.76
+            ] ,
+            [
+              "Community Concert" ,
+              "Event" ,
+              null ,
+              0.92
+            ] ,
+            [
+              "May 13 - 8:00 p.m." ,
+              "DateTime" ,
+              null ,
+              0.8
+            ] ,
+            [
+              "WEST SENECA CENTRAL SCHOOL" ,
+              "Organization" ,
+              null ,
+              0.66
+            ] ,
+            [
+              "MELVIN STRAUSS" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Conductor" ,
+              "PersonType" ,
+              null ,
+              0.98
+            ] ,
+            [
+              "Sat., May 13" ,
+              "DATE" ,
+              null ,
+              null
+            ] ,
+            [
+              "8:00 p.m." ,
+              "TIME" ,
+              null ,
+              null
+            ]
+          ]
+        ] ,
+        [
+          "Cabaret Concert. Sat., May 6 - 9:00 p.m. MAIN PLACE MALL. MELVIN STRAUSS, Conductor. After Concert Dancing" ,
+          [
+            [
+              "Cabaret" ,
+              "Skill" ,
+              null ,
+              0.52
+            ] ,
+            [
+              "Cabaret Concert" ,
+              "Event" ,
+              null ,
+              0.89
+            ] ,
+            [
+              "May 6 - 9:00 p.m." ,
+              "DateTime" ,
+              null ,
+              0.8
+            ] ,
+            [
+              "MELVIN STRAUSS" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Conductor" ,
+              "PersonType" ,
+              null ,
+              0.98
+            ] ,
+            [
+              "Concert" ,
+              "Event" ,
+              null ,
+              0.72
+            ] ,
+            [
+              "Sat., May 6 - 9:00 p.m." ,
+              "DATE" ,
+              null ,
+              null
+            ]
+          ]
+        ] ,
+        [
+          "The Buffalo. Philharmonic Orchestra" ,
+          [
+            [
+              "Philharmonic Orchestra" ,
+              "Organization" ,
+              null ,
+              0.97
+            ] ,
+            [
+              "The Buffalo. Philharmonic Orchestra" ,
+              "ORG" ,
+              null ,
+              null
+            ]
+          ]
+        ]
+      ] ,
+      "count" : {
+        "person" : 72 ,
+        "skill_persontype" : 23 ,
+        "workofart" : 6 ,
+        "org" : 23 ,
+        "location_gpe" : 5 ,
+        "date_time" : 18 ,
+        "other" : 22 ,
+        "stopword" : 79 ,
+        "total" : 248
+      } ,
+      "tf-idf" : {
+        "person" : 0.009842385970359122 ,
+        "skill_persontype" : 0.0031440955183091638 ,
+        "workofart" : 0.024273438117672214 ,
+        "org" : 0.0031440955183091638 ,
+        "location_gpe" : 0.0006834990257193834 ,
+        "date_time" : 0.24686110028193065 ,
+        "other" : 0.003007395713165287 ,
+        "stopword" : 0.010799284606366257
+      } ,
+      "label" : "Other"
+    } ,
+    {
+      "page_number" : 2 ,
+      "details" : [
+        [
+          "THE DANCE THEATRE OF HARLEM" ,
+          [
+            [
+              "DANCE THEATRE OF HARLEM" ,
+              "Location" ,
+              "Structural" ,
+              0.52
+            ] ,
+            [
+              "HARLEM" ,
+              "GPE" ,
+              null ,
+              null
+            ]
+          ]
+        ] ,
+        [
+          "ARTHUR MITCHELL - KAREL SHOOK, Co-Directors" ,
+          [
+            [
+              "ARTHUR MITCHELL" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "KAREL SHOOK" ,
+              "Person" ,
+              null ,
+              0.98
+            ] ,
+            [
+              "Co-Directors" ,
+              "PersonType" ,
+              null ,
+              0.9
+            ] ,
+            [
+              "ARTHUR MITCHELL - KAREL SHOOK" ,
+              "PERSON" ,
+              null ,
+              null
+            ]
+          ]
+        ] ,
+        [
+          "THORNER. SIDNEY PRESS - Buffalo" ,
+          [
+            [
+              "THORNER" ,
+              "Person" ,
+              null ,
+              0.58
+            ] ,
+            [
+              "SIDNEY PRESS" ,
+              "Organization" ,
+              null ,
+              0.98
+            ] ,
+            [
+              "Buffalo" ,
+              "Location" ,
+              "GPE" ,
+              0.94
+            ] ,
+            [
+              "THORNER. SIDNEY PRESS" ,
+              "ORG" ,
+              null ,
+              null
+            ]
+          ]
+        ] ,
+        [
+          "DANCERS. Olinda Davis. Lydia Abarca. Yvonne Hall. Virginia Johnson. Pamela Jones. Susan Lovelle. Gayle Mckinney. Melva Murray-White. Cassandra Phifer. Roslyn Sampson. Ronda Sampson. Llanchie Stevenson" ,
+          [
+            [
+              "Olinda Davis" ,
+              "Person" ,
+              null ,
+              0.99
+            ] ,
+            [
+              "Lydia Abarca" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Yvonne Hall" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Virginia Johnson" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Pamela Jones" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Susan Lovelle" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Gayle Mckinney" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Melva Murray-White" ,
+              "Person" ,
+              null ,
+              0.99
+            ] ,
+            [
+              "Cassandra Phifer" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Roslyn Sampson" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Ronda Sampson" ,
+              "Person" ,
+              null ,
+              0.98
+            ] ,
+            [
+              "Llanchie Stevenson" ,
+              "Person" ,
+              null ,
+              1.0
+            ]
+          ]
+        ] ,
+        [
+          "Gerald Banks. Homer Bryant. Lazar Dano. Edward Moore. Ronald Perry. Walter Raines. Paul Russell. William Scott. Samuel Smalls. Derek Williams" ,
+          [
+            [
+              "Gerald Banks" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Homer Bryant" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Lazar Dano" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Edward Moore" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Ronald Perry" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Walter Raines" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Paul Russell" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "William Scott" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Samuel Smalls" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Derek Williams" ,
+              "Person" ,
+              null ,
+              1.0
+            ]
+          ]
+        ] ,
+        [
+          "ADMINISTRATIVE STAFF. Administrative Director. Richard Gonsalves. Company Manager. Kathleen Standford-Grant. Public Relations. Martha J. Plimpton. Technical Director. Fred Barry. Director of Wardrobe & Fashion. Zelda Wynn. Registrars. Edward Williams,, Sandra Vernon. Tutor. Mario Landa" ,
+          [
+            [
+              "ADMINISTRATIVE" ,
+              "PersonType" ,
+              null ,
+              0.53
+            ] ,
+            [
+              "Administrative Director" ,
+              "PersonType" ,
+              null ,
+              0.94
+            ] ,
+            [
+              "Richard Gonsalves" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Company Manager" ,
+              "PersonType" ,
+              null ,
+              0.94
+            ] ,
+            [
+              "Kathleen Standford-Grant" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Public Relations" ,
+              "Skill" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Martha J. Plimpton" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Technical Director" ,
+              "PersonType" ,
+              null ,
+              0.96
+            ] ,
+            [
+              "Fred Barry" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Director" ,
+              "PersonType" ,
+              null ,
+              0.98
+            ] ,
+            [
+              "Fashion" ,
+              "Skill" ,
+              null ,
+              0.53
+            ] ,
+            [
+              "Zelda Wynn" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Registrars" ,
+              "PersonType" ,
+              null ,
+              0.92
+            ] ,
+            [
+              "Edward Williams" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Sandra Vernon" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Tutor" ,
+              "PersonType" ,
+              null ,
+              0.99
+            ] ,
+            [
+              "Mario Landa" ,
+              "Person" ,
+              null ,
+              1.0
+            ]
+          ]
+        ] ,
+        [
+          "PRODUCTION STAFF. Production Manager and Lighting Designer. Fred Barry. Gary Fails. Stage Manager., Master Electrician. Jerome King. Assistant Stage Manager. Lorenzo James. Musical Director-Conductor. Tania Leon Viera. Costumes. Zelda Wynn. Ballet Master. William Scott. Staff and Musical Assistant. David Gagne. Wardrobe Master. Photographers. Marbeth and Martha Swope. Staff Pianist. Edward Muller" ,
+          [
+            [
+              "PRODUCTION" ,
+              "Skill" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "STAFF" ,
+              "PersonType" ,
+              null ,
+              0.51
+            ] ,
+            [
+              "Production Manager" ,
+              "PersonType" ,
+              null ,
+              0.92
+            ] ,
+            [
+              "Lighting Designer" ,
+              "PersonType" ,
+              null ,
+              0.95
+            ] ,
+            [
+              "Fred Barry" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Gary Fails" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Stage Manager" ,
+              "PersonType" ,
+              null ,
+              0.95
+            ] ,
+            [
+              "Master Electrician" ,
+              "PersonType" ,
+              null ,
+              0.95
+            ] ,
+            [
+              "Jerome King" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Assistant Stage Manager" ,
+              "PersonType" ,
+              null ,
+              0.96
+            ] ,
+            [
+              "Lorenzo James" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Musical Director" ,
+              "PersonType" ,
+              null ,
+              0.58
+            ] ,
+            [
+              "Conductor" ,
+              "PersonType" ,
+              null ,
+              0.92
+            ] ,
+            [
+              "Tania Leon Viera" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Costumes" ,
+              "Product" ,
+              null ,
+              0.98
+            ] ,
+            [
+              "Zelda Wynn" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Ballet Master" ,
+              "PersonType" ,
+              null ,
+              0.72
+            ] ,
+            [
+              "William Scott" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Staff" ,
+              "PersonType" ,
+              null ,
+              0.93
+            ] ,
+            [
+              "Musical Assistant" ,
+              "PersonType" ,
+              null ,
+              0.95
+            ] ,
+            [
+              "David Gagne" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Wardrobe Master" ,
+              "Product" ,
+              null ,
+              0.65
+            ] ,
+            [
+              "Photographers" ,
+              "PersonType" ,
+              null ,
+              0.99
+            ] ,
+            [
+              "Marbeth" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Martha Swope" ,
+              "Person" ,
+              null ,
+              1.0
+            ] ,
+            [
+              "Pianist" ,
+              "PersonType" ,
+              null ,
+              0.51
+            ] ,
+            [
+              "Edward Muller" ,
+              "Person" ,
+              null ,
+              1.0
+            ]
+          ]
+        ]
+      ] ,
+      "count" : {
+        "person" : 45 ,
+        "skill_persontype" : 24 ,
+        "workofart" : 0 ,
+        "org" : 2 ,
+        "location_gpe" : 3 ,
+        "date_time" : 0 ,
+        "other" : 2 ,
+        "stopword" : 5 ,
+        "total" : 81
+      } ,
+      "tf-idf" : {
+        "person" : 0.018834195375378567 ,
+        "skill_persontype" : 0.0100449042002019 ,
+        "workofart" : 0.0 ,
+        "org" : 0.000837075350016825 ,
+        "location_gpe" : 0.0012556130250252376 ,
+        "date_time" : 0.0 ,
+        "other" : 0.000837075350016825 ,
+        "stopword" : 0.0020926883750420626
+      } ,
+      "label" : "Company"
+    }
+  ] ,
+  "first ocr" : [
+    [
+      1 ,
+      [
+        [
+          "buffalo" ,
+          89.117 ,
+          119.3205 ,
+          634.375 ,
+          303.601 ,
+          545.2579999999999 ,
+          184.2805 ,
+          419.01768137700645
+        ] ,
+        [
+          "pop!" ,
+          93.641 ,
+          297.55449999999996 ,
+          471.25 ,
+          471.25 ,
+          377.60900000000004 ,
+          173.69550000000004 ,
+          477.01210705317794
+        ] ,
+        [
+          "MELVIN STRAUSS, Director" ,
+          350.42150000000004 ,
+          445.57050000000004 ,
+          666.101 ,
+          478.80449999999996 ,
+          315.67949999999996 ,
+          33.233999999999945 ,
+          686.9838305286468
+        ] ,
+        [
+          "THE DANCE THEATRE" ,
+          715.9375 ,
+          293.01599999999996 ,
+          1108.641 ,
+          364.00800000000004 ,
+          392.7035000000001 ,
+          70.99200000000003 ,
+          969.6348847940459
+        ] ,
+        [
+          "OF HARLEM" ,
+          800.5160000000001 ,
+          376.101 ,
+          1019.5385 ,
+          439.5385 ,
+          219.02249999999992 ,
+          63.4375 ,
+          997.2294340986056
+        ] ,
+        [
+          "ARTHUR MITCHELL & KAREL SHOOK" ,
+          610.2035000000001 ,
+          504.48400000000004 ,
+          1104.117 ,
+          537.7035 ,
+          493.9135 ,
+          33.21949999999998 ,
+          1003.1263083326671
+        ] ,
+        [
+          "Presents" ,
+          998.3829999999999 ,
+          212.97600000000003 ,
+          1105.625 ,
+          244.6875 ,
+          107.24200000000003 ,
+          31.711499999999983 ,
+          1076.604098925906
+        ] ,
+        [
+          "MELVIN STRAUSS & JOHN LANDIS" ,
+          641.9295000000001 ,
+          634.375 ,
+          1104.117 ,
+          666.101 ,
+          462.1875 ,
+          31.725999999999985 ,
+          1088.5674309313881
+        ] ,
+        [
+          "TANIA VIERA LEON, Pianist" ,
+          743.125 ,
+          583.0160000000001 ,
+          1107.133 ,
+          617.7579999999999 ,
+          364.008 ,
+          34.741999999999905 ,
+          1102.872710882811
+        ] ,
+        [
+          "100000." ,
+          391.19550000000004 ,
+          986.3045000000001 ,
+          427.44550000000004 ,
+          1166.0465000000002 ,
+          36.25 ,
+          179.74200000000005 ,
+          1151.3891516427016
+        ] ,
+        [
+          "Friday, May 5, 1972 - 8:30 p.m." ,
+          702.351 ,
+          711.4135 ,
+          1099.5785 ,
+          750.6795000000001 ,
+          397.2275000000001 ,
+          39.266000000000055 ,
+          1160.2441406466196
+        ] ,
+        [
+          "CO-DIRECTORS" ,
+          937.976 ,
+          542.242 ,
+          1105.625 ,
+          569.4295 ,
+          167.64900000000003 ,
+          27.1875 ,
+          1163.1980238885865
+        ] ,
+        [
+          "CONDUCTORS" ,
+          948.5464999999999 ,
+          672.1329999999999 ,
+          1102.609 ,
+          697.8125 ,
+          154.0625 ,
+          25.679500000000036 ,
+          1233.287229131002
+        ] ,
+        [
+          "Kleinhans Music Hall" ,
+          845.8285000000001 ,
+          762.7579999999999 ,
+          1104.117 ,
+          795.9920000000001 ,
+          258.2885 ,
+          33.23400000000007 ,
+          1248.1976020917373
+        ] ,
+        [
+          "Sponsored by Courier-Express" ,
+          785.4214999999999 ,
+          814.1170000000001 ,
+          1105.625 ,
+          845.8285000000001 ,
+          320.2035000000001 ,
+          31.711500000000015 ,
+          1258.1212111848067
+        ]
+      ]
+    ] ,
+    [
+      2 ,
+      [
+        [
+          "Concerto Barocco ..................." ,
+          106.7925 ,
+          320.16 ,
+          460.2155 ,
+          353.191 ,
+          353.42300000000006 ,
+          33.03099999999997 ,
+          440.14192065315706
+        ] ,
+        [
+          "(Concerto for two violins)" ,
+          155.1065 ,
+          355.7285 ,
+          470.3945 ,
+          386.22200000000004 ,
+          315.288 ,
+          30.493500000000022 ,
+          485.2169734900177
+        ] ,
+        [
+          "program" ,
+          483.0965 ,
+          177.8715 ,
+          717.0250000000001 ,
+          231.2315 ,
+          233.9285 ,
+          53.360000000000014 ,
+          633.9670494929626
+        ] ,
+        [
+          "CHARLES HAUPT AND HARRY TAUB, violinists" ,
+          330.542 ,
+          401.476 ,
+          877.2064999999999 ,
+          429.4175 ,
+          546.6645 ,
+          27.94149999999998 ,
+          732.9802943453699
+        ] ,
+        [
+          "Fete Noire" ,
+          101.703 ,
+          706.382 ,
+          251.72 ,
+          741.965 ,
+          150.017 ,
+          35.58300000000001 ,
+          745.422170541298
+        ] ,
+        [
+          "Choreography, GEORGE BALANCHINE" ,
+          383.9455 ,
+          447.209 ,
+          828.9069999999999 ,
+          477.70250000000004 ,
+          444.96149999999994 ,
+          30.493500000000022 ,
+          762.6389167863944
+        ] ,
+        [
+          "Conducted by MELVIN STRAUSS" ,
+          419.5285 ,
+          492.942 ,
+          795.847 ,
+          523.4355 ,
+          376.3185 ,
+          30.493500000000022 ,
+          792.1743539945137
+        ] ,
+        [
+          "(Piano Concerto No. 2)" ,
+          155.1065 ,
+          747.04 ,
+          439.87199999999996 ,
+          774.996 ,
+          284.7655 ,
+          27.95600000000001 ,
+          817.0974545239768
+        ] ,
+        [
+          "intermission" ,
+          485.6485 ,
+          607.289 ,
+          727.1895000000001 ,
+          637.7825 ,
+          241.54100000000005 ,
+          30.493500000000022 ,
+          869.0769606824603
+        ] ,
+        [
+          "TANIA VIERA LEON, pianist" ,
+          439.87199999999996 ,
+          790.2355000000001 ,
+          770.414 ,
+          823.2665 ,
+          330.54200000000003 ,
+          33.030999999999906 ,
+          1008.4866020180933
+        ] ,
+        [
+          "Choreography, ARTHUR MITCHELL" ,
+          396.6475 ,
+          838.5205 ,
+          818.728 ,
+          869.014 ,
+          422.0805 ,
+          30.493500000000022 ,
+          1047.9517730662155
+        ] ,
+        [
+          "Conducted by MELVIN STRAUSS" ,
+          416.991 ,
+          884.2535 ,
+          795.847 ,
+          914.7470000000001 ,
+          378.856 ,
+          30.493500000000022 ,
+          1084.824733913761
+        ] ,
+        [
+          "J. S. Bach" ,
+          973.8345 ,
+          320.16 ,
+          1113.6725000000001 ,
+          353.191 ,
+          139.83800000000005 ,
+          33.03099999999997 ,
+          1096.70951535149
+        ] ,
+        [
+          "\"Agon\"" ,
+          94.07600000000001 ,
+          1092.6185 ,
+          195.779 ,
+          1133.262 ,
+          101.703 ,
+          40.64349999999993 ,
+          1122.336839066736
+        ] ,
+        [
+          "intermission" ,
+          485.6485 ,
+          996.063 ,
+          724.652 ,
+          1026.542 ,
+          239.00350000000006 ,
+          30.479000000000056 ,
+          1178.5328046267157
+        ] ,
+        [
+          "Shostakovich" ,
+          950.9535 ,
+          711.4715 ,
+          1116.2245 ,
+          741.965 ,
+          165.27100000000002 ,
+          30.493500000000022 ,
+          1263.4973825869456
+        ] ,
+        [
+          "Choreography, GEORGE BALANCHINE" ,
+          383.9455 ,
+          1143.4265 ,
+          831.4445 ,
+          1181.547 ,
+          447.49899999999997 ,
+          38.12050000000002 ,
+          1311.7426031621305
+        ] ,
+        [
+          "Conducted by JOHN LANDIS" ,
+          444.96150000000006 ,
+          1189.174 ,
+          783.1305 ,
+          1227.28 ,
+          338.169 ,
+          38.10600000000005 ,
+          1355.3099179320575
+        ] ,
+        [
+          "\"Rhymetron\"" ,
+          91.5385 ,
+          1407.6889999999999 ,
+          264.4365 ,
+          1443.272 ,
+          172.89800000000002 ,
+          35.58300000000001 ,
+          1436.5494095353977
+        ] ,
+        [
+          "intermission" ,
+          488.186 ,
+          1306.0585 ,
+          729.7415 ,
+          1336.552 ,
+          241.55550000000002 ,
+          30.493499999999763 ,
+          1454.882954911365
+        ] ,
+        [
+          ".................................." ,
+          269.526 ,
+          1422.943 ,
+          513.6189999999999 ,
+          1438.1825 ,
+          244.09299999999996 ,
+          15.239500000000028 ,
+          1483.185357412826
+        ] ,
+        [
+          "Stravinsky" ,
+          991.626 ,
+          1097.6934999999999 ,
+          1118.762 ,
+          1133.262 ,
+          127.13600000000004 ,
+          35.56850000000004 ,
+          1535.4885178278155
+        ] ,
+        [
+          "Choreography, ARTHUR MITCHEL" ,
+          401.73699999999997 ,
+          1455.974 ,
+          813.6385 ,
+          1486.4675 ,
+          411.9015 ,
+          30.493500000000022 ,
+          1591.7835583805436
+        ] ,
+        [
+          "........." ,
+          765.339 ,
+          1425.4805 ,
+          833.982 ,
+          1435.645 ,
+          68.64299999999997 ,
+          10.164500000000007 ,
+          1638.8919113070917
+        ] ,
+        [
+          "Mobre" ,
+          1037.4025 ,
+          1407.6889999999999 ,
+          1123.8515 ,
+          1435.645 ,
+          86.44900000000007 ,
+          27.95600000000001 ,
+          1785.7468387254671
+        ] ,
+        [
+          "USHERS COURTESY OF PHILHARMONIC SERVICE COMMITTEE" ,
+          300.034 ,
+          1684.6535 ,
+          917.8935 ,
+          1704.9825 ,
+          617.8595000000001 ,
+          20.329000000000015 ,
+          1800.9011360810628
+        ] ,
+        [
+          "concert:" ,
+          1314.541 ,
+          1201.876 ,
+          1390.8255000000001 ,
+          1224.7425 ,
+          76.2845000000002 ,
+          22.866500000000023 ,
+          1817.1052008527533
+        ] ,
+        [
+          "835-5000 for more information." ,
+          1314.541 ,
+          1095.156 ,
+          1594.2315 ,
+          1123.1119999999999 ,
+          279.6905000000001 ,
+          27.955999999999882 ,
+          1829.048275509715
+        ] ,
+        [
+          "Did you see the Courier Today ?" ,
+          1589.142 ,
+          266.8 ,
+          2069.701 ,
+          335.41400000000004 ,
+          480.55899999999997 ,
+          68.614 ,
+          1854.0357197506337
+        ] ,
+        [
+          "THE STEINWAY IS THE OFFICIAL PIANO OF THE BUFFALO PHILHARMONIC ORCHESTRA" ,
+          119.509 ,
+          1743.103 ,
+          1093.329 ,
+          1763.432 ,
+          973.8199999999999 ,
+          20.329000000000015 ,
+          1855.179487305002
+        ] ,
+        [
+          "FIRST and LAST WORD on Entertainment" ,
+          1507.7825 ,
+          465.0005 ,
+          2135.821 ,
+          505.6585 ,
+          628.0384999999999 ,
+          40.657999999999966 ,
+          1885.3398473148848
+        ] ,
+        [
+          "FOCUS" ,
+          1581.515 ,
+          515.8085 ,
+          2062.074 ,
+          589.4975000000001 ,
+          480.55899999999997 ,
+          73.689 ,
+          1903.7753382789813
+        ] ,
+        [
+          "Taking of pictures and use of recording equipment prohibited" ,
+          274.601 ,
+          1799.0005 ,
+          945.864 ,
+          1824.4045 ,
+          671.263 ,
+          25.404000000000035 ,
+          1911.7137998566889
+        ] ,
+        [
+          "MUSIC REVIEWS BY THOMAS PUTNAM" ,
+          1571.3505 ,
+          594.587 ,
+          2077.3424999999997 ,
+          619.991 ,
+          505.9919999999999 ,
+          25.404000000000035 ,
+          1922.7688580750546
+        ] ,
+        [
+          "movies . radio . television . records . music" ,
+          1411.169 ,
+          645.4095000000001 ,
+          2232.4345000000003 ,
+          673.351 ,
+          821.2655 ,
+          27.941499999999916 ,
+          1937.4581106163625
+        ] ,
+        [
+          "art . lectures . exhibits . theater" ,
+          1512.872 ,
+          680.978 ,
+          2130.7315 ,
+          708.934 ,
+          617.8594999999998 ,
+          27.95600000000001 ,
+          1949.8526760345414
+        ] ,
+        [
+          "Mr. William Bailey" ,
+          1319.6305 ,
+          1349.254 ,
+          1477.2745 ,
+          1377.1955 ,
+          157.64400000000015 ,
+          27.941500000000048 ,
+          1952.9595781195299
+        ] ,
+        [
+          "Mr. Guy T. Outlaw" ,
+          1317.0929999999998 ,
+          1372.1205 ,
+          1472.1850000000002 ,
+          1402.614 ,
+          155.09200000000018 ,
+          30.493500000000022 ,
+          1967.1822047521582
+        ] ,
+        [
+          "Mir. and Mrs. Edward Lawrence" ,
+          1317.0929999999998 ,
+          1326.3875 ,
+          1589.142 ,
+          1356.8664999999999 ,
+          272.0490000000001 ,
+          30.4789999999998 ,
+          1977.754655141848
+        ] ,
+        [
+          "ALL IN ONE HANDY SUPPLEMENT" ,
+          1606.9479999999999 ,
+          747.04 ,
+          2049.372 ,
+          772.4585000000001 ,
+          442.424 ,
+          25.4185 ,
+          1979.7444048350185
+        ] ,
+        [
+          "Dr. Elizabeth Olmstead" ,
+          1319.6305 ,
+          1397.5245 ,
+          1517.9615000000001 ,
+          1425.4805 ,
+          198.3310000000001 ,
+          27.95600000000001 ,
+          2001.3299071173274
+        ] ,
+        [
+          "Courier == EXPRESS" ,
+          1449.304 ,
+          808.027 ,
+          2186.6725 ,
+          879.1785 ,
+          737.3685 ,
+          71.15149999999993 ,
+          2004.1823462314064
+        ] ,
+        [
+          "Mr. and Mrs. Carl Blum" ,
+          1319.6305 ,
+          1496.632 ,
+          1525.5885 ,
+          1524.5735 ,
+          205.9580000000001 ,
+          27.941500000000048 ,
+          2075.0273390482866
+        ] ,
+        [
+          "Janice Blum" ,
+          1322.168 ,
+          1544.9025000000001 ,
+          1428.9605000000001 ,
+          1570.3210000000001 ,
+          106.79250000000019 ,
+          25.4185 ,
+          2078.05952022942
+        ] ,
+        [
+          "Mr. and Mrs. Charles Battaglia" ,
+          1322.168 ,
+          1473.751 ,
+          1589.142 ,
+          1504.2445 ,
+          266.9740000000001 ,
+          30.493500000000022 ,
+          2082.317405807785
+        ] ,
+        [
+          "Macis Lyme Battaglia" ,
+          1322.168 ,
+          1519.4985000000001 ,
+          1512.872 ,
+          1549.992 ,
+          190.70400000000012 ,
+          30.493500000000022 ,
+          2089.2117970176128
+        ] ,
+        [
+          "BENEFIT GROUPS" ,
+          1721.3674999999998 ,
+          1031.6315 ,
+          1942.5795 ,
+          1057.0355 ,
+          221.2120000000001 ,
+          25.404000000000035 ,
+          2108.734066667606
+        ] ,
+        [
+          "BUFFALO POPS programs. Proceeds are divided between the participating group and the Philharmonic." ,
+          1314.541 ,
+          1145.9785 ,
+          2227.3450000000003 ,
+          1171.3825 ,
+          912.8040000000002 ,
+          25.404000000000035 ,
+          2116.3127392541137
+        ] ,
+        [
+          "Join now in a plan benefitting your non-profit organization and the Buffalo Philharmonic Orchestra. Please call" ,
+          1355.2279999999998 ,
+          1072.2895 ,
+          2339.227 ,
+          1095.156 ,
+          983.9990000000001 ,
+          22.866500000000023 ,
+          2141.659271598499
+        ] ,
+        [
+          "Mr. Anthony J. Alessi" ,
+          1322.168 ,
+          1618.5914999999998 ,
+          1505.2450000000001 ,
+          1651.6225 ,
+          183.0770000000001 ,
+          33.031000000000034 ,
+          2161.513583022612
+        ] ,
+        [
+          "A number of community non-profit organizations are availing themselves of the opportunity to sell tickets to" ,
+          1355.2279999999998 ,
+          1123.1119999999999 ,
+          2341.7644999999998 ,
+          1145.9785 ,
+          986.5364999999999 ,
+          22.866500000000023 ,
+          2168.90094530885
+        ] ,
+        [
+          "Mr. lack Anthony" ,
+          1324.7199999999998 ,
+          1666.8764999999999 ,
+          1472.1850000000002 ,
+          1697.3555 ,
+          147.46500000000017 ,
+          30.479000000000056 ,
+          2187.5062587824177
+        ] ,
+        [
+          "Mr. Roger Squire" ,
+          1660.337 ,
+          1328.925 ,
+          1812.9060000000002 ,
+          1354.329 ,
+          152.56900000000013 ,
+          25.404000000000035 ,
+          2194.4970360862303
+        ] ,
+        [
+          "Mr. and Mrs. Lewis Alford" ,
+          1322.168 ,
+          1643.9955 ,
+          1553.559 ,
+          1674.489 ,
+          231.39100000000008 ,
+          30.493500000000022 ,
+          2195.571973044225
+        ] ,
+        [
+          "We wish to express cur appreciation for the generous support of the following Benefit Groups for tonight's" ,
+          1355.2279999999998 ,
+          1176.472 ,
+          2344.3165 ,
+          1199.3385 ,
+          989.0885000000001 ,
+          22.866500000000023 ,
+          2198.3576278321107
+        ] ,
+        [
+          "Mrs. Agnes Bain" ,
+          1660.337 ,
+          1354.329 ,
+          1807.8165000000001 ,
+          1377.1955 ,
+          147.47950000000014 ,
+          22.866500000000023 ,
+          2207.335203002848
+        ] ,
+        [
+          "Mr. Harvey Austin" ,
+          1322.168 ,
+          1689.743 ,
+          1482.364 ,
+          1720.2365 ,
+          160.19600000000014 ,
+          30.493500000000022 ,
+          2207.564264605011
+        ] ,
+        [
+          "BALLET ASSOCIATION OF WESTERN NEW YORK" ,
+          1520.499 ,
+          1239.982 ,
+          2145.9855 ,
+          1267.938 ,
+          625.4864999999999 ,
+          27.95600000000001 ,
+          2221.079203627161
+        ] ,
+        [
+          "Herbert Cadle" ,
+          1322.168 ,
+          1735.4759999999999 ,
+          1449.304 ,
+          1765.9695 ,
+          127.13600000000017 ,
+          30.493500000000022 ,
+          2232.7772860416603
+        ] ,
+        [
+          "AFRICAN CULTURAL CENTER, INC. - Patrons" ,
+          1548.4695 ,
+          1293.342 ,
+          2125.642 ,
+          1321.2979999999998 ,
+          577.1724999999999 ,
+          27.955999999999754 ,
+          2254.7415397353334
+        ] ,
+        [
+          "Dr. and Mrs. George Blackman" ,
+          1324.7199999999998 ,
+          1715.147 ,
+          1589.142 ,
+          1748.178 ,
+          264.42200000000014 ,
+          33.031000000000034 ,
+          2263.02959606525
+        ] ,
+        [
+          "Mr. and Mrs. Gillis Spikes" ,
+          1662.889 ,
+          1400.0765 ,
+          1894.2655 ,
+          1425.4805 ,
+          231.3765000000001 ,
+          25.404000000000035 ,
+          2271.4048789856492
+        ] ,
+        [
+          "Mr. and Mrs. Jesse E. Nash, Jr." ,
+          1660.337 ,
+          1377.1955 ,
+          1934.9525 ,
+          1400.0765 ,
+          274.61550000000005 ,
+          22.880999999999993 ,
+          2271.5273689081014
+        ] ,
+        [
+          "Mrs. Lueretta Chapman" ,
+          1327.2575 ,
+          1760.88 ,
+          1528.126 ,
+          1793.9255 ,
+          200.86850000000013 ,
+          33.0455 ,
+          2279.794786537952
+        ] ,
+        [
+          "Miss Rose Curry" ,
+          1327.2575 ,
+          1783.761 ,
+          1482.364 ,
+          1819.3295 ,
+          155.10650000000015 ,
+          35.56850000000004 ,
+          2284.525887599684
+        ] ,
+        [
+          "Mrs. Victor Dilivio" ,
+          1327.2575 ,
+          1806.6275 ,
+          1487.439 ,
+          1839.6585 ,
+          160.18150000000017 ,
+          33.031000000000034 ,
+          2303.145565357748
+        ] ,
+        [
+          "Shelly and Mrs. Badrow" ,
+          1665.4265 ,
+          1478.8405 ,
+          1873.922 ,
+          1501.707 ,
+          208.49550000000013 ,
+          22.866500000000023 ,
+          2313.5822442809604
+        ] ,
+        [
+          "Jan and Mrs. Sandburg" ,
+          1667.964 ,
+          1524.5735 ,
+          1866.295 ,
+          1549.992 ,
+          198.3310000000001 ,
+          25.4185 ,
+          2342.2179495550395
+        ] ,
+        [
+          "Dr. and Mrs. Norman Schaaf" ,
+          1665.4265 ,
+          1501.707 ,
+          1914.609 ,
+          1524.5735 ,
+          249.1825000000001 ,
+          22.866500000000023 ,
+          2343.876481704001
+        ] ,
+        [
+          "AMERICAN ACADEMY BALLET GUILD - Patrons" ,
+          1535.753 ,
+          1440.72 ,
+          2143.4480000000003 ,
+          1468.676 ,
+          607.695 ,
+          27.95600000000001 ,
+          2345.266780305441
+        ] ,
+        [
+          "Bailey Slipper Shop" ,
+          1667.964 ,
+          1549.992 ,
+          1838.3245000000002 ,
+          1575.3960000000002 ,
+          170.36050000000014 ,
+          25.404000000000035 ,
+          2348.515978004847
+        ] ,
+        [
+          "Mrs. Alma Harvey" ,
+          1667.964 ,
+          1626.2185 ,
+          1823.0705 ,
+          1651.6225 ,
+          155.10650000000015 ,
+          25.404000000000035 ,
+          2394.3456048298067
+        ] ,
+        [
+          "EAST HIGH SCHOOL CHOIR - Patrons" ,
+          1591.694 ,
+          1590.6355 ,
+          2092.5965 ,
+          1616.054 ,
+          500.9024999999999 ,
+          25.4185 ,
+          2442.173931039746
+        ] ,
+        [
+          "Mr. and Mrs. John Lane" ,
+          1665.4265 ,
+          1677.041 ,
+          1871.3845000000001 ,
+          1697.3555 ,
+          205.9580000000001 ,
+          20.31450000000005 ,
+          2444.1554670751434
+        ] ,
+        [
+          "E. T. Montagu" ,
+          1665.4265 ,
+          1720.2365 ,
+          1800.1895000000002 ,
+          1748.178 ,
+          134.76300000000015 ,
+          27.941500000000048 ,
+          2451.5501934116223
+        ] ,
+        [
+          "Deborah and Rae-Myra Hilliard" ,
+          1667.964 ,
+          1651.6225 ,
+          1934.9525 ,
+          1674.489 ,
+          266.98850000000004 ,
+          22.866500000000023 ,
+          2451.735355641209
+        ] ,
+        [
+          "Mr. and Mrs. Ronald Lee" ,
+          1665.4265 ,
+          1697.3555 ,
+          1886.6385 ,
+          1720.2365 ,
+          221.2120000000001 ,
+          22.880999999999993 ,
+          2464.6044734748516
+        ] ,
+        [
+          "Mr. and Mrs. John Terry" ,
+          2003.5955 ,
+          1326.3875 ,
+          2219.7180000000003 ,
+          1351.7914999999998 ,
+          216.12250000000012 ,
+          25.403999999999776 ,
+          2500.4509430962275
+        ] ,
+        [
+          "Mr. and Mrs. Edward Robinson" ,
+          1667.964 ,
+          1745.6405 ,
+          1934.9525 ,
+          1768.507 ,
+          266.98850000000004 ,
+          22.866500000000023 ,
+          2516.4578258798865
+        ] ,
+        [
+          "Mr. and Mrs. Clifton McGowan" ,
+          2003.5955 ,
+          1349.254 ,
+          2270.5695 ,
+          1374.658 ,
+          266.9740000000001 ,
+          25.404000000000035 ,
+          2534.1755577982854
+        ] ,
+        [
+          "Steven's Food Market" ,
+          1667.964 ,
+          1816.7920000000001 ,
+          1863.7575000000002 ,
+          1842.1960000000001 ,
+          195.7935000000001 ,
+          25.404000000000035 ,
+          2542.697875176397
+        ] ,
+        [
+          "Mr. and Mrs. Elvin Shephard" ,
+          1667.964 ,
+          1793.9255 ,
+          1919.6985 ,
+          1816.7920000000001 ,
+          251.73450000000005 ,
+          22.866500000000023 ,
+          2545.024709050607
+        ] ,
+        [
+          "Mr. and Mrs. Kenneth J. Rummenie" ,
+          1667.964 ,
+          1771.0445 ,
+          1975.625 ,
+          1791.3735000000001 ,
+          307.66100000000006 ,
+          20.329000000000015 ,
+          2547.869836139839
+        ] ,
+        [
+          "Mr. and Mrs. Theodore Grinage" ,
+          2006.1475 ,
+          1372.1205 ,
+          2273.1215 ,
+          1397.5245 ,
+          266.9740000000001 ,
+          25.404000000000035 ,
+          2548.6798838019067
+        ] ,
+        [
+          "Mr. and Mrs. Herb Zimmer" ,
+          2008.685 ,
+          1473.751 ,
+          2237.524 ,
+          1496.632 ,
+          228.8390000000001 ,
+          22.880999999999993 ,
+          2591.0165012196467
+        ] ,
+        [
+          "Mr. and Mrs. Donald Mitchell" ,
+          2011.2225 ,
+          1496.632 ,
+          2265.4945000000002 ,
+          1519.4985000000001 ,
+          254.27200000000008 ,
+          22.866500000000023 ,
+          2616.646302575076
+        ] ,
+        [
+          "Wilson Thompson" ,
+          2011.2225 ,
+          1646.5475 ,
+          2166.329 ,
+          1669.414 ,
+          155.10650000000015 ,
+          22.866500000000023 ,
+          2666.8116358600632
+        ] ,
+        [
+          "Mr. and Mrs. Alonzo Thompson" ,
+          2011.2225 ,
+          1621.129 ,
+          2275.659 ,
+          1646.5475 ,
+          264.4365000000001 ,
+          25.4185 ,
+          2695.1374131801936
+        ] ,
+        [
+          "Mrs. Roberta Williams" ,
+          2013.7745 ,
+          1692.2804999999998 ,
+          2222.27 ,
+          1715.147 ,
+          208.49550000000013 ,
+          22.866500000000023 ,
+          2718.2087472146295
+        ] ,
+        [
+          "Mr. and Mrs. Stanley I. Wegrzynowski" ,
+          2013.7745 ,
+          1669.414 ,
+          2339.227 ,
+          1692.2804999999998 ,
+          325.45250000000004 ,
+          22.866500000000023 ,
+          2749.9823622312792
+        ] ,
+        [
+          "Miss Wright and Mr. Ganter" ,
+          2013.7745 ,
+          1740.5655 ,
+          2255.3155 ,
+          1763.432 ,
+          241.5410000000001 ,
+          22.866500000000023 ,
+          2761.481844413713
+        ] ,
+        [
+          "Mrs. Bommer and Mrs. Rademaker" ,
+          2016.312 ,
+          1717.6845 ,
+          2308.719 ,
+          1738.0135 ,
+          292.40700000000004 ,
+          20.329000000000015 ,
+          2768.0201326112588
+        ] ,
+        [
+          "The Buffalo" ,
+          2644.3505 ,
+          152.45299999999997 ,
+          2883.3540000000003 ,
+          185.48399999999998 ,
+          239.00350000000037 ,
+          33.031 ,
+          2769.012389611559
+        ] ,
+        [
+          "Mr. and Mrs. Carl Johnson" ,
+          2016.312 ,
+          1763.432 ,
+          2245.151 ,
+          1786.2985 ,
+          228.8390000000001 ,
+          22.866500000000023 ,
+          2773.114382918565
+        ] ,
+        [
+          "Philharmonic Orchestra" ,
+          2535.0060000000003 ,
+          231.2315 ,
+          3000.311 ,
+          249.0085 ,
+          465.30499999999995 ,
+          17.777000000000005 ,
+          2778.0552886906794
+        ] ,
+        [
+          "Calendar of Events" ,
+          2560.4390000000003 ,
+          320.16 ,
+          2974.8925 ,
+          337.9515 ,
+          414.45349999999996 ,
+          17.791500000000006 ,
+          2787.1583001923527
+        ] ,
+        [
+          "Cabaret Concert" ,
+          2618.9175 ,
+          411.64050000000003 ,
+          2926.5785 ,
+          424.3425 ,
+          307.66100000000006 ,
+          12.701999999999954 ,
+          2804.077096938715
+        ] ,
+        [
+          "Sat ., May 6 - 9:00 p.m." ,
+          2636.7235 ,
+          447.209 ,
+          2906.2349999999997 ,
+          465.0005 ,
+          269.51149999999984 ,
+          17.791500000000006 ,
+          2808.7592948049364
+        ] ,
+        [
+          "MAIN PLACE MALL" ,
+          2621.455 ,
+          487.86699999999996 ,
+          2931.6679999999997 ,
+          503.1065 ,
+          310.2129999999998 ,
+          15.239500000000028 ,
+          2820.4256562986748
+        ] ,
+        [
+          "MELVIN STRAUSS, Conductor" ,
+          2573.1555 ,
+          533.6 ,
+          2979.9675 ,
+          541.227 ,
+          406.8120000000003 ,
+          7.626999999999997 ,
+          2828.092472544789
+        ] ,
+        [
+          "After Concert Dancing" ,
+          2634.1715 ,
+          571.7205 ,
+          2918.9515 ,
+          589.4975000000001 ,
+          284.7800000000003 ,
+          17.777000000000037 ,
+          2836.617805444232
+        ] ,
+        [
+          "Community Concert" ,
+          2593.4845 ,
+          693.68 ,
+          2964.7135000000003 ,
+          719.0985 ,
+          371.22900000000027 ,
+          25.4185 ,
+          2867.468748620735
+        ] ,
+        [
+          "Sat ., May 13 - 8:00 p.m." ,
+          2634.1715 ,
+          729.263 ,
+          2918.9515 ,
+          754.667 ,
+          284.7800000000003 ,
+          25.404000000000035 ,
+          2873.98779129405
+        ] ,
+        [
+          "WEST SENECA CENTRAL SCHOOL" ,
+          2509.5875 ,
+          774.996 ,
+          3056.252 ,
+          792.7729999999999 ,
+          546.6644999999999 ,
+          17.77699999999991 ,
+          2891.213801205354
+        ] ,
+        [
+          "MELVIN STRAUSS, Conductor" ,
+          2580.7825000000003 ,
+          813.102 ,
+          2982.5195 ,
+          833.4309999999999 ,
+          401.73699999999974 ,
+          20.329000000000015 ,
+          2900.922269869231
+        ] ,
+        [
+          "Community Concert" ,
+          2598.5739999999996 ,
+          932.5385 ,
+          2969.803 ,
+          965.5695 ,
+          371.22900000000027 ,
+          33.030999999999906 ,
+          2941.4977644812598
+        ] ,
+        [
+          "Thur ., May 18 - 8:00 p.m." ,
+          2639.261 ,
+          970.6445 ,
+          2931.6679999999997 ,
+          1003.6754999999999 ,
+          292.40700000000004 ,
+          33.031000000000034 ,
+          2955.2152791903754
+        ] ,
+        [
+          "AFRICAN CULTURAL CENTER" ,
+          2547.7225 ,
+          1011.3025 ,
+          3020.6545 ,
+          1041.796 ,
+          472.9320000000002 ,
+          30.493500000000022 ,
+          2967.4077856283607
+        ] ,
+        [
+          "MELVIN STRAUSS, Conductor" ,
+          2583.3199999999997 ,
+          1054.498 ,
+          2985.0570000000002 ,
+          1082.454 ,
+          401.73700000000025 ,
+          27.95600000000001 ,
+          2982.1714514944056
+        ] ,
+        [
+          "Community Concert" ,
+          2601.126 ,
+          1173.92 ,
+          2969.803 ,
+          1214.578 ,
+          368.677 ,
+          40.65800000000003 ,
+          3030.6836117881476
+        ] ,
+        [
+          "Mon ., May 22 - 8:00 p.m." ,
+          2641.7985 ,
+          1214.578 ,
+          2929.116 ,
+          1250.1465 ,
+          287.31750000000005 ,
+          35.56850000000004 ,
+          3045.8970446820135
+        ] ,
+        [
+          "MARYGOLD MANOR" ,
+          2629.082 ,
+          1255.236 ,
+          2944.3700000000003 ,
+          1288.267 ,
+          315.2880000000003 ,
+          33.031000000000034 ,
+          3063.199908074602
+        ] ,
+        [
+          "CHEEKTOWAGA" ,
+          2682.4855000000002 ,
+          1288.267 ,
+          2890.9809999999998 ,
+          1316.2230000000002 ,
+          208.49549999999988 ,
+          27.95600000000001 ,
+          3075.9915875503566
+        ] ,
+        [
+          "MELVIN STRAUSS, Conductor" ,
+          2588.4094999999998 ,
+          1318.7605 ,
+          2987.5944999999997 ,
+          1354.329 ,
+          399.185 ,
+          35.56849999999979 ,
+          3091.8129019648914
+        ] ,
+        [
+          "Community Concert" ,
+          2608.7529999999997 ,
+          1438.1825 ,
+          2972.3405 ,
+          1486.4675 ,
+          363.58750000000003 ,
+          48.285000000000025 ,
+          3150.4833866504614
+        ] ,
+        [
+          "Sat ., May 27 - 2:30 p.m." ,
+          2646.888 ,
+          1478.8405 ,
+          2924.041 ,
+          1519.4985000000001 ,
+          277.1530000000001 ,
+          40.65800000000003 ,
+          3163.2770461169694
+        ] ,
+        [
+          "LANCASTER SR. HIGH AUDITORIUM" ,
+          2517.2145 ,
+          1511.8715 ,
+          3063.879 ,
+          1562.6940000000002 ,
+          546.6644999999999 ,
+          50.82250000000003 ,
+          3185.9675794620266
+        ] ,
+        [
+          "MELVIN STRAUSS, Conductor" ,
+          2590.947 ,
+          1557.6045000000001 ,
+          2987.5944999999997 ,
+          1600.8 ,
+          396.64749999999975 ,
+          43.19549999999978 ,
+          3205.2942241252404
+        ] ,
+        [
+          "Community Concert" ,
+          2616.38 ,
+          1679.5784999999998 ,
+          2972.3405 ,
+          1727.849 ,
+          355.9604999999998 ,
+          48.27050000000006 ,
+          3272.7801253245116
+        ] ,
+        [
+          "Sat ., May 27 - 8:00 p.m." ,
+          2657.0525000000002 ,
+          1720.2365 ,
+          2926.5785 ,
+          1760.88 ,
+          269.5259999999998 ,
+          40.64350000000006 ,
+          3289.950882259994
+        ] ,
+        [
+          "VILLA MARIA AUDITORIUM" ,
+          2583.3199999999997 ,
+          1755.805 ,
+          3000.311 ,
+          1804.0755000000001 ,
+          416.99100000000027 ,
+          48.27050000000006 ,
+          3310.954708178641
+        ] ,
+        [
+          "MELVIN STRAUSS, Conductor" ,
+          2598.5739999999996 ,
+          1796.463 ,
+          2987.5944999999997 ,
+          1842.1960000000001 ,
+          389.0205 ,
+          45.73300000000005 ,
+          3333.358585146265
+        ]
+      ]
+    ] ,
+    [
+      3 ,
+      [
+        [
+          "Lydia Abarca" ,
+          179.858 ,
+          411.017 ,
+          342.2145 ,
+          439.698 ,
+          162.3565 ,
+          28.680999999999997 ,
+          499.0680581046161
+        ] ,
+        [
+          "Virginia Johnson" ,
+          179.858 ,
+          449.25350000000003 ,
+          380.422 ,
+          479.52950000000004 ,
+          200.56400000000002 ,
+          30.276000000000014 ,
+          542.3448025677484
+        ] ,
+        [
+          "Gayle Mckinney" ,
+          179.858 ,
+          490.68 ,
+          375.63699999999994 ,
+          520.9415 ,
+          195.77899999999997 ,
+          30.261499999999984 ,
+          577.0512876441854
+        ] ,
+        [
+          "Ronda Sampson" ,
+          179.858 ,
+          532.092 ,
+          372.46150000000006 ,
+          560.773 ,
+          192.60350000000003 ,
+          28.680999999999997 ,
+          612.2521413407327
+        ] ,
+        [
+          "Gerald Banks" ,
+          179.858 ,
+          592.6295 ,
+          342.2145 ,
+          621.3105 ,
+          162.3565 ,
+          28.680999999999997 ,
+          660.7212004424124
+        ] ,
+        [
+          "THE DANCE THEATRE OF HARLEM" ,
+          345.4045 ,
+          186.3975 ,
+          913.645 ,
+          218.25400000000002 ,
+          568.2405 ,
+          31.8565 ,
+          661.2390792864749
+        ] ,
+        [
+          "ARTHUR MITCHELL - KAREL SHOOK" ,
+          401.11350000000004 ,
+          248.53 ,
+          859.5165 ,
+          277.1965 ,
+          458.4029999999999 ,
+          28.6665 ,
+          682.9305143464909
+        ] ,
+        [
+          "Co-Directors" ,
+          555.5095 ,
+          285.1715 ,
+          703.5400000000001 ,
+          312.243 ,
+          148.03050000000002 ,
+          27.071500000000015 ,
+          696.7979851184452
+        ] ,
+        [
+          "Edward Moore" ,
+          178.2775 ,
+          634.0559999999999 ,
+          356.54049999999995 ,
+          661.1419999999999 ,
+          178.26299999999998 ,
+          27.085999999999977 ,
+          700.6368803324585
+        ] ,
+        [
+          "Paul Russell" ,
+          179.858 ,
+          673.8875 ,
+          319.928 ,
+          700.9590000000001 ,
+          140.07 ,
+          27.071500000000015 ,
+          731.4350525436708
+        ] ,
+        [
+          "Olinda Davis" ,
+          517.302 ,
+          409.42199999999997 ,
+          678.0635000000001 ,
+          438.10299999999995 ,
+          160.76150000000004 ,
+          28.680999999999997 ,
+          732.6659034333538
+        ] ,
+        [
+          "DANCERS" ,
+          568.2405 ,
+          364.82 ,
+          687.619 ,
+          391.906 ,
+          119.37850000000009 ,
+          27.085999999999977 ,
+          733.1127680678209
+        ] ,
+        [
+          "Pamela Jones" ,
+          518.8969999999999 ,
+          452.4435 ,
+          682.8485 ,
+          479.52950000000004 ,
+          163.9515 ,
+          27.086000000000045 ,
+          760.3890319269555
+        ] ,
+        [
+          "Melva Murray-White" ,
+          517.302 ,
+          492.275 ,
+          767.2095 ,
+          520.9415 ,
+          249.9075 ,
+          28.666499999999967 ,
+          818.0124494016732
+        ] ,
+        [
+          "Roslyn Sampson" ,
+          520.492 ,
+          530.497 ,
+          708.3105 ,
+          562.368 ,
+          187.81850000000003 ,
+          31.87100000000003 ,
+          822.2392431998198
+        ] ,
+        [
+          "Homer Bryant" ,
+          518.8969999999999 ,
+          594.2244999999999 ,
+          681.2534999999999 ,
+          624.5005 ,
+          162.35649999999998 ,
+          30.276000000000014 ,
+          855.226848309156
+        ] ,
+        [
+          "Ronald Perry" ,
+          518.8969999999999 ,
+          635.651 ,
+          673.293 ,
+          664.3175 ,
+          154.396 ,
+          28.66650000000003 ,
+          881.9346768741223
+        ] ,
+        [
+          "William Scott" ,
+          518.8969999999999 ,
+          675.4680000000001 ,
+          676.4685000000001 ,
+          702.554 ,
+          157.57150000000007 ,
+          27.085999999999977 ,
+          912.1188671267373
+        ] ,
+        [
+          "Administrative Director ." ,
+          176.68249999999998 ,
+          841.1595 ,
+          463.188 ,
+          868.2455 ,
+          286.5055 ,
+          27.085999999999977 ,
+          912.6198155304389
+        ] ,
+        [
+          "Company Manager" ,
+          178.2775 ,
+          882.5715 ,
+          412.2495 ,
+          909.6575 ,
+          233.972 ,
+          27.085999999999977 ,
+          943.5050246514323
+        ] ,
+        [
+          "Derek Williams" ,
+          515.707 ,
+          716.8945 ,
+          698.755 ,
+          742.3855000000001 ,
+          183.048 ,
+          25.491000000000092 ,
+          949.2649877463089
+        ] ,
+        [
+          "Public Relations" ,
+          178.2775 ,
+          920.808 ,
+          366.096 ,
+          949.4889999999999 ,
+          187.81849999999997 ,
+          28.680999999999997 ,
+          973.9550009768483
+        ] ,
+        [
+          "Technical Director .." ,
+          176.68249999999998 ,
+          962.2345 ,
+          412.2495 ,
+          989.3204999999999 ,
+          235.56700000000004 ,
+          27.085999999999977 ,
+          1019.2408717581188
+        ] ,
+        [
+          "ADMINISTRATIVE STAFF" ,
+          480.6895 ,
+          794.9625 ,
+          775.1555000000001 ,
+          820.4535 ,
+          294.466 ,
+          25.49099999999996 ,
+          1023.0732521526745
+        ] ,
+        [
+          "Yvonne Hall" ,
+          857.936 ,
+          412.612 ,
+          1007.547 ,
+          438.10299999999995 ,
+          149.61099999999993 ,
+          25.49099999999996 ,
+          1025.1515539804345
+        ] ,
+        [
+          "Susan Lovelle" ,
+          857.936 ,
+          454.0385 ,
+          1018.6975 ,
+          479.52950000000004 ,
+          160.76149999999998 ,
+          25.491000000000025 ,
+          1048.010317690891
+        ] ,
+        [
+          "Director of Wardrobe & Fashion" ,
+          178.2775 ,
+          1002.066 ,
+          566.6455 ,
+          1029.1375 ,
+          388.368 ,
+          27.071500000000015 ,
+          1081.7460346982152
+        ] ,
+        [
+          "Registrars" ,
+          176.68249999999998 ,
+          1041.883 ,
+          297.656 ,
+          1070.564 ,
+          120.9735 ,
+          28.681000000000125 ,
+          1082.5235956309741
+        ] ,
+        [
+          "Cassandra Phifer" ,
+          854.746 ,
+          492.275 ,
+          1061.6755 ,
+          519.3465 ,
+          206.92950000000005 ,
+          27.071500000000015 ,
+          1083.5185075628035
+        ] ,
+        [
+          "Lazar Dano" ,
+          856.341 ,
+          597.4145 ,
+          998.006 ,
+          622.9055 ,
+          141.6649999999999 ,
+          25.49099999999996 ,
+          1109.9305945428525
+        ] ,
+        [
+          "Llanchie Stevenson" ,
+          856.341 ,
+          533.687 ,
+          1083.9475 ,
+          560.773 ,
+          227.6065 ,
+          27.085999999999977 ,
+          1113.840445803645
+        ] ,
+        [
+          "Walter Raines" ,
+          854.746 ,
+          635.651 ,
+          1026.658 ,
+          662.737 ,
+          171.912 ,
+          27.085999999999977 ,
+          1142.9667984854154
+        ] ,
+        [
+          "Tutor ..." ,
+          176.68249999999998 ,
+          1111.9904999999999 ,
+          272.1795 ,
+          1140.657 ,
+          95.49700000000001 ,
+          28.66650000000003 ,
+          1148.4661351450734
+        ] ,
+        [
+          "Samuel Smalls" ,
+          854.746 ,
+          677.0630000000001 ,
+          1031.4285 ,
+          702.554 ,
+          176.68249999999995 ,
+          25.49099999999996 ,
+          1168.4388421243161
+        ] ,
+        [
+          "Kathleen Standford-Grant" ,
+          754.4639999999999 ,
+          882.5715 ,
+          1072.8115 ,
+          909.6575 ,
+          318.3475 ,
+          27.085999999999977 ,
+          1279.7480749488598
+        ] ,
+        [
+          "Richard Gonsalves" ,
+          848.3805 ,
+          842.7545 ,
+          1077.582 ,
+          869.8405 ,
+          229.20150000000004 ,
+          27.085999999999977 ,
+          1288.634275641391
+        ] ,
+        [
+          "Stage Manager ...." ,
+          176.68249999999998 ,
+          1263.327 ,
+          404.289 ,
+          1293.603 ,
+          227.60649999999998 ,
+          30.276000000000014 ,
+          1311.051000982823
+        ] ,
+        [
+          "Production Manager and Lighting Designer" ,
+          178.2775 ,
+          1220.3200000000002 ,
+          700.35 ,
+          1252.1765 ,
+          522.0725 ,
+          31.856499999999937 ,
+          1311.9856350460266
+        ] ,
+        [
+          "Martha J. Plimpton" ,
+          840.4200000000001 ,
+          923.9979999999999 ,
+          1075.987 ,
+          954.274 ,
+          235.567 ,
+          30.276000000000014 ,
+          1341.6893731069983
+        ] ,
+        [
+          "PRODUCTION STAFF" ,
+          499.8005 ,
+          1174.123 ,
+          752.8835 ,
+          1201.1945 ,
+          253.08300000000008 ,
+          27.071500000000015 ,
+          1342.697883894796
+        ] ,
+        [
+          "Master Electrician ." ,
+          175.0875 ,
+          1301.5635 ,
+          409.074 ,
+          1330.2444999999998 ,
+          233.9865 ,
+          28.68099999999987 ,
+          1347.9297094939939
+        ] ,
+        [
+          "Assistant Stage Manager" ,
+          178.2775 ,
+          1342.99 ,
+          493.435 ,
+          1373.2515 ,
+          315.15749999999997 ,
+          30.261500000000048 ,
+          1399.0323056472373
+        ] ,
+        [
+          "Fred Barry" ,
+          942.2969999999999 ,
+          963.8295 ,
+          1074.4065 ,
+          992.496 ,
+          132.10950000000003 ,
+          28.66650000000003 ,
+          1404.8400681983785
+        ] ,
+        [
+          "Zelda Wynn" ,
+          918.4155 ,
+          1003.6610000000001 ,
+          1074.4065 ,
+          1033.9225 ,
+          155.991 ,
+          30.26149999999992 ,
+          1425.0514063671746
+        ] ,
+        [
+          "Edward Williams," ,
+          857.936 ,
+          1043.478 ,
+          1074.4065 ,
+          1072.1589999999999 ,
+          216.47049999999996 ,
+          28.680999999999997 ,
+          1432.6433133438388
+        ] ,
+        [
+          "Musical Director-Conductor" ,
+          175.0875 ,
+          1382.807 ,
+          507.76099999999997 ,
+          1411.488 ,
+          332.6735 ,
+          28.681000000000125 ,
+          1438.2599400818729
+        ] ,
+        [
+          "Costumes" ,
+          176.68249999999998 ,
+          1425.8284999999998 ,
+          292.871 ,
+          1451.3195 ,
+          116.18850000000002 ,
+          25.491000000000092 ,
+          1457.6060084318267
+        ] ,
+        [
+          "Sandra Vernon" ,
+          891.3585 ,
+          1073.754 ,
+          1075.987 ,
+          1100.84 ,
+          184.62849999999997 ,
+          27.085999999999977 ,
+          1466.2287834105434
+        ] ,
+        [
+          "Mario Landa" ,
+          910.455 ,
+          1113.5855 ,
+          1075.987 ,
+          1140.657 ,
+          165.53200000000007 ,
+          27.071500000000015 ,
+          1502.2950000058452
+        ] ,
+        [
+          "Ballet Master" ,
+          178.2775 ,
+          1465.66 ,
+          351.77000000000004 ,
+          1492.7315 ,
+          173.4925 ,
+          27.071500000000015 ,
+          1502.750030737689
+        ] ,
+        [
+          "Staff and Musical Assistant" ,
+          175.0875 ,
+          1505.477 ,
+          506.166 ,
+          1532.5629999999999 ,
+          331.0785 ,
+          27.085999999999977 ,
+          1556.7428635505487
+        ] ,
+        [
+          "Wardrobe Master" ,
+          178.2775 ,
+          1545.3084999999999 ,
+          394.748 ,
+          1573.9895000000001 ,
+          216.4705 ,
+          28.681000000000125 ,
+          1585.7473188101444
+        ] ,
+        [
+          "Fred Barry" ,
+          947.0675 ,
+          1223.4955000000002 ,
+          1074.4065 ,
+          1252.1765 ,
+          127.33899999999994 ,
+          28.68099999999987 ,
+          1598.0698501833392
+        ] ,
+        [
+          "Photographers" ,
+          175.0875 ,
+          1586.735 ,
+          354.94550000000004 ,
+          1618.5914999999998 ,
+          179.85800000000003 ,
+          31.856499999999937 ,
+          1624.4270492000594
+        ] ,
+        [
+          "Gary Fails" ,
+          934.3365 ,
+          1263.327 ,
+          1074.4065 ,
+          1290.413 ,
+          140.07000000000002 ,
+          27.085999999999977 ,
+          1624.548893358476
+        ] ,
+        [
+          "Jerome King" ,
+          923.1859999999999 ,
+          1304.7535 ,
+          1074.4065 ,
+          1333.42 ,
+          151.22050000000004 ,
+          28.6664999999999 ,
+          1654.5645357735748
+        ] ,
+        [
+          "Staff Pianist" ,
+          178.2775 ,
+          1628.147 ,
+          321.523 ,
+          1655.233 ,
+          143.2455 ,
+          27.085999999999977 ,
+          1660.6011535134082
+        ] ,
+        [
+          "Lorenzo James" ,
+          881.803 ,
+          1344.585 ,
+          1075.987 ,
+          1371.6565 ,
+          194.184 ,
+          27.071500000000015 ,
+          1674.1348191246614
+        ] ,
+        [
+          "Tania Leon Viera" ,
+          861.1115 ,
+          1382.807 ,
+          1077.582 ,
+          1411.488 ,
+          216.47050000000007 ,
+          28.681000000000125 ,
+          1700.4864770093918
+        ] ,
+        [
+          "Zelda Wynn" ,
+          910.455 ,
+          1425.8284999999998 ,
+          1075.987 ,
+          1454.4950000000001 ,
+          165.53200000000007 ,
+          28.66650000000016 ,
+          1749.4438604894021
+        ] ,
+        [
+          "William Scott" ,
+          897.724 ,
+          1465.66 ,
+          1075.987 ,
+          1494.3265 ,
+          178.263 ,
+          28.6664999999999 ,
+          1778.8377660500164
+        ] ,
+        [
+          "David Gagne" ,
+          905.6845000000001 ,
+          1507.072 ,
+          1075.987 ,
+          1534.158 ,
+          170.3025 ,
+          27.085999999999977 ,
+          1814.945029939767
+        ] ,
+        [
+          "Marbeth and Martha Swope" ,
+          721.0414999999999 ,
+          1588.3155000000002 ,
+          1075.987 ,
+          1616.9965 ,
+          354.9455000000001 ,
+          28.68099999999987 ,
+          1837.3443095372904
+        ] ,
+        [
+          "Edward Muller" ,
+          894.534 ,
+          1628.147 ,
+          1077.582 ,
+          1656.828 ,
+          183.04800000000006 ,
+          28.68099999999987 ,
+          1915.7441287970191
+        ] ,
+        [
+          "THORNER . SIDNEY PRESS - Buffalo" ,
+          765.6145 ,
+          1768.3474999999999 ,
+          1052.1200000000001 ,
+          1792.2435 ,
+          286.50550000000004 ,
+          23.8960000000002 ,
+          1998.8726186135054
+        ]
+      ]
+    ]
+  ] ,
+  "final ocr" : [
+    [
+      1 ,
+      [
+        [
+          "100000." ,
+          391.19550000000004 ,
+          986.3045000000001 ,
+          427.44550000000004 ,
+          1166.0465000000002 ,
+          36.25 ,
+          179.74200000000005 ,
+          1151.3891516427016
+        ] ,
+        [
+          "buffalo, pop!, MELVIN STRAUSS, Director. Presents. THE DANCE THEATRE. OF HARLEM. ARTHUR MITCHELL & KAREL SHOOK, CO-DIRECTORS. TANIA VIERA LEON, Pianist. MELVIN STRAUSS & JOHN LANDIS, CONDUCTORS. Friday, May 5, 1972 - 8:30 p.m.. Kleinhans Music Hall. Sponsored by Courier-Express" ,
+          89.117 ,
+          119.3205 ,
+          1108.641 ,
+          845.8285000000001 ,
+          1019.5240000000001 ,
+          726.508 ,
+          769.112608589438
+        ]
+      ]
+    ] ,
+    [
+      2 ,
+      [
+        [
+          "program" ,
+          483.0965 ,
+          177.8715 ,
+          717.0250000000001 ,
+          231.2315 ,
+          233.9285 ,
+          53.360000000000014 ,
+          633.9670494929626
+        ] ,
+        [
+          "intermission" ,
+          485.6485 ,
+          607.289 ,
+          727.1895000000001 ,
+          637.7825 ,
+          241.54100000000005 ,
+          30.493500000000022 ,
+          869.0769606824603
+        ] ,
+        [
+          "intermission" ,
+          485.6485 ,
+          996.063 ,
+          724.652 ,
+          1026.542 ,
+          239.00350000000006 ,
+          30.479000000000056 ,
+          1178.5328046267157
+        ] ,
+        [
+          "intermission" ,
+          488.186 ,
+          1306.0585 ,
+          729.7415 ,
+          1336.552 ,
+          241.55550000000002 ,
+          30.493499999999763 ,
+          1454.882954911365
+        ] ,
+        [
+          "J. S. Bach. Concerto Barocco ..................., (Concerto for two violins). CHARLES HAUPT AND HARRY TAUB, violinists. Choreography, GEORGE BALANCHINE. Conducted by MELVIN STRAUSS" ,
+          106.7925 ,
+          320.16 ,
+          1113.6725000000001 ,
+          523.4355 ,
+          1006.8800000000001 ,
+          203.27550000000002 ,
+          741.8200900227175
+        ] ,
+        [
+          "Fete Noire, (Piano Concerto No. 2). Shostakovich. TANIA VIERA LEON, pianist. Choreography, ARTHUR MITCHELL. Conducted by MELVIN STRAUSS" ,
+          101.703 ,
+          706.382 ,
+          1116.2245 ,
+          914.7470000000001 ,
+          1014.5215000000001 ,
+          208.36500000000012 ,
+          1013.8301916368009
+        ] ,
+        [
+          "\"Agon\". Stravinsky. Choreography, GEORGE BALANCHINE, Conducted by JOHN LANDIS" ,
+          94.07600000000001 ,
+          1092.6185 ,
+          1118.762 ,
+          1227.28 ,
+          1024.686 ,
+          134.66149999999993 ,
+          1308.9026954424698
+        ] ,
+        [
+          "Mobre. \"Rhymetron\", ................................... .......... Choreography, ARTHUR MITCHEL" ,
+          91.5385 ,
+          1407.6889999999999 ,
+          1123.8515 ,
+          1486.4675 ,
+          1032.313 ,
+          78.77850000000012 ,
+          1569.4994981356517
+        ] ,
+        [
+          "USHERS COURTESY OF PHILHARMONIC SERVICE COMMITTEE. THE STEINWAY IS THE OFFICIAL PIANO OF THE BUFFALO PHILHARMONIC ORCHESTRA. Taking of pictures and use of recording equipment prohibited" ,
+          119.509 ,
+          1684.6535 ,
+          1093.329 ,
+          1824.4045 ,
+          973.8199999999999 ,
+          139.7510000000002 ,
+          1856.3717341637155
+        ] ,
+        [
+          "Did you see the Courier Today ?" ,
+          1589.142 ,
+          266.8 ,
+          2069.701 ,
+          335.41400000000004 ,
+          480.55899999999997 ,
+          68.614 ,
+          1854.0357197506337
+        ] ,
+        [
+          "BENEFIT GROUPS. Join now in a plan benefitting your non-profit organization and the Buffalo Philharmonic Orchestra. Please call, 835-5000 for more information., A number of community non-profit organizations are availing themselves of the opportunity to sell tickets to, BUFFALO POPS programs. Proceeds are divided between the participating group and the Philharmonic., We wish to express cur appreciation for the generous support of the following Benefit Groups for tonight's, concert:. BALLET ASSOCIATION OF WESTERN NEW YORK. AFRICAN CULTURAL CENTER, INC. - Patrons, Mr. and Mrs. John Terry, Mr. and Mrs. Clifton McGowan, Mr. and Mrs. Theodore Grinage, Mir. and Mrs. Edward Lawrence, Mr. Roger Squire, Mrs. Agnes Bain, Mr. and Mrs. Gillis Spikes, Mr. and Mrs. Jesse E. Nash, Jr., Mr. William Bailey, Mr. Guy T. Outlaw, Dr. Elizabeth Olmstead. AMERICAN ACADEMY BALLET GUILD - Patrons, Mr. and Mrs. Herb Zimmer, Mr. and Mrs. Donald Mitchell, Mr. and Mrs. Charles Battaglia, Shelly and Mrs. Badrow, Jan and Mrs. Sandburg, Dr. and Mrs. Norman Schaaf, Mr. and Mrs. Carl Blum, Janice Blum, Macis Lyme Battaglia, Bailey Slipper Shop. EAST HIGH SCHOOL CHOIR - Patrons, Mr. and Mrs. Alonzo Thompson, Wilson Thompson, Mr. and Mrs. Stanley I. Wegrzynowski, Mrs. Roberta Williams, Mrs. Bommer and Mrs. Rademaker, Miss Wright and Mr. Ganter, Mr. and Mrs. Carl Johnson, Dr. and Mrs. George Blackman, Mrs. Alma Harvey, Mr. and Mrs. John Lane, E. T. Montagu, Deborah and Rae-Myra Hilliard, Mr. and Mrs. Ronald Lee, Mr. and Mrs. Edward Robinson, Mr. and Mrs. Elvin Shephard, Mr. and Mrs. Kenneth J. Rummenie, Mr. Anthony J. Alessi, Mr. lack Anthony, Mr. and Mrs. Lewis Alford, Mr. Harvey Austin, Herbert Cadle, Mrs. Lueretta Chapman, Miss Rose Curry, Mrs. Victor Dilivio, Steven's Food Market" ,
+          1314.541 ,
+          1031.6315 ,
+          2344.3165 ,
+          1842.1960000000001 ,
+          1029.7755 ,
+          810.5645000000002 ,
+          2326.26969121502
+        ] ,
+        [
+          "FIRST and LAST WORD on Entertainment. FOCUS, MUSIC REVIEWS BY THOMAS PUTNAM. movies . radio . television . records . music, art . lectures . exhibits . theater. ALL IN ONE HANDY SUPPLEMENT. Courier == EXPRESS" ,
+          1411.169 ,
+          465.0005 ,
+          2232.4345000000003 ,
+          879.1785 ,
+          821.2655000000002 ,
+          414.178 ,
+          1941.8202574680574
+        ] ,
+        [
+          "Calendar of Events" ,
+          2560.4390000000003 ,
+          320.16 ,
+          2974.8925 ,
+          337.9515 ,
+          414.45349999999996 ,
+          17.791500000000006 ,
+          2787.1583001923527
+        ] ,
+        [
+          "Community Concert, Mon ., May 22 - 8:00 p.m., MARYGOLD MANOR, CHEEKTOWAGA, MELVIN STRAUSS, Conductor" ,
+          2588.4094999999998 ,
+          1173.92 ,
+          2987.5944999999997 ,
+          1354.329 ,
+          399.18499999999995 ,
+          180.40899999999988 ,
+          3061.203342397275
+        ] ,
+        [
+          "Community Concert, Sat ., May 27 - 2:30 p.m., LANCASTER SR. HIGH AUDITORIUM, MELVIN STRAUSS, Conductor" ,
+          2517.2145 ,
+          1438.1825 ,
+          3063.879 ,
+          1600.8 ,
+          546.6644999999999 ,
+          162.61750000000006 ,
+          3177.4210962291613
+        ] ,
+        [
+          "Community Concert, Sat ., May 27 - 8:00 p.m., VILLA MARIA AUDITORIUM, MELVIN STRAUSS, Conductor" ,
+          2583.3199999999997 ,
+          1679.5784999999998 ,
+          3000.311 ,
+          1842.1960000000001 ,
+          416.99100000000044 ,
+          162.6175000000003 ,
+          3300.7510801714225
+        ] ,
+        [
+          "Community Concert, Thur ., May 18 - 8:00 p.m., AFRICAN CULTURAL CENTER. MELVIN STRAUSS, Conductor" ,
+          2547.7225 ,
+          932.5385 ,
+          3020.6545 ,
+          1082.454 ,
+          472.93200000000024 ,
+          149.91549999999995 ,
+          2960.870530316433
+        ] ,
+        [
+          "Community Concert. Sat ., May 13 - 8:00 p.m.. WEST SENECA CENTRAL SCHOOL. MELVIN STRAUSS, Conductor" ,
+          2509.5875 ,
+          693.68 ,
+          3056.252 ,
+          833.4309999999999 ,
+          546.6644999999999 ,
+          139.75099999999998 ,
+          2885.7684135287627
+        ] ,
+        [
+          "Cabaret Concert. Sat ., May 6 - 9:00 p.m.. MAIN PLACE MALL. MELVIN STRAUSS, Conductor. After Concert Dancing" ,
+          2573.1555 ,
+          411.64050000000003 ,
+          2979.9675 ,
+          589.4975000000001 ,
+          406.81200000000035 ,
+          177.85700000000003 ,
+          2821.3229320734004
+        ] ,
+        [
+          "The Buffalo. Philharmonic Orchestra" ,
+          2535.0060000000003 ,
+          152.45299999999997 ,
+          3000.311 ,
+          249.0085 ,
+          465.30499999999984 ,
+          96.55550000000002 ,
+          2774.928180443201
+        ]
+      ]
+    ] ,
+    [
+      3 ,
+      [
+        [
+          "THE DANCE THEATRE OF HARLEM" ,
+          345.4045 ,
+          186.3975 ,
+          913.645 ,
+          218.25400000000002 ,
+          568.2405 ,
+          31.8565 ,
+          661.2390792864749
+        ] ,
+        [
+          "ARTHUR MITCHELL - KAREL SHOOK, Co-Directors" ,
+          401.11350000000004 ,
+          248.53 ,
+          859.5165 ,
+          312.243 ,
+          458.4029999999999 ,
+          63.712999999999994 ,
+          689.8649060557075
+        ] ,
+        [
+          "THORNER . SIDNEY PRESS - Buffalo" ,
+          765.6145 ,
+          1768.3474999999999 ,
+          1052.1200000000001 ,
+          1792.2435 ,
+          286.50550000000004 ,
+          23.8960000000002 ,
+          1998.8726186135054
+        ] ,
+        [
+          "DANCERS. Olinda Davis. Lydia Abarca. Yvonne Hall. Virginia Johnson. Pamela Jones. Susan Lovelle. Gayle Mckinney. Melva Murray-White. Cassandra Phifer. Roslyn Sampson. Ronda Sampson. Llanchie Stevenson" ,
+          179.858 ,
+          364.82 ,
+          1083.9475 ,
+          562.368 ,
+          904.0895 ,
+          197.54800000000006 ,
+          783.7221971423053
+        ] ,
+        [
+          "Gerald Banks. Homer Bryant. Lazar Dano. Edward Moore. Ronald Perry. Walter Raines. Paul Russell. William Scott. Samuel Smalls. Derek Williams" ,
+          178.2775 ,
+          592.6295 ,
+          1031.4285 ,
+          742.3855000000001 ,
+          853.151 ,
+          149.75600000000009 ,
+          900.7848878424027
+        ] ,
+        [
+          "ADMINISTRATIVE STAFF. Administrative Director .. Richard Gonsalves. Company Manager. Kathleen Standford-Grant. Public Relations. Martha J. Plimpton. Technical Director ... Fred Barry. Director of Wardrobe & Fashion. Zelda Wynn. Registrars. Edward Williams,, Sandra Vernon. Tutor .... Mario Landa" ,
+          176.68249999999998 ,
+          794.9625 ,
+          1077.582 ,
+          1140.657 ,
+          900.8995000000001 ,
+          345.69449999999995 ,
+          1153.234829158886
+        ] ,
+        [
+          "PRODUCTION STAFF. Production Manager and Lighting Designer. Fred Barry. Gary Fails. Stage Manager ...., Master Electrician .. Jerome King. Assistant Stage Manager. Lorenzo James. Musical Director-Conductor. Tania Leon Viera. Costumes. Zelda Wynn. Ballet Master. William Scott. Staff and Musical Assistant. David Gagne. Wardrobe Master. Photographers. Marbeth and Martha Swope. Staff Pianist. Edward Muller" ,
+          175.0875 ,
+          1174.123 ,
+          1077.582 ,
+          1656.828 ,
+          902.4945000000001 ,
+          482.7049999999999 ,
+          1547.8585562504775
+        ]
+      ]
+    ]
+  ]
+}

@@ -1,0 +1,11 @@
+<app-loading
+  [progressBarData]='{mode: progressBar.mode, color: "primary", value: progressBar.progress}'
+  [error]='hasError' [subAbove]='getSubAbove()'
+  [subBelow]='getSubBelow()' [title]='getTitle()'
+></app-loading>
+<mat-dialog-actions *ngIf='hasError' align='end'>
+  <button (click)='close(false)' color='primary' mat-flat-button>
+    <mat-icon materialIconsRound>close</mat-icon>
+    Close
+  </button>
+</mat-dialog-actions>

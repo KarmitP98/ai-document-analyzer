@@ -1,0 +1,118 @@
+<div class='page'>
+  <div class='container animate__animated animate__fadeIn'>
+    <div class='section content-section'>
+      <img alt='Smart Capture Named Logo' class='logo-image animate__animated animate__slideInDown' src='assets/logos/smart-capture-named-logo.svg'>
+      <div class="content-wrapper animate__animated animate__fadeIn animate__delay-1s">
+        <h1 class="headline">
+          {{ headline }}
+        </h1>
+        <p class="subtitle">Digitize and analyze your programs with ease</p>
+        <button
+          (click)='login()'
+          [disabled]="(authService.progress$ | async) || false"
+          color='primary'
+          mat-flat-button
+          class="login-button"
+          type='submit'
+          (mouseenter)="isHovering = true"
+          (mouseleave)="isHovering = false"
+        >
+            <span class="button-content">
+            {{ (authService.progress$ | async) ? 'Authenticating...' : 'Access Digital Vault' }}
+            <mat-icon
+              *ngIf="!(authService.progress$ | async)"
+              class="login-icon"
+              [ngClass]="{'locked': !isHovering, 'unlocked': isHovering}"
+            >
+              {{ isHovering ? 'lock_open' : 'lock' }}
+            </mat-icon>
+            </span>
+        </button>
+      </div>
+    </div>
+    <div class='section'>
+      <img alt='Digitization' class='digitization-image animate__animated animate__fadeIn animate__delay-1s' src='assets/svgs/digitization.svg'>
+    </div>
+  </div>
+
+  <div class="ai-capabilities animate__animated animate__fadeIn animate__delay-2s">
+    <h2 class="section-title">Powered by Advanced AI</h2>
+    <p class="section-description">Experience the power of artificial intelligence in document processing</p>
+
+    <div class="capabilities-grid">
+      <div class="capability-section">
+        <div class="capability-content">
+          <div class="capability-icon">
+            <mat-icon color="primary">psychology</mat-icon>
+          </div>
+          <div class="capability-text">
+            <h3>Smart Text Recognition</h3>
+            <p class="subtitle">Neural Network Processing</p>
+            <p class="description">Advanced OCR technology combined with neural networks for accurate text extraction from any document format.</p>
+          </div>
+        </div>
+        <div class="capability-image">
+          <img src="assets/svgs/ai-recognition.svg" alt="AI Recognition">
+        </div>
+      </div>
+
+      <div class="capability-section reverse">
+        <div class="capability-content">
+          <div class="capability-icon">
+            <mat-icon color="primary">schema</mat-icon>
+          </div>
+          <div class="capability-text">
+            <h3>Automated Classification</h3>
+            <p class="subtitle">Machine Learning Models</p>
+            <p class="description">Intelligent document classification and tagging using state-of-the-art machine learning algorithms.</p>
+          </div>
+        </div>
+        <div class="capability-image">
+          <img src="assets/svgs/data-analysis.svg" alt="Data Analysis">
+        </div>
+      </div>
+
+      <div class="capability-section">
+        <div class="capability-content">
+          <div class="capability-icon">
+            <mat-icon color="primary">track_changes</mat-icon>
+          </div>
+          <div class="capability-text">
+            <h3>Pattern Recognition</h3>
+            <p class="subtitle">Deep Learning Analysis</p>
+            <p class="description">Identify and extract patterns from documents using advanced deep learning models for improved accuracy.</p>
+          </div>
+        </div>
+        <div class="capability-image">
+          <img src="assets/svgs/pattern-recognition.svg" alt="Pattern Recognition">
+        </div>
+      </div>
+
+      <div class="capability-section reverse">
+        <div class="capability-content">
+          <div class="capability-icon">
+            <mat-icon color="primary">query_stats</mat-icon>
+          </div>
+          <div class="capability-text">
+            <h3>Predictive Analytics</h3>
+            <p class="subtitle">AI-Powered Insights</p>
+            <p class="description">Get actionable insights and predictions based on your document data using AI analytics.</p>
+          </div>
+        </div>
+        <div class="capability-image">
+          <img src="assets/svgs/predictive-analytics.svg" alt="Predictive Analytics">
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="powered-by">
+  <div class="text">
+    <p>Powered by</p>
+    <img alt='Smart Capture Named Logo' class='logo-image' src='assets/images/MNP-Digital-Logo.png'>
+  </div>
+</div>
+<!--  <div class="background-elements">-->
+<!--    <div class="gradient-overlay"></div>-->
+<!--    <img alt='waves' class='waves-svg animate__animated animate__slideInUp animate__faster' src='assets/svgs/Waves.svg'>-->
+<!--  </div>-->
+</div>

@@ -1,0 +1,30 @@
+.vertical-links {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  width: clamp(100px, 100%, 200px);
+  height: 100%;
+  gap: 1rem;
+
+  .vertical-link {
+    display: flex;
+    align-items: center;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 0.5rem;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    gap: 1rem;
+
+    .label {
+      font-weight: 500;
+    }
+
+    &.active {
+      font-weight: 600;
+      color: var(--primary);
+      background: rgba(var(--secondary-rgb), 0.75);
+    }
+  }
+}

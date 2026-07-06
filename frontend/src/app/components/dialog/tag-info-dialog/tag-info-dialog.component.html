@@ -1,0 +1,37 @@
+<h2 mat-dialog-title>Tag Types Information</h2>
+<mat-dialog-content>
+  <div class="tag-info-section">
+    <h3>Tag Colors</h3>
+    <div class="tag-examples">
+      <div *ngFor="let tagInfo of coloredTags" class="tag-example default-border">
+        <div [ngClass]="tagInfo.className" class="tag">
+          {{ tagInfo.example }}
+        </div>
+        <div class="tag-description">
+          <strong>{{ tagInfo.type }}</strong>: {{ tagInfo.description }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <br>
+  <div class="tag-info-section">
+    <h3>Tag Borders</h3>
+    <div class="tag-examples">
+      <div *ngFor="let tagInfo of borderedTags" class="tag-example default-border">
+        <div [ngClass]="tagInfo.className" class="tag">
+          {{ tagInfo.example }}
+        </div>
+        <div class="tag-description">
+          <strong>{{ tagInfo.type }}</strong>: {{ tagInfo.description }}
+        </div>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button (click)="closeDialog()" color="warn" mat-stroked-button>Close
+    <mat-icon materialIconsRound>close</mat-icon>
+  </button>
+</mat-dialog-actions>

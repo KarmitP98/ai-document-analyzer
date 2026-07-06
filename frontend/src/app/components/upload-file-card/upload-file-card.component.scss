@@ -1,0 +1,61 @@
+@import '~src/theme/_colors';
+@import '~src/theme/_mixin';
+
+:host {
+  width: 100%;
+}
+
+.upload-file-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 66px;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  background: $light;
+
+  &.disabled {
+    background-color: RGBA($dark, 0.1);
+
+    .file-icon {
+      color: $dark;
+    }
+  }
+
+  .file-info-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .file-info-main {
+    display: flex;
+    align-items: center;
+  }
+
+  .file-icon {
+    margin-right: 0.5rem;
+  }
+
+  .file-name {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: $dark;
+  }
+
+  .progress-row {
+    flex: 1 1 auto;
+    @include FlexRow(flex-start, center, 1rem, 0);
+
+    .progress-value {
+      font-weight: 500;
+      color: $dark;
+    }
+  }
+
+  mat-progress-bar {
+    height: 0.375rem;
+    border-radius: 0.1875rem;
+  }
+}

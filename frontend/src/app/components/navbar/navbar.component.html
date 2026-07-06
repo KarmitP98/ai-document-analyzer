@@ -1,0 +1,54 @@
+<mat-toolbar *ngIf='showNavbar'>
+  <mat-toolbar-row>
+    <img
+      alt='Chroma Diverse Logo' class='logo clickable' [routerLink]='appRoutes.home.path'
+      src='assets/logos/smart-capture-named-logo.svg'
+    >
+    <span class='spacer'></span>
+    <button
+      *ngIf='(authService.user$|async)?.currentClientId' color='primary' mat-button [routerLink]='appRoutes.home.path'
+      routerLinkActive='active'
+    >
+      Home
+      <mat-icon materialIconsRound>home</mat-icon>
+    </button>
+    <button [routerLink]='appRoutes.clients.path' color='primary' mat-button routerLinkActive='active'>
+      Clients
+      <mat-icon materialIconsRound>people</mat-icon>
+    </button>
+    <button
+      *ngIf='isAdmin() && (authService.user$|async)?.currentClientId' color='primary' mat-button [routerLink]='appRoutes.admin.path'
+      routerLinkActive='active'
+    >
+      Admin
+      <mat-icon materialIconsRound>admin_panel_settings</mat-icon>
+    </button>
+    <button
+      *ngIf='isAdmin() && !isProd' [routerLink]='appRoutes.sandbox.path' color='primary' mat-button
+      routerLinkActive='active'
+    >
+      Sandbox
+      <mat-icon materialIconsRound>try</mat-icon>
+    </button>
+    <button [matMenuTriggerFor]='menu' aria-label='Example icon-button with a menu' mat-icon-button>
+      <mat-icon materialIconsRound>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu='matMenu'>
+      <button (click)='handleLogout()' mat-menu-item>
+        <mat-icon color='warn' materialIconsRound>logout</mat-icon>
+        <span style='color: var(--danger)'>Logout</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar-row>
+  <mat-toolbar-row *ngIf="isAdmin() && isAdminRoute()" class="second-row">
+    <div class="spacer"></div>
+    <button [routerLink]="appRoutes.admin.children.users.pathArray" color="primary" mat-button routerLinkActive="active">
+      Users
+      <mat-icon materialIconsRound>groups</mat-icon>
+    </button>
+    <button [routerLink]="appRoutes.admin.children.vocab.pathArray" color="primary" mat-button routerLinkActive="active">
+      Vocabularies
+      <mat-icon materialIconsRound>library_books</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>

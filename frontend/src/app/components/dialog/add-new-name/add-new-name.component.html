@@ -1,0 +1,80 @@
+<div class='container'>
+  <h1 matDialogTitle>Add new Name</h1>
+  <div class='content'>
+    <h2>This name does not currently exists in the vocabulary, would you like to add it?</h2>
+    <form #nameForm='ngForm'>
+      <mat-form-field appearance='outline' floatLabel='auto'>
+        <mat-label>New Name</mat-label>
+        <input
+          (ngModelChange)='handleChange()' [(ngModel)]='newTag' id='newTag' matInput name='newTag' required type='text'
+        >
+      </mat-form-field>
+      <mat-error *ngIf='showCapError'>
+        <strong>Warning:</strong> This name has unusual capitalization, please confirm that the capitalization is
+        correct
+      </mat-error>
+    </form>
+    <div *ngIf='similarTags.length' class='similar-section'>
+      <p><strong>Similar names have been found</strong> <i>(Similar names have been found in the vocabulary file)</i>
+      </p>
+      <div class='tags'>
+        <div
+          (click)='selectedSimilarTag = tag;newTag = tag' *ngFor='let tag of similarTags' [class.selected]='selectedSimilarTag === tag' [matRippleCentered]='true'
+          class='tag clickable' matRipple
+        >
+          {{ tag }}
+        </div>
+      </div>
+    </div>
+    <ul class='select-sections'>
+      <li
+        (click)='addTo = "VOCAB"' [class.selected]='addTo === "VOCAB"' class='select-section mat-elevation-z1' matRipple
+      >
+        <div class='action-bar'>
+          <h4>Add to Vocabulary</h4>
+        </div>
+        <div class='tags'>
+          <div class='tag secondary'>{{ data.attribute }}</div>
+          <mat-icon *ngIf='newTag.length' materialIconsRound>chevron_left</mat-icon>
+          <div *ngIf='newTag.length' class='tag secondary'><strong>{{ newTag }}</strong></div>
+        </div>
+      </li>
+      <!--      NOTE: Future feature if required -->
+      <!--      <li-->
+      <!--        (click)='addTo = "PROGRAM"' [class.selected]='addTo === "PROGRAM"' class='select-section mat-elevation-z1'-->
+      <!--        matRipple-->
+      <!--      >-->
+      <!--        <div class='action-bar'>-->
+      <!--          <h3><strong>Add to Program Only</strong></h3>-->
+      <!--        </div>-->
+      <!--        <div class='action-bar'>-->
+      <!--          <h4>PROGRAM</h4>-->
+      <!--        </div>-->
+      <!--        <div class='tags'>-->
+      <!--          <div class='tag secondary'>{{ data.programName }}</div>-->
+      <!--          <mat-icon materialIconsRound>chevron_right</mat-icon>-->
+      <!--          <div class='tag secondary'>Page {{ data.pageNumber + 1 }}</div>-->
+      <!--          <mat-icon materialIconsRound>chevron_right</mat-icon>-->
+      <!--          <div class='tag secondary'>{{ data.attribute }}</div>-->
+      <!--          <mat-icon *ngIf='newTag.length' materialIconsRound>chevron_right</mat-icon>-->
+      <!--          <div *ngIf='newTag.length' class='tag secondary'><strong>{{ newTag }}</strong></div>-->
+      <!--        </div>-->
+      <!--      </li>-->
+    </ul>
+  </div>
+  <mat-dialog-actions>
+    <div class='action-bar'>
+      <button color='warn' mat-stroked-button matDialogClose>
+        Don't Add
+        <mat-icon materialIconsRound>close</mat-icon>
+      </button>
+      <div class='spacer'></div>
+      <button
+        (click)='close(addTo)' [disabled]='!nameForm.valid || similarTags.length > 0' color='primary' mat-flat-button
+      >
+        {{ similarTags.length > 0 ? 'Similar tags found!' : 'Add new Name' }}
+        <mat-icon materialIconsRound>add</mat-icon>
+      </button>
+    </div>
+  </mat-dialog-actions>
+</div>

@@ -1,0 +1,29 @@
+<div class='container'>
+  <h1 mat-dialog-title>Edit Performance Name</h1>
+  <div class='content'>
+    <br>
+    <form #formElement='ngForm'>
+
+      <mat-form-field appearance='outline'>
+        <mat-label>Performance Name</mat-label>
+        <input
+          (keyup.enter)='updateButton._elementRef.nativeElement.click()' [(ngModel)]='data.performanceName' matInput
+          minlength='1' name='performanceName' required type='text'
+        />
+      </mat-form-field>
+    </form>
+  </div>
+  <mat-dialog-actions align='end'>
+    <button color='warn' mat-button mat-dialog-close=''>
+      <mat-icon materialIconsRound>close</mat-icon>
+      Cancel
+    </button>
+    <button
+      #updateButton [disabled]='!formElement.valid' [matDialogClose]='data.performanceName' color='primary'
+      mat-flat-button
+    >
+      <mat-icon materialIconsRound>save</mat-icon>
+      Save
+    </button>
+  </mat-dialog-actions>
+</div>

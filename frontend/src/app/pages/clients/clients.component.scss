@@ -1,0 +1,129 @@
+@use '@angular/material' as mat;
+
+@import '~src/theme/mixin';
+@import '~src/theme/_colors.scss';
+
+* {
+  transition: all 0.125s ease-in-out;
+}
+
+.client-page {
+  width: 100%;
+  padding: 2rem clamp(5%, 7.5%, 30%);
+}
+
+.action-area {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 1rem;
+}
+
+// Filter field
+.filter-field {
+  flex: 1 1 auto;
+}
+
+// Table container
+.table-container {
+  position: relative;
+  width: 100%;
+
+  table {
+    width: 100%;
+
+    td {
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+
+    .logo-container {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+
+       .client-logo {
+         max-width: 60px;
+         max-height: 60px;
+         border-radius: 4px;
+       }
+
+       .initials {
+         font-size: 1.5rem;
+         font-weight: 600;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         width: 50px;
+         height: 50px;
+         border-radius: 4px;
+         background-color: RGBA($secondary, 0.2);
+       }
+     }
+
+    // Actions cell styling
+    .actions-cell {
+      white-space: nowrap;
+      width: 150px;
+    }
+
+    // Row styling
+    tr.mat-row {
+      cursor: pointer;
+
+      &:hover {
+        background-color: RGBA($primary, 0.05);
+      }
+
+      &.selected-row {
+        background-color: RGBA($secondary, 0.2);
+      }
+
+      &.current-client {
+        position: relative;
+        background-color: RGBA($secondary, 0.1);
+
+        &::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          width: 4px;
+          background-color: $secondary;
+        }
+      }
+    }
+  }
+}
+
+.template {
+  text-align: center;
+  margin-top: 15vh;
+
+  .icon{
+    font-size: 16rem;
+  }
+
+  .title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: $primary;
+  }
+
+  .subtitle {
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding-bottom: 1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: RGBA($dark, 0.8);
+  }
+}
+
+.message {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: $dark;
+}

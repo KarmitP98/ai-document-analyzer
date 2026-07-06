@@ -1,0 +1,45 @@
+@import '~src/theme/_colors.scss';
+@import '~src/theme/mixin';
+
+.table-container {
+  overflow: hidden;
+  border-radius: 0.5rem;
+
+  table {
+    width: 100%;
+
+    ng-container.actions {
+      width: fit-content;
+    }
+
+    td {
+      &.actions {
+        width: fit-content;
+        padding: 0;
+      }
+    }
+
+    tr.mat-row {
+      &:hover {
+        background-color: RGBA($primary, 0.05);
+      }
+    }
+
+    .user-row {
+      transition: background-color 0.2s ease;
+
+      &:hover {
+        background-color: rgba($primary, 0.04);
+      }
+    }
+  }
+
+  mat-paginator {
+    background-color: $secondary;
+  }
+}
+
+.input {
+  width: 100%;
+  margin: 1rem 0;
+}

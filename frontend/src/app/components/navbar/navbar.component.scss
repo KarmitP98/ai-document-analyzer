@@ -1,0 +1,27 @@
+@import '~src/theme/_colors.scss';
+@import '~src/theme/mixin.scss';
+
+mat-toolbar {
+
+  button {
+    margin: 0 0.5rem;
+  }
+
+  img.logo {
+    height: 50%;
+    margin-right: 1rem;
+  }
+
+  &-row {
+    padding: 0;
+  }
+
+  &-row {
+    padding: 0 clamp(5%, 7.5%, 30%);
+  }
+
+  .second-row {
+    border-top: 1px solid RGBA($disabled, 0.2);
+    padding: 0 clamp(calc(5% + 56px), calc(7.5% + 56px), calc(30% + 56px));
+  }
+}

@@ -1,0 +1,373 @@
+<div class='background'></div>
+<div class='page'>
+  <div *ngIf='!loading' class='main'>
+    <div class='document preview-section'>
+      <mat-toolbar color='primary'>
+        <mat-label>{{ fileName }}</mat-label>
+        <span class='spacer'></span>
+        <button (click)='addPerformance()' mat-flat-button matSuffix matTooltip='Add Performance'>
+          Add Performance
+          <mat-icon color='primary' materialIconsRound>post_add</mat-icon>
+        </button>
+        <button (click)='downloadPDF()' mat-icon-button matTooltip='Download Document'>
+          <mat-icon materialIconsRound>download</mat-icon>
+        </button>
+        <button
+          (click)='downloadAssets(program)' mat-icon-button
+          matTooltip='Download Assets'
+        >
+          <mat-icon materialIconsRound>
+            folder_zip
+          </mat-icon>
+        </button>
+      </mat-toolbar>
+      <div
+        [class.pause]='zoomState === ZOOMSTATEENUM.ZOOM'
+        [class.zoom-in]='zoomState === ZOOMSTATEENUM.NORMAL'
+        [class.zoom-out]='zoomState === ZOOMSTATEENUM.FREEZE'
+        class='main-content'
+      >
+        <app-page-preview-zoom
+          (handleClickBoundingBox)='handleClickBoundingBox($event)'
+          (imageLoaded)='imageLoaded($event)'
+          (setCurrentPage)='setCurrentPage($event)'
+          (setZoomPosition)='setZoomPosition($event)'
+          (toggleAllBoundingBoxes)='toggleAllBoundingBoxes($event)'
+          (zoomStateOnChange)='updateZoomState($event)'
+          [(zoomState)]='zoomState'
+          [boundingBoxes]='boundingBoxes'
+          [currentPage]='pageIndex'
+          [isAllBoundingBoxesShown]='isAllBoundingBoxesShown'
+          [isTagSelected]='isTagSelected'
+          [pagesMetaData]='pagesInformation'
+          [pages]='pages'
+          [refreshing]='refreshing'
+          [selectedAttribute]='selectedAttribute'
+          [selectedTags]='selectedTags'
+        >
+        </app-page-preview-zoom>
+      </div>
+    </div>
+
+    <div
+      class='attributes preview-section'
+    >
+      <mat-toolbar color='primary'>
+        <mat-label class='file-name'>Attributes</mat-label>
+        <div class='spacer'></div>
+        <button (click)='selectPOI()' mat-flat-button matTooltip='Use Azure Maps to Select Venue'>
+          Use Maps to Select Venue
+          <mat-icon color='primary' materialIconsRound>
+            map
+          </mat-icon>
+        </button>
+      </mat-toolbar>
+
+      <div class='main-content'>
+        <div *ngIf='pages[pageIndex].children.length;else noPerformances' class='attributes-container'>
+          <div class='action-bar top-bar  mat-elevation-z0 vertical'>
+            <div class='action-bar gap-05 wrap'>
+              <div class='performance-name'>
+                <mat-form-field appearance='outline'>
+                  <mat-label>Select Sub-Section</mat-label>
+                  <mat-select (ngModelChange)='resetSelected()' [(ngModel)]='childIndex'>
+                    <mat-option *ngFor='let child of pages[pageIndex].children;let i = index' [value]='i'>
+                      {{ child.label === 'Program' && child.attributes['Performance Title']?.length ? (child.attributes['Performance Title'][0].value | titlecase) : (child.label |titlecase) }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <button
+                  (click)='editPerformanceName()' *ngIf='pages[pageIndex].children[childIndex].label === "Program"'
+                  color='primary' mat-icon-button
+                  matTooltip='Edit Performance Title'
+                >
+                  <mat-icon materialIconsRound>edit</mat-icon>
+                </button>
+                <button
+                  (click)='deleteEntity()' [disabled]='disableEntityDelete()'
+                  [matTooltip]='getTooltipText("deleteEntity")' color='warn'
+                  mat-icon-button
+                  matSuffix
+                >
+                  <mat-icon materialIconsRound>delete</mat-icon>
+                </button>
+              </div>
+
+              <span class='spacer'></span>
+              <div *ngIf='pages[pageIndex].children.length'>
+                <ng-container [ngTemplateOutlet]='AddAttributeButtonMenuTemplate'></ng-container>
+              </div>
+              <button (click)='openTagInfoDialog()' color='primary' mat-icon-button matTooltip='Tag Types Information'>
+                <mat-icon materialIconsRound>info_outline</mat-icon>
+              </button>
+            </div>
+          </div>
+          <mat-divider></mat-divider>
+          <div *ngIf='getCurrentAttributeList().length;else noAttributes' class='attributes'>
+            <div
+              *ngFor='let attribute of getCurrentAttributeList()' [id]='attribute'
+              class='attribute mat-elevation-z0 default-border'
+            >
+              <div class='action-bar'>
+                <h2>{{ attribute | uppercase }}
+                  <sup
+                    *ngIf='pages[pageIndex].children[childIndex].label === "Title" && REQUIRED_ATTRIBUTES.includes(attribute)'
+                    class='label-required'
+                  >(Required)</sup>
+                </h2>
+                <span class='spacer'></span>
+                <button
+                  (click)='removeAttribute(attribute)'
+                  [disabled]='isRemoveAttributeDisabled(attribute)'
+                  class='remove-attr-button'
+                  color='warn'
+                  mat-icon-button
+                  matTooltip='Delete Attribute'
+                  matTooltipPosition='left'
+                >
+                  <mat-icon materialIconsRound>
+                    cancel
+                  </mat-icon>
+                </button>
+              </div>
+              <div class='padded-line'></div>
+              <div [ngSwitch]='attribute' class='input-line'>
+                <mat-form-field *ngSwitchCase="'Date of Performance'" appearance='outline'>
+                  <mat-label>Add {{ attribute | titlecase }}</mat-label>
+                  <input
+                    (click)='datePicker.open()' (dateChange)='addTag(attribute, currentPageAttributeValues[attribute])'
+                    [(ngModel)]='currentPageAttributeValues[attribute]'
+                    [disabled]='pages[pageIndex].children[childIndex].attributes["Date of Performance"].length > 0'
+                    [matDatepicker]='datePicker'
+                    [name]='attribute'
+                    matInput
+                  >
+                  <mat-datepicker-toggle [for]='datePicker' matSuffix></mat-datepicker-toggle>
+                  <mat-datepicker #datePicker></mat-datepicker>
+                </mat-form-field>
+
+                <mat-form-field
+                  *ngSwitchDefault appearance='outline' class='attribute-input'
+                >
+                  <mat-label>Add {{ attribute | titlecase }}</mat-label>
+                  <input
+                    (focus)='setFilteredVocab(attribute)'
+                    (keyup)='setFilteredVocab(attribute)'
+                    (keyup.enter)='addTag(attribute, currentPageAttributeValues[attribute])'
+                    [(ngModel)]='currentPageAttributeValues[attribute]' [matAutocomplete]='auto'
+                    [name]='attribute'
+                    matInput
+                    type='text'
+                  />
+                  <mat-icon disabled matSuffix materialIconsRound>search</mat-icon>
+                  <mat-autocomplete #auto='matAutocomplete' [autoActiveFirstOption]='false'>
+                    <mat-option
+                      (click)='addTag(attribute, name, $event)'
+                      *ngFor='let name of filteredAutoCompleteOptions[attribute]'
+                      [disabled]='isAutoCompleteOptionDisabled(attribute, name)' [value]='name'
+                    >
+                      <div class='auto-complete-option action-bar'>
+                        {{ name.value }}
+                        <div class='spacer'></div>
+                        <div *ngIf='isAutoCompleteOptionDisabled(attribute, name)' class='small-label'>- Already added!
+                        </div>
+                        <button
+                          class='remove-vocab-button' color='warn' mat-icon-button matTooltip='Remove name from vocab'
+                        >
+                          <mat-icon materialIconsRound>close</mat-icon>
+                        </button>
+                      </div>
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+                <button
+                  (click)='selectPOI(true, true, [], false)' *ngIf="attribute === 'Venue'" color='primary'
+                  mat-icon-button
+                  matTooltip='Select Venue from Map'
+                >
+                  <mat-icon materialIconsRound>map</mat-icon>
+                </button>
+              </div>
+              <div [id]='attribute' class='tags'>
+                <div
+                  *ngIf='pages[pageIndex].children[childIndex].attributes[attribute].length > 0'
+                  class='row'
+                >
+                  <mat-checkbox
+                    (change)='toggleSelectAll(attribute)' [checked]='allSelected && selectedAttribute === attribute'
+                    [disabled]='selectedAttribute.length > 0 && attribute !== selectedAttribute'
+                    color='primary'
+                  >
+                    Select All
+                  </mat-checkbox>
+                  <div class='actions row'>
+                    <button (click)='resetBoundingBoxes()' *ngIf='selectedAttribute === attribute' mat-button>
+                      Reset Selected
+                      <mat-icon materialIconsRound>restart_alt</mat-icon>
+                    </button>
+                    <button
+                      *ngIf='attribute !== "Performance Title"'
+                      [disabled]='!(selectedAttribute.length > 0 && attribute === selectedAttribute && selectedTags.length > 0)'
+                      [matMenuTriggerFor]='moveAttributeMenu' color='primary'
+                      mat-button
+                    >
+                      Move Selected to
+                      <mat-icon materialIconsRound>unfold_more</mat-icon>
+                      <mat-menu #moveAttributeMenu='matMenu'>
+                        <button [disableRipple]='true' [disabled]='true' mat-menu-item>
+                          <strong>Attribute List</strong>
+                        </button>
+                        <button
+                          (click)='transferSelectedTags(attribute, attributeName)'
+                          *ngFor='let attributeName of getCurrentAttributeList()'
+                          [disabled]='attributeName === attribute'
+                          [ngStyle]='{"background-color": attribute === attributeName ? "rgba(var(--secondary-rgb), 0.25)": ""}'
+                          mat-menu-item
+                        >
+                          {{ attributeName }}
+                        </button>
+                      </mat-menu>
+                    </button>
+                    <button
+                      (click)='deleteSelectedTags(attribute)'
+                      [disabled]='!(selectedAttribute.length > 0 && attribute === selectedAttribute && selectedTags.length > 0) || (attribute === "Performance Title" && pages[pageIndex].children[childIndex].attributes[attribute].length <= 1) || (attribute === "Performance Title" && pages[pageIndex].children[childIndex].attributes[attribute].length > 1 && selectedTags.length ===  pages[pageIndex].children[childIndex].attributes[attribute].length && selectedAttribute === attribute)'
+                      color='warn'
+                      mat-button
+                    >
+                      Delete Selected
+                      <mat-icon materialIconsRound>delete</mat-icon>
+                    </button>
+                  </div>
+                </div>
+                <div
+                  *ngFor='let tag of pages[pageIndex].children[childIndex].attributes[attribute]'
+                >
+                  <div
+                    (mouseenter)='updateBoundingBox(tag, attribute, true)'
+                    (mouseleave)='updateBoundingBox(tag, attribute, false)'
+                    [id]='attribute + "-" + tag.value + "-tag"'
+                    [ngClass]='getTagClasses(tag, attribute)'
+                    class='tag'
+                  >
+                    <mat-checkbox
+                      (change)='selectTag(tag, attribute)'
+                      [checked]='isTagSelected(tag) && attribute === selectedAttribute'
+                      [disabled]='selectedAttribute.length > 0 && attribute !== selectedAttribute || (clickedBoundingBox.value.length > 0 && clickedBoundingBox.value !== tag.value)'
+                      color='primary'
+                      labelPosition='after'
+                    >
+                      {{ tag.value }}
+                    </mat-checkbox>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <mat-toolbar class='bottom-bar'>
+        <button (click)='cancel()' color='warn' mat-stroked-button>
+          Discard Changes
+          <mat-icon materialIconsRound>cancel</mat-icon>
+        </button>
+        &nbsp;
+        <div class='custom-button-container'>
+          <button (click)='save(false)' mat-button>
+            Save
+            <mat-icon materialIconsRound>save</mat-icon>
+          </button>
+          <div class='vertical-divider'></div>
+          <button [matMenuTriggerFor]='saveOptionsMenu' mat-icon-button>
+            <mat-icon materialIconsRound>expand_less</mat-icon>
+          </button>
+          <mat-menu #saveOptionsMenu='matMenu'>
+            <button (click)='save(true)' mat-menu-item role='menuitem'>
+              <mat-icon materialIconsRound>exit_to_app</mat-icon>
+              <mat-label>Save & Exit</mat-label>
+            </button>
+          </mat-menu>
+        </div>
+        <div class='spacer'></div>
+        <button
+          (click)='sendData()'
+          color='primary'
+          mat-flat-button
+        >
+          Review Program Information
+          <mat-icon materialIconsRound>pageview</mat-icon>
+        </button>
+      </mat-toolbar>
+    </div>
+  </div>
+  <div *ngIf='loading' class='loading-area'>
+    <app-loading loader='bar' subBelow='Please wait while we are loading the attributes!' title='Loading Attributes'>
+    </app-loading>
+  </div>
+</div>
+
+<ng-template #noAttributes>
+  <section *ngIf='pages[pageIndex].label !== "Program";else noPerformances' class='empty-message'>
+    <h2>This page has no attributes</h2>
+    <ng-container [ngTemplateOutlet]='AddAttributeButtonMenuTemplate'></ng-container>
+  </section>
+</ng-template>
+
+<ng-template #AddAttributeButtonMenuTemplate>
+  <button
+    [matMenuTriggerFor]='addAttributeMenu' color='primary' mat-stroked-button
+    matTooltip='Add New Attribute'
+  >
+    Add New Attribute
+    <mat-icon color='primary' materialIconsRound>new_label</mat-icon>
+  </button>
+  <mat-menu #addAttributeMenu>
+    <button [disableRipple]='true' [disabled]='true' mat-menu-item>
+      <strong>Add New Attribute</strong>
+    </button>
+    <ng-container *ngFor='let group of sortedGroupList'>
+      <ng-container *ngIf='group.groups.length'>
+        <button [matMenuTriggerFor]='SubGroup' class='attribute-menu-item' mat-menu-item>
+          {{ group.name }}
+        </button>
+        <mat-menu #SubGroup>
+          <button
+            (click)='addAttribute(group.name)'
+            *ngFor='let group of group.groups'
+            [class.exists]='attributeAlreadyExists(group.name)'
+            [disabled]='attributeAlreadyExists(group.name)'
+            class='attribute-menu-item'
+            mat-menu-item
+          >
+            {{ group.name }}
+          </button>
+        </mat-menu>
+      </ng-container>
+      <ng-container *ngIf='group.groups.length <= 0'>
+        <button
+          (click)='addAttribute(group.name)'
+          [class.exists]='attributeAlreadyExists(group.name)'
+          [disabled]='attributeAlreadyExists(group.name)'
+          class='attribute-menu-item'
+          mat-menu-item
+        >
+          {{ group.name }}
+        </button>
+      </ng-container>
+    </ng-container>
+
+  </mat-menu>
+</ng-template>
+
+<ng-template #noPerformances>
+  <section class='empty-message'>
+    <h2>This page has no Performances</h2>
+    <button (click)='addPerformance()' color='primary' mat-flat-button>
+      Add a new Performance
+      <mat-icon materialIconsRound>add</mat-icon>
+    </button>
+  </section>
+</ng-template>
+
+<div #attributeHover class='hover-element' id='attribute-hover'></div>
+<div #pageHover class='hover-element' id='page-hover'></div>

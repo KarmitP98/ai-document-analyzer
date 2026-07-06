@@ -1,0 +1,161 @@
+<app-loading
+  *ngIf='loading' loader='bar' subBelow='Please wait while we load vocabularies' title='Loading Vocabularies'
+></app-loading>
+<div *ngIf='!loading' class='loaded'>
+  <div class='header'>
+    <div class='title'>
+      Vocabularies
+    </div>
+    <div class='subtitle'>
+      Easily manage, upload, and control access to vocabularies within the system.
+    </div>
+  </div>
+  <input
+    #fileUpload (change)='uploadVocab($event)' accept='.netx.csv' hidden id='csvFile' multiple
+    name='file' type='file'
+  >
+  <div *ngIf='vocabs.length'>
+    <div class='input-area'>
+      <mat-form-field appearance='outline'>
+        <mat-label>Search Vocabularies</mat-label>
+        <input
+          (keyup)='filterBy()' [(ngModel)]='filter' id='filter' matInput name='filter' placeholder='Search by client name, uploaded by, uploaded on, etc.'
+          type='text'
+        >
+        <mat-icon color='primary' matSuffix materialIconsRound>search</mat-icon>
+      </mat-form-field>
+      <button (click)='fileUpload.click()' aria-label='Upload vocabulary file' color='primary' mat-flat-button>
+        Upload Vocabulary
+        <mat-icon materialIconsRound>
+          upload
+        </mat-icon>
+      </button>
+    </div>
+    <br>
+    <div *ngIf='vocabs?.length' class='table-container default-border'>
+      <table [dataSource]='dataSource' class='' mat-table matSort>
+
+        <!-- Number Column -->
+        <ng-container matColumnDef='no'>
+          <th *matHeaderCellDef mat-header-cell mat-sort-header>No.</th>
+          <td *matCellDef='let element;let i = index' mat-cell
+              (click)='updateVocabFile(element)'> {{ i + 1 }}</td>
+        </ng-container>
+
+
+        <!-- Name Column -->
+        <ng-container matColumnDef='fileName'>
+          <th *matHeaderCellDef mat-header-cell mat-sort-header>File Name</th>
+          <td *matCellDef='let element' mat-cell
+              (click)='updateVocabFile(element)'> {{ element.rowKey || '-' }}</td>
+        </ng-container>
+
+        <!-- Client Column -->
+        <ng-container matColumnDef='client'>
+          <th *matHeaderCellDef mat-header-cell mat-sort-header>Client</th>
+          <td *matCellDef='let element' mat-cell
+              (click)='updateVocabFile(element)'> {{ element.clientName || element.client?.name || '-' }}</td>
+        </ng-container>
+
+        <!-- Uploaded By Column -->
+        <ng-container matColumnDef='uploadedBy'>
+          <th *matHeaderCellDef mat-header-cell mat-sort-header>Uploaded By</th>
+          <td *matCellDef='let element' mat-cell
+              (click)='updateVocabFile(element)'>
+            {{ element.uploadedByUser?.userName || element.uploadedByUser?.email || element.uploadedBy || '-' }}
+          </td>
+        </ng-container>
+
+        <!-- Uploaded On Column -->
+        <ng-container matColumnDef='uploadedOn'>
+          <th *matHeaderCellDef mat-header-cell mat-sort-header>Uploaded On</th>
+          <td *matCellDef='let element' mat-cell
+              (click)='updateVocabFile(element)'>
+            {{ getFormattedDate(element.createdAt) || '-' }}
+          </td>
+        </ng-container>
+
+        <!-- Actions Column -->
+        <ng-container matColumnDef='actions'>
+          <th *matHeaderCellDef mat-header-cell>Actions</th>
+          <td *matCellDef='let element' class='actions' mat-cell>
+            <button
+              (click)='updateVocabFile(element)'
+              color='primary'
+              mat-icon-button
+              matTooltip='Edit Vocabulary'
+            >
+              <mat-icon materialIconsRound>
+                edit
+              </mat-icon>
+            </button>
+            <button
+              (click)='deleteVocab(element)'
+              color='warn'
+              mat-icon-button
+              matTooltip='Delete Vocabulary'
+            >
+              <mat-icon materialIconsRound>
+                delete
+              </mat-icon>
+            </button>
+            <button
+              [matMenuTriggerFor]='moreMenu' color='primary' mat-icon-button matTooltip='More Options'
+              matTooltipPosition='below'
+            >
+              <mat-icon materialIconsRound>more_vert</mat-icon>
+            </button>
+            <mat-menu #moreMenu>
+              <button
+                (click)='downloadVocabFile(element, "csv")'
+                mat-menu-item
+                matTooltip='Download CSV Vocab'
+                matTooltipPosition='above'
+              >
+                <mat-icon materialIconsRound color='primary'>
+                  description
+                </mat-icon>
+                Download CSV
+              </button>
+              <button
+                (click)='downloadVocabFile(element, "json")'
+                mat-menu-item
+                matTooltip='Download JSON Vocab'
+              >
+                <mat-icon materialIconsRound color='primary'>
+                  data_object
+                </mat-icon>
+                Download JSON
+              </button>
+            </mat-menu>
+          </td>
+        </ng-container>
+
+        <tr *matHeaderRowDef='displayedColumns; sticky:true' mat-header-row></tr>
+        <tr *matRowDef='let row; columns: displayedColumns;' mat-row></tr>
+
+        <!-- Row shown when there is no matching data. -->
+        <tr *matNoDataRow class='mat-row'>
+          <td class='mat-cell' colspan='4'>No data matching the filter</td>
+        </tr>
+      </table>
+      <mat-paginator
+        [pageSizeOptions]='[10, 25, 50, 100]' aria-label='Select page for Vocabularies' showFirstLastButtons
+      >
+      </mat-paginator>
+    </div>
+  </div>
+  <div *ngIf='vocabs.length === 0' class='empty-container'>
+    <div class='title'>
+      No Vocabularies Found
+    </div>
+    <div>
+      <button (click)='fileUpload.click()' color='primary' mat-flat-button>
+        <mat-icon materialIconsRound>
+          upload
+        </mat-icon>
+        Upload Vocabulary
+      </button>
+    </div>
+  </div>
+</div>

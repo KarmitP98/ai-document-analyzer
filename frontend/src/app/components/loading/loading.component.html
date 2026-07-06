@@ -1,0 +1,32 @@
+<div class='loading-component dialog-header'>
+  <div class='title'>
+    {{title}}
+  </div>
+  <div *ngIf='subtitle1' class='subtitle subtitle-1'>
+    {{subtitle1}}
+  </div>
+  <div *ngIf='!success && !error' class='loader'>
+    <mat-progress-bar
+      *ngIf='loader === "bar"'
+      [color]='progressBarData?.color || "primary"'
+      [mode]='progressBarData?.mode || "indeterminate"'
+      [value]='progressBarData?.value || 0'
+    ></mat-progress-bar>
+    <mat-progress-spinner
+      *ngIf='loader === "spinner"'
+      [color]='progressSpinnerData?.color || "primary"'
+      [diameter]='64'
+      [mode]='progressSpinnerData?.mode || "indeterminate"'
+      [value]='progressSpinnerData?.value || 100'
+    ></mat-progress-spinner>
+  </div>
+  <div *ngIf='success' class='success-icon'>
+    <img alt='Check Icon' src='assets/svgs/Check-Icon.svg'>
+  </div>
+  <div *ngIf='error' class='error-icon'>
+    <img alt='Close Icon' src='assets/svgs/Close-Icon.svg'>
+  </div>
+  <div *ngIf='subtitle2' class='subtitle sub-below'>
+    {{subtitle2}}
+  </div>
+</div>

@@ -1,0 +1,10 @@
+{
+    "azureFunctions.deploySubpath": ".",
+    "azureFunctions.scmDoBuildDuringDeployment": true,
+    "azureFunctions.projectLanguage": "Python",
+    "azureFunctions.projectRuntime": "~4",
+    "debug.internalConsoleOptions": "neverOpen",
+    "appService.defaultWebAppToDeploy": "/subscriptions/9def3cdc-ae2d-4c19-9c32-8308ec011337/resourceGroups/nlp-dev-rg/providers/Microsoft.Web/sites/appser-dev-cac",
+    "appService.deploySubpath": "frontend\\dist\\frontend",
+    "python.analysis.typeCheckingMode": "basic"
+}

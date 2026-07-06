@@ -1,0 +1,33 @@
+<div class='main'>
+  <button disableRipple disabled mat-icon-button>
+    <mat-icon class='icon' materialIconsRound>
+      {{getIcon()}}
+    </mat-icon>
+  </button>
+  <div class='information-section'>
+    <div class='title'>
+      {{data.title}}
+    </div>
+    <div *ngIf='!minimized' class='template'>
+      {{data.message}}
+    </div>
+  </div>
+  <div *ngIf='data.action' class='action'>
+    <button (click)='minimized = !minimized' *ngIf='data.action === "Min"' mat-icon-button>
+      <mat-icon materialIconsRound>
+        {{ minimized ? "add_circle" : "remove_circle"}}
+      </mat-icon>
+    </button>
+    <button (click)='dismissWithAction()' mat-icon-button>
+      <mat-icon materialIconsRound>
+        close
+      </mat-icon>
+    </button>
+  </div>
+</div>
+<mat-progress-bar
+  [mode]='getProgressBarConfig().mode'
+  [value]='getProgressBarConfig().value'
+  class='status-bar'
+>
+</mat-progress-bar>

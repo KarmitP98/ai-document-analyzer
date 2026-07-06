@@ -1,0 +1,33 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+azure-functions = "*"
+azure-ai-textanalytics = "*"
+azure-cognitiveservices-vision-computervision = "*"
+azure-common = "*"
+azure-core = "*"
+azure-storage-blob = "*"
+msrest = "*"
+spacy = "*"
+spacy-transformers= "*"
+pdf2image = "*"
+scikit-learn = "*"
+python-dotenv = "*"
+Pillow = "*"
+jupyterlab = "*"
+pandas = "*"
+thefuzz = "*"
+imblearn = "*"
+hyperopt = "*"
+mlflow = "*"
+python-Levenshtein = "*"
+PyPDF3 = "*"
+azure-data-tables = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.10.11"

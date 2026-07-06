@@ -1,0 +1,94 @@
+<div class='dialog-title' mat-dialog-title>
+  Update User
+</div>
+<mat-dialog-content>
+  <form #form='ngForm' (ngSubmit)='saveUser()' class="edit-user-form">
+    <mat-form-field appearance='outline'>
+      <mat-label>User Name</mat-label>
+      <input [(ngModel)]='user.userName' autofocus id='username' matInput name='username' placeholder='Enter user name'
+        type='text'>
+    </mat-form-field>
+    <!-- User Level (only for admins, right below username) -->
+    <ng-container *ngIf="isAdmin()">
+      <mat-form-field appearance="outline">
+        <mat-label>User Level</mat-label>
+        <mat-select [(ngModel)]="user.userLevel" name="userLevel" (selectionChange)="onUserLevelChange($event.value)">
+          <mat-option [value]="undefined" disabled>Select a user level</mat-option>
+          <mat-option [value]="userLevel.INTERN">Intern</mat-option>
+          <mat-option [value]="userLevel.ADMIN">Admin</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </ng-container>
+    <mat-form-field appearance='outline'>
+      <mat-label>Current Client</mat-label>
+      <mat-select [(ngModel)]='user.currentClientId'
+        name='currentClient' placeholder="Select the user's current client" required>
+        <mat-option [value]='undefined' disabled>Select the current client</mat-option>
+        <mat-option *ngFor='let client of clients' [value]='client.partitionKey'>{{client?.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div *ngIf="!isAdmin()">
+      <mat-form-field appearance='outline'>
+        <mat-label>Allowed Clients</mat-label>
+        <mat-select #allowedClientSelect [disabled]="isAdmin()">
+          <mat-option (click)='!hasClient(client) && addClient(client)' *ngFor='let client of clients'
+            [disabled]='!!hasClient(client)' [value]='client.partitionKey'>{{client.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-chip-list #clientList *ngIf='user.allowedClientIds?.length' class='client-chips'>
+        <mat-chip *ngFor='let client of user.allowedClientIds'>
+          {{getClient(client)?.name}}
+          <button (click)='removeClient(client)' matChipRemove>
+            <mat-icon materialIconsRound>close</mat-icon>
+          </button>
+        </mat-chip>
+      </mat-chip-list>
+    </div>
+    <div *ngIf='user.currentClientId'>
+      <div class='action-bar'>
+        <mat-label>Upload Folder</mat-label>
+        <span class='spacer'></span>
+        <button (click)='editStorageFolder()' color='primary' mat-stroked-button type='button'>
+          Edit
+          <mat-icon materialIconsRound>edit</mat-icon>
+        </button>
+      </div>
+      <section class='upload-folder-section action-bar'>
+        <div class='upload-folder disabled-folder'><i>root</i>
+          <div *ngIf='user.rootFolderPath && user.rootFolderPath.length > 0 || user.createSubFolder'> ></div>
+        </div>
+        <ng-container *ngIf="user.rootFolderPath && user.rootFolderPath.length > 0">
+          <ng-container *ngFor="let folder of getUploadFolderArray(user.rootFolderPath); let i = index; let c = count">
+            <div class='upload-folder'>
+              <i>{{ folder }}</i>
+              <div *ngIf='i < c - 1 || user.createSubFolder'> ></div>
+            </div>
+          </ng-container>
+        </ng-container>
+        <div *ngIf="user.createSubFolder" class="upload-folder disabled-folder">
+          <i>PROGRAM_TITLE</i>
+        </div>
+      </section>
+    </div>
+    <div *ngIf='user.currentClientId' class='action-bar'>
+      <mat-label>Create Sub-Folder?</mat-label>
+      <div class='spacer'></div>
+      <mat-slide-toggle [(ngModel)]='user.createSubFolder' color='primary' name='sub-folder'></mat-slide-toggle>
+    </div>
+    <div *ngIf='user.currentClientId' class='action-bar'>
+      <mat-label>Allow NetX Submission?</mat-label>
+      <div class='spacer'></div>
+      <mat-slide-toggle [(ngModel)]='user.allowSubmit' color='primary' name='allow-submit'></mat-slide-toggle>
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align='end' class='form-actions right'>
+  <button (click)='close()' color='warn' mat-stroked-button type='button'>
+    Cancel
+    <mat-icon materialIconsRound>close</mat-icon>
+  </button>
+  <button (click)='saveUser()' [disabled]='!form.valid' color='primary' mat-flat-button type='submit'>
+    Save
+    <mat-icon materialIconsRound>save</mat-icon>
+  </button>
+</mat-dialog-actions>

@@ -1,0 +1,47 @@
+@import '~src/theme/mixin';
+@import '~src/theme/colors';
+
+.page{
+  background-color: RGBA($dark, 0.5);
+  z-index: 1000;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  flex-flow: column;
+  backdrop-filter: blur(2px);
+
+  h1{
+    font-weight: bolder;
+    color: $primary;
+    letter-spacing: 1px;
+    font-size: xx-large;
+    margin-top: 0.5em;
+    position: relative;
+
+    &:after{
+      content: '';
+      position: absolute;
+      animation: blink 1s infinite cubic-bezier(.99,.07,.43,1.02);
+    }
+  }
+}
+
+@keyframes blink {
+  0%{
+    content: '';
+  }
+  25%{
+    content: '.';
+  }
+  50%{
+    content: '..';
+  }
+  75%{
+    content: '...';
+  }
+  100%{
+    content: '...';
+  }
+}

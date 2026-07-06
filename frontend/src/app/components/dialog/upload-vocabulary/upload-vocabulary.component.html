@@ -1,0 +1,59 @@
+<div class='vocab-container'>
+  <div class='dialog-header'>
+    <div class='title' matDialogTitle>
+      Upload Vocabulary
+    </div>
+  </div>
+  <mat-form-field appearance='outline'>
+    <mat-label>Select Client</mat-label>
+    <mat-select
+      [(ngModel)]='selectedClient' [disabled]='uploading' placeholder='Please select the client for the vocabulary'
+    >
+      <mat-option
+        *ngFor='let client of clients' [value]='client'
+      >{{ client.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div class='files default-border' matDialogContent>
+    <div *ngFor='let file of data.files; let i = index' class='file'>
+      <div *ngIf='currentUploadIndex >= i && uploading' class='overlay'>
+        <span *ngIf='currentProgress[i]?.success && !currentProgress[i]?.error' class='completed'>
+          <mat-icon materialIconsRound color='primary'>check_circle</mat-icon>
+        </span>
+        <span *ngIf='currentUploadIndex === i' class='in-progress'>
+          <mat-progress-spinner [diameter]='24' mode='indeterminate'></mat-progress-spinner>
+        </span>
+        <span *ngIf='!currentProgress[i]?.success && currentProgress[i]?.error' class='error'>
+          <mat-icon color='warn' materialIconsRound>error</mat-icon>
+        </span>
+      </div>
+      <div *ngIf='i > currentUploadIndex' class='file-thumbnail'>
+        <mat-icon color='primary' materialIconsRound>description</mat-icon>
+      </div>
+      <div class='file-name'>
+        {{ file.name.split('.netx')[0] }}
+      </div>
+    </div>
+  </div>
+</div>
+<mat-dialog-actions *ngIf='!loading && !uploading;else Loader' align='end'>
+  <button (click)='close()' [disabled]='uploading' color='warn' mat-stroked-button>
+    Cancel
+    <mat-icon materialIconsRound>close</mat-icon>
+  </button>
+  <button
+    (click)='createVocabEntry()' [disabled]='!selectedClient || uploading' color='primary' mat-flat-button
+  >
+    Upload{{ loading ? 'ing...' : '' }} Vocabulary
+    <mat-icon materialIconsRound>
+      upload
+    </mat-icon>
+  </button>
+</mat-dialog-actions>
+
+<ng-template #Loader>
+  <mat-dialog-actions>
+    <mat-progress-bar mode='indeterminate'></mat-progress-bar>
+  </mat-dialog-actions>
+</ng-template>

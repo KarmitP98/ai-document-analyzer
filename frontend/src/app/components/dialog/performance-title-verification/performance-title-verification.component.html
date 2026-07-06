@@ -1,0 +1,58 @@
+<div matDialogTitle>
+	Performance Title Verification
+</div>
+<mat-dialog-content class='performance-title-verification-dialog'>
+	<div class='content'>
+		<section class='preview-section default-border'>
+			<div class='action-bar'>
+				<button (click)='changeIndex(-1)' [disabled]='data.indexes.length <= 1' color='primary' mat-icon-button>
+					<mat-icon materialIconsRound>chevron_left</mat-icon>
+				</button>
+				<div class='spacer'></div>
+				<div class='page-label'>
+					Page {{ getPageNumber() + 1 }}
+				</div>
+				<div class='spacer'></div>
+				<button (click)='changeIndex(1)' [disabled]='data.indexes.length <= 1' color='primary' mat-icon-button>
+					<mat-icon materialIconsRound>chevron_right</mat-icon>
+				</button>
+			</div>
+			<div class='page-preview-container'>
+				<img [src]='data.pagesInformation[getPageNumber()].thumbnail' alt='Page Preview' class='page-preview'/>
+			</div>
+		</section>
+		<section class='edit-section default-border'>
+			<div class='title'>Verify Performance Title</div>
+			<div class='information-section default-border action-bar'>
+				<mat-icon materialIconsRound>info_outline</mat-icon>
+				<span>The performance title appears as <b>"Unknown"</b>. Please verify if this is correct or update it below.
+					</span>
+			</div>
+			<mat-divider></mat-divider>
+			<div class='action-bar'>
+				<mat-form-field appearance='outline' class='title-input'>
+					<mat-label>Performance Title</mat-label>
+					<input
+							[(ngModel)]='data.pages[getPageIndex()].children[getChildIndex()].attributes["Performance Title"][0].value'
+							matInput
+							name='performance-title'
+					/>
+				</mat-form-field>
+			</div>
+			<button *ngIf='data.indexes.length > 1' (click)='changeIndex(1)' mat-flat-button style='width: 100%;' color='primary'>
+				Verify
+				<mat-icon materialIconsRound>check_circle_outline</mat-icon>
+			</button>
+		</section>
+	</div>
+</mat-dialog-content>
+<mat-dialog-actions align='end'>
+	<button mat-stroked-button color='warn' matDialogClose>
+		Cancel
+		<mat-icon materialIconsRound>close</mat-icon>
+	</button>
+	<button (click)='close()' color='primary' mat-flat-button>
+		Confirm
+		<mat-icon materialIconsRound>check</mat-icon>
+	</button>
+</mat-dialog-actions>

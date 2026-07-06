@@ -1,0 +1,82 @@
+@import '~src/theme/mixin';
+@import '~src/theme/variables';
+@import '~src/theme/colors';
+
+.attribute-name-input {
+  width: 50%;
+}
+
+.tag-value-input {
+  width: 100%;
+}
+
+.content {
+  margin: 1rem 0;
+  padding: 1rem;
+}
+
+.tags {
+  .tag {
+
+    .delete-button {
+      line-height: 20px;
+      width: 20px;
+      height: 20px;
+
+      .mat-icon.small {
+        font-size: 16px;
+        line-height: 16px;
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+}
+
+.auto-complete-option {
+  width: 100%;
+
+  .already-added-text {
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
+    color: RGBA($dark, 0.5);
+  }
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.page-exclusion-section {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border: 1px solid RGBA($dark, 0.12);
+  border-radius: 0.5rem;
+  background-color: RGBA($primary, 0.02);
+
+  .section-header {
+    .header-content {
+      @include FlexColumn(flex-start, flex-start, 0rem, 0);
+
+      h3 {
+        font-size: 1rem;
+        font-weight: 500;
+        margin: 0;
+        white-space: nowrap;
+        color: $dark;
+      }
+
+
+      .description {
+        font-size: 0.875rem;
+        margin: 0 0 0 0;
+        color: RGBA($dark, 0.7);
+      }
+    }
+
+    mat-form-field {
+      width: 35%;
+    }
+  }
+}
+

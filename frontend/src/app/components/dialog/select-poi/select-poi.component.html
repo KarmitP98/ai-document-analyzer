@@ -1,0 +1,146 @@
+<div class='content'>
+  <div class='action-bar title-bar'>
+    <h2 matDialogTitle>
+      Search Location
+    </h2>
+    <span class='spacer'></span>
+    <button (click)='isPageShown = !isPageShown' mat-stroked-button>
+      {{ isPageShown ? 'Hide Pages' : 'Show Pages' }}
+      <mat-icon materialIconsRound>{{ isPageShown ? 'layers_clear' : 'layers' }}</mat-icon>
+    </button>
+  </div>
+  <div class='content'>
+    <div class='poi-selector'>
+      <div class='vertical-menu'>
+        <ul class='button-list'>
+          <li class='button-item'>
+            <button
+              (click)='updateToIsSearchMode(true)' [color]='isSearchMode ? "primary" : undefined' mat-icon-button
+              matTooltip='Search'
+            >
+              <mat-icon materialIconsRound>search</mat-icon>
+            </button>
+          </li>
+          <li class='button-item'>
+            <button
+              (click)='updateToIsSearchMode(false)' [color]='!isSearchMode ? "primary" : undefined' mat-icon-button
+              matTooltip='Show historical searches'
+            >
+              <mat-icon materialIconsRound>history</mat-icon>
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      <div id='map'></div>
+      <div class='search-section'>
+        <div class='search-bar box-shadow-dark'>
+          <mat-form-field appearance='outline'>
+            <mat-label>Search Location</mat-label>
+            <input
+              (keyup.enter)='search()' (ngModelChange)='autoCompleteSearch()' (submit)='auto.showPanel = false'
+              [(ngModel)]='searchInput'
+              [matAutocomplete]='auto'
+              id='seach-bar'
+              matInput name='search'
+              placeholder='Search for a location on the map'
+              type='text'
+            >
+            <button (click)='search()' color='primary' mat-icon-button matSuffix>
+              <mat-icon materialIconsRound>search</mat-icon>
+            </button>
+            <mat-autocomplete #auto='matAutocomplete' (optionSelected)='search()' [autoActiveFirstOption]='false'>
+              <mat-optgroup *ngIf='getPreviousSearchAutoCompleteOptions().length' label='Previous Searches'>
+                <mat-option
+                  *ngFor='let location of getPreviousSearchAutoCompleteOptions()' [value]='location.searchTerm'
+                >
+                  <mat-icon class='color__disabled' materialIconsRound>history</mat-icon>
+                  {{ location.searchTerm }}
+                </mat-option>
+              </mat-optgroup>
+              <mat-optgroup *ngIf='autoCompleteOptions.length' label='Suggestions'>
+                <mat-option *ngFor='let option of autoCompleteOptions' [value]='option'>{{ option }}</mat-option>
+              </mat-optgroup>
+            </mat-autocomplete>
+          </mat-form-field>
+          <button (click)='showResults = !showResults' *ngIf='locations.length' mat-icon-button>
+            <mat-icon materialIconsRound>{{ showResults ? 'expand_less' : 'expand_more' }}</mat-icon>
+          </button>
+        </div>
+        <!--        Search Results -->
+        <div *ngIf='locations.length && showResults && isSearchMode' class='search-results-section box-shadow-dark'>
+          <div class='action-bar title-search-bar'>
+            <h2>Search Results</h2>
+          </div>
+          <ul class='search-results'>
+            <app-location-list-item
+              (click)='selectPOI(i, $event)'
+              *ngFor='let result of locations;let i = index;let c = count'
+              [index]='i'
+              [isFirst]='i === 0'
+              [isLast]='i === c - 1'
+              [location]='result'
+              [selected]='isSearchMode && selectedIndex === i'
+            ></app-location-list-item>
+          </ul>
+        </div>
+        <!--        Historical Results-->
+        <div
+          *ngIf='previousLocations.length && showResults && !isSearchMode'
+          class='search-results-section box-shadow-dark'
+        >
+          <div class='action-bar title-search-bar'>
+            <h2>Previously Selected</h2>
+          </div>
+          <ul class='search-results'>
+            <app-location-list-item
+              (clearLocation)='clearLocation($event)'
+              (click)='selectPOI(i, $event)'
+              *ngFor='let location of previousLocations;let i = index;let c = count'
+              [index]='i'
+              [isFirst]='i === 0'
+              [isLast]='i === c - 1'
+              [location]='location.selectedItem'
+              [selected]='!isSearchMode && selectedIndex === i'
+              [showClearOption]='true'
+            ></app-location-list-item>
+          </ul>
+        </div>
+      </div>
+
+      <div [class.show]='isPageShown' class='pdf-section'>
+        <div class='container box-shadow-dark'>
+          <app-page-preview-zoom
+            (setCurrentPage)='setCurrentPage($event)'
+            [currentPage]='pageIndex'
+            [pagesMetaData]='data.pagesInformation'
+            [pages]='data.pages'
+            [refreshing]='refreshing'
+            [showBoundingBoxControls]='false'
+            [showThumbnails]='false'
+          ></app-page-preview-zoom>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='action-bar'>
+    <div class='spacer'></div>
+    <button color='warn' mat-stroked-button [matDialogClose]='data.showSkip ? {skip: true} : undefined'>
+      {{ data.showSkip ? 'Skip' : 'Cancel' }}
+      <mat-icon materialIconsRound>close</mat-icon>
+    </button>
+    <button (click)='sendData()' [disabled]='selectedIndex < 0' color='primary' mat-flat-button>
+      Select
+      <mat-icon materialIconsRound>done</mat-icon>
+    </button>
+  </div>
+
+  <ng-template #NoLocation>
+    <div class='no-location'>
+      <h2 class='primary-color'>{{ searchInput.length ? 'No Location Found!' : 'Search For a Location' }}</h2>
+    </div>
+  </ng-template>
+  <ng-template #refreshingTemplate>
+    <app-loading loader='bar' subAbove='Loading Page'></app-loading>
+  </ng-template>
+</div>

@@ -1,0 +1,22 @@
+# Packages used in Project
+
+* azure-functions (https://snyk.io/advisor/python/azure-functions)
+* azure-ai-textanalytics (https://snyk.io/advisor/python/azure-ai-textanalytics)
+* azure-cognitiveservices-vision-computervision (https://snyk.io/advisor/python/azure-cognitiveservices-vision-computervision) 
+* azure-common (https://snyk.io/advisor/python/azure-common)
+* azure-core (https://snyk.io/advisor/python/azure-core)
+* azure-storage-blob (https://snyk.io/advisor/python/azure-storage-blob)
+* msrest (https://snyk.io/advisor/python/msrest)
+* spacy (https://snyk.io/advisor/python/spacy)
+* typing_extensions==4.4.0 (https://snyk.io/advisor/python/typing-extensions)
+    * Package needs to be pinned to <4.6.0 or else it will cause errors with loading Spacy models 
+* pdf2image (https://snyk.io/advisor/python/pdf2image)
+* scikit-learn (https://snyk.io/advisor/python/scikit-learn)
+* python-dotenv (https://snyk.io/advisor/python/python-dotenv)
+* Pillow (https://snyk.io/advisor/python/pillow)
+* jupyterlab (https://snyk.io/advisor/python/jupyterlab)
+* pandas (https://snyk.io/advisor/python/pandas)
+* thefuzz (https://snyk.io/advisor/python/thefuzz) 
+* pre-commit (https://snyk.io/advisor/python/pre-commit)
+* detect-secrets (https://snyk.io/advisor/python/detect-secrets)
+* pytorch (https://snyk.io/advisor/python/torch)

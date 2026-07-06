@@ -1,0 +1,13 @@
+<div class='pages-thumbnails'>
+  <div
+    (click)='updatePage(i)' *ngFor='let page of pages;let i = index' [class.active]='i === currentIndex'
+    [matBadge]='showPageView && !pageViewMeta[i] ? "&#x2022;": undefined' class='page-thumbnail default-border'
+  >
+    <div class='thumbnail'>
+      <img [src]='page.thumbnail' alt='Page'>
+    </div>
+    <div class='page-name'>
+      <span>Page {{(page.pageNumber || 0) + 1}}</span>
+    </div>
+  </div>
+</div>

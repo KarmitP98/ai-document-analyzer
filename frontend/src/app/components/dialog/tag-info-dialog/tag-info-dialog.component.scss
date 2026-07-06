@@ -1,0 +1,47 @@
+@import '~src/theme/colors';
+@import '~src/theme/mixin';
+
+.tag-info-dialog {
+  width: 100%;
+  max-width: 600px;
+}
+
+.tag-info-section {
+  margin-bottom: 24px;
+
+  h3 {
+    font-weight: 600;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    color: $primary;
+  }
+}
+
+.tag-examples {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tag-example {
+  display: grid;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  background: RGBA($secondary, 0.1);
+  grid-template-columns: 25% 1fr;
+  place-items: center flex-start;
+  gap: 1rem;
+
+  .tag {
+    width: 100%;
+  }
+}
+
+.tag-description {
+  flex: 1;
+
+  strong {
+    color: #333;
+  }
+}
+

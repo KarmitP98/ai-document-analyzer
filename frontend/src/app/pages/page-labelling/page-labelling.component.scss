@@ -1,0 +1,108 @@
+@import '~src/theme/colors';
+@import '~src/theme/mixin';
+@import '~src/theme/variables';
+
+.page {
+  height: 100vh;
+}
+
+.main {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+
+  &-content {
+    display: grid;
+    width: 100%;
+    height: calc(100% - $mat-toolbar-height * 2);
+    background: $light;
+    grid-template-rows: 100%;
+    grid-template-columns: 20% 80%;
+    grid-gap: 1rem;
+
+    .thumbnails {
+      width: 100%;
+      height: 100%;
+      background: RGBA($secondary, 0.05);
+    }
+
+    .page-preview {
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      gap: 1rem;
+
+      .image-preview {
+        flex: 1 1 auto;
+        width: fit-content;
+        height: 100%;
+        border: 1px solid lightgray;
+        background-color: RGBA($secondary, 0.05);
+        @include FlexRow(center, center, 0, 1rem);
+
+        @include PageZoom;
+
+        &-container {
+          width: fit-content;
+          height: 100%;
+          position: relative;
+        }
+      }
+
+      .page-area-container {
+        @include FlexColumn(flex-start, flex-start, 1rem, 1rem 0);
+        min-width: 250px;
+        height: 100%;
+        border: 1px solid lightgray;
+        background-color: RGBA($secondary, 0.05);
+
+        .header {
+          padding: 0 1rem;
+
+          .title.small {
+            font-size: 1.2rem;
+          }
+        }
+
+        .page-areas {
+          width: 100%;
+          @include FlexColumn(flex-start, flex-start, 1rem, 1rem);
+          list-style: none;
+          height: 100%;
+          overflow: auto;
+          flex: 1 0 auto;
+        }
+
+        .page-area {
+          @include FlexColumn(flex-start, flex-start, 0.5rem, 1rem);
+          width: 100%;
+          min-width: 100px;
+          border-radius: 0.25em;
+          background-color: $light;
+          flex: 0 0 auto;
+
+          &.selected {
+            background: RGBA($secondary, 0.15);
+            box-shadow: 0 1px 8px RGBA($dark, 0.25);
+          }
+
+          &-label {
+            @include FlexColumn(flex-start, flex-start, 1rem, 0);
+          }
+
+          .action-bar {
+            padding: 0;
+          }
+
+          mat-form-field, input {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+  }
+}

@@ -1,0 +1,85 @@
+<div class='action-bar gap-05'>
+  <h2 *ngIf='!editAttributeName' matDialogTitle>{{ data.attributeName }}</h2>
+  <mat-form-field *ngIf='editAttributeName' appearance='outline' class='attribute-name-input'>
+    <mat-label>Attribute Name</mat-label>
+    <input [(ngModel)]='data.attributeName' matInput name='attributeName' placeholder='Attribute Name'>
+  </mat-form-field>
+  <div class='spacer'></div>
+  <button (click)='editAttributeName = true' *ngIf='!editAttributeName' mat-stroked-button
+          matTooltip='Edit Attribute Name'>
+    Edit Attribute Name
+    <mat-icon materialIconsRound>edit</mat-icon>
+  </button>
+</div>
+<div class='content' mat-dialog-content>
+  <div class='page-exclusion-section'>
+    <div class='section-header action-bar'>
+      <div class='header-content'>
+        <h3>Exclude from Page Types</h3>
+        <p class='description'>Select page types where this attribute should not be applied</p>
+      </div>
+      <span class='spacer'></span>
+      <mat-form-field appearance='outline' class='page-exclusion-select'>
+        <mat-label>Select page types to exclude</mat-label>
+        <mat-select (selectionChange)='onPageTypeSelectionChange($event)' [value]='excludedPageTypes' multiple>
+          <mat-option *ngFor='let pageType of pageTypes' [value]='pageType[0]'>
+            {{ pageType[1] }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class='action-bar gap-05'>
+    <mat-form-field appearance='outline' class='tag-value-input'>
+      <mat-label>Add Tag</mat-label>
+      <input (keyup)='filterTags()' (keyup.enter)='addTag()'
+             [(ngModel)]='tagValue' [matAutocomplete]='auto' matInput
+             [autofocus]='true' name='tag' placeholder='Add a tag to this attribute' type='text'>
+      <mat-icon matSuffix materialIconsRound>add</mat-icon>
+      <mat-autocomplete #auto='matAutocomplete' [autoActiveFirstOption]='false'>
+        <mat-option
+          (click)='!isTagInAttribute(tag) && addTag(tag)'
+          *ngFor='let tag of filteredTags'
+          [disabled]='isTagInAttribute(tag)' [value]='tag'>
+          <div class='auto-complete-option action-bar'>
+            <span>{{ tag }}</span>
+            <div class='spacer'></div>
+            <ng-container *ngIf='isTagInAttribute(tag)'>
+              <span class='already-added-text'>~ Already added</span>
+              <mat-icon materialIconsRound>check</mat-icon>
+            </ng-container>
+          </div>
+        </mat-option>
+        <mat-option (click)='addTag()'
+                    *ngIf='tagValue && tagValue.trim() && !isTagInAttribute(tagValue)'
+                    [value]='tagValue'>
+          <div class='auto-complete-option action-bar'>
+            <span>Press Enter to add "{{ tagValue }}" to vocabulary</span>
+            <div class='spacer'></div>
+            <mat-icon materialIconsRound>add_circle</mat-icon>
+          </div>
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </div>
+  <div class='tags'>
+    <div *ngFor='let tag of data.attribute.tags;let i = index' class='tag secondary'>
+      {{ tag }}
+      <button (click)='deleteTag(i)' class='delete-button' mat-icon-button
+              matTooltip='Delete Tag'>
+        <mat-icon class='small' materialIconsRound>close</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
+<div align='end' mat-dialog-actions>
+  <button (click)='onCancel()' color='warn' mat-stroked-button>
+    Cancel
+    <mat-icon materialIconsRound>close</mat-icon>
+  </button>
+  <button (click)='onConfirm()' color='primary' mat-flat-button>
+    Confirm
+    <mat-icon materialIconsRound>check</mat-icon>
+  </button>
+</div>

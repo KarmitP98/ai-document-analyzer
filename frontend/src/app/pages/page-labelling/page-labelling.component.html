@@ -1,0 +1,111 @@
+<div class='background'></div>
+<div class='page'>
+  <app-loading
+    *ngIf='loading'
+    loader='bar'
+    subBelow='Please wait while we load your document...'
+    title='Loading Document'
+  >
+  </app-loading>
+
+  <div *ngIf='!loading && pages?.length' class='mat-elevation-z3 main'>
+    <mat-toolbar color='primary'>
+      <mat-toolbar-row>
+        <h2>{{ program.fileName }}</h2>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <div class='main-content'>
+      <div class='thumbnails default-border'>
+        <app-page-thumbnails
+          (currentIndexChange)='refreshZoomImage($event)'
+          [(currentIndex)]='currentPage'
+          [pageViewMeta]='pageViewMeta' [pages]='pages' [showPageView]='true'
+        ></app-page-thumbnails>
+      </div>
+      <div class='page-preview'>
+        <div class="image-preview">
+          <div class="image-preview-container" #dragContainer>
+            <img *ngIf="!refreshing;else refreshingTemplate" [src]="pages[currentPage].thumbnail" alt="Page Image"
+                 class="zoom">
+            <app-rectangle (select)="selectPageArea(i)"
+                           *ngFor="let pageArea of pages[currentPage].pageAreas;let i = index"
+                           [(x)]="pageArea.bounding_box.x"
+                           [(x2)]="pageArea.bounding_box.x2"
+                           [(y)]="pageArea.bounding_box.y"
+                           [(y2)]="pageArea.bounding_box.y2"
+                           [elementRef]="dragContainer"
+                           [selected]="selectedPageAreaIndex === i"
+                           [label]="pageArea.label"
+            ></app-rectangle>
+          </div>
+        </div>
+        <div class="page-area-container">
+          <div class="header action-bar">
+            <div class="title small">Page Areas</div>
+            <div class="spacer"></div>
+            <button (click)="addPageArea()" color="primary" mat-stroked-button>
+              Add Page Area
+              <mat-icon>add</mat-icon>
+            </button>
+          </div>
+          <ul *ngIf="pages[currentPage].pageAreas?.length" class="page-areas">
+            <li *ngFor="let pageArea of pages[currentPage].pageAreas; let i = index;let c = count"
+                [ngClass]="{'selected': i === selectedPageAreaIndex}"
+                class="page-area default-border clickable" matRipple (click)="selectPageArea(i)">
+              <div class="page-area-label">
+                <div class="action-bar">
+                  <mat-form-field appearance="outline">
+                    <mat-select (ngModelChange)="onPageAreaLabelChange(pageArea, currentPage, i, $event)"
+                                [(ngModel)]="pageArea.label">
+                      <mat-option [disabled]='true' [value]='undefined'>Please select a page area label</mat-option>
+                      <mat-option *ngFor='let label of pageLabels' [value]='label.value'
+                      (click)="onPageAreaLabelChange(pageArea, currentPage, i, label.value)">{{ label.displayName }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <div class="spacer"></div>
+                  <div class="page-area-actions">
+                    <button (click)="deletePageArea(i)" [disabled]="c <= 1" color="warn" mat-icon-button
+                    matTooltip="Delete Page Area">
+                      <mat-icon>delete</mat-icon>
+                    </button>
+                  </div>
+                </div>
+                <div class="action-bar">
+                  <mat-slide-toggle (change)="onFromPrevToggle(pageArea, currentPage, i)"
+                                    [(ngModel)]="pageArea.from_prev"
+                                    [disabled]="currentPage <= 0 || hasOtherFromPrev(currentPage, i)">
+                    Continue from previous page?
+                  </mat-slide-toggle>
+                </div>
+                <div class="action-bar">
+                  <mat-slide-toggle (change)="onToNextToggle(pageArea, currentPage, i)"
+                                    [(ngModel)]="pageArea.to_next"
+                                    [disabled]="currentPage >= pages.length - 1 || hasOtherToNext(currentPage, i)">
+                    Continue to next page?
+                  </mat-slide-toggle>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <mat-toolbar class='bottom-bar'>
+      <mat-toolbar-row>
+        <button (click)='cancel()' color='warn' mat-stroked-button>Cancel
+          <mat-icon materialIconsRound>cancel</mat-icon>
+        </button>
+        <div class='spacer'></div>
+        <button (click)='analyze()' [disabled]='checkValidConditions()' color='primary' mat-flat-button>
+          Analyze
+          <mat-icon materialIconsRound>insights</mat-icon>
+        </button>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </div>
+</div>
+
+<ng-template #refreshingTemplate>
+  <app-loading loader='bar' subAbove='Loading Page'></app-loading>
+</ng-template>

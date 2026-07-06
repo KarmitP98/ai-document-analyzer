@@ -1,0 +1,210 @@
+@import '~src/theme/variables';
+@import '~src/theme/mixin';
+@import '~src/theme/colors';
+
+$divider: 1px solid RGBA($primary, 0.15);
+
+@mixin BoundingBox($light-color: $flash-high, $color: $success) {
+  border-color: RGBA($light-color, 0.25);
+  background: RGBA($light-color, 0.1);
+
+  &.highlighted {
+    border-color: $color;
+    z-index: 11;
+  }
+}
+
+
+:host {
+  height: 100%;
+}
+
+.page-preview-zoom {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+
+  &.expanded {
+    .pages-thumbnails {
+      transform: translateX(-100%);
+    }
+
+    .preview {
+      width: 100%;
+      margin: 0;
+    }
+  }
+
+  .pages-thumbnails {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20%;
+    height: 100%;
+    transition: all 0.25s ease-in-out;
+    transform: translateX(0);
+    border-right: $divider;
+  }
+
+  .preview {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    justify-content: flex-start;
+    width: 80%;
+    height: 100%;
+    margin-left: 20%;
+    transition: all 0.25s ease-in-out;
+    border-radius: 0.25em;
+
+    &-image {
+      position: relative;
+      max-width: 100%;
+      height: calc(100% - 56px);
+
+      @include PageZoom;
+    }
+
+    .status-message {
+      @include FlexRow(center, center, 0.5rem, 0.25rem 0.5rem);
+      font-size: 0.75rem;
+      font-weight: 500;
+      position: absolute;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: load-up-opacity 0.25s ease-in-out;
+      color: $light;
+      border-radius: 0.25rem;
+      background: RGBA($dark-light, 0.75);
+    }
+
+  }
+}
+
+
+.pages-thumbnails {
+  display: flex;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  flex-flow: column nowrap;
+  width: 100%;
+  max-height: 100%;
+  padding: 1rem;
+  gap: 1rem;
+
+  .page-thumbnail {
+    display: flex;
+    align-items: center;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    width: 100%;
+    height: fit-content;
+    padding: 1em;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 0.5em;
+    background: $light;
+
+    &.active {
+      border-width: 2px;
+      background: RGBA($secondary, 0.15);
+
+      .page-name {
+        font-weight: 500;
+      }
+    }
+
+    .thumbnail {
+      width: 100%;
+      text-align: center;
+
+      img {
+        width: 100%;
+        text-align: center;
+        object-fit: contain;
+      }
+    }
+
+    .page-name {
+      font-size: 1.1rem;
+      padding-top: 0.5rem;
+      transition: all 0.25s cubic-bezier(1, -0.13, .34, 1.1);
+    }
+  }
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  flex: 1 0 100%;
+  justify-content: flex-start;
+  padding: 0.25rem 0;
+  border-bottom: 1px solid RGBA($dark, 0.25);
+
+  &.actions {
+    flex: 1 1 auto;
+    justify-content: flex-end;
+    padding: 0;
+    border-bottom: none;
+  }
+}
+
+.bounding-box {
+  position: absolute;
+  z-index: 10;
+  width: 0;
+  height: 0;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+  opacity: 0;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 0.25rem;
+
+  &.show {
+    top: var(--top);
+    left: var(--left);
+    width: var(--width);
+    height: var(--height);
+    opacity: 1;
+  }
+
+  &.high {
+    @include BoundingBox($success-light, $success);
+  }
+
+  &.medium {
+    @include BoundingBox($warning-light, $warning);
+  }
+
+  &.low {
+    @include BoundingBox($danger-light, $danger);
+  }
+}
+
+.bounding-box-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+
+.page-selector {
+  position: relative;
+  z-index: 2;
+  height: 56px;
+  padding: 0 1rem;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+
+  .vertical-divider {
+    height: 60%;
+    margin: auto;
+    border-radius: 100rem;
+  }
+}
