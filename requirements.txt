@@ -18,7 +18,7 @@ PyPDF3==1.0.6
 detect-secrets==1.5.0
 pre-commit==4.2.0
 azure-identity==1.14.1
-requests==2.32.4
+requests==2.33.0
 xmltodict==0.10.1
 marshmallow==3.19.0
 nameparser==1.1.2
